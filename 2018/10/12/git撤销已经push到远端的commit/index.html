@@ -347,7 +347,7 @@
         <h4 id="在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？"><a href="#在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？" class="headerlink" title="在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？"></a>在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？</h4><h6 id="先在本地回退到相应的版本："><a href="#先在本地回退到相应的版本：" class="headerlink" title="先在本地回退到相应的版本："></a>先在本地回退到相应的版本：</h6><h6 id="版本号就是你的commitID"><a href="#版本号就是你的commitID" class="headerlink" title="版本号就是你的commitID"></a><strong>版本号就是你的commitID</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard &lt;版本号&gt;</span><br><span class="line">// 注意使用 --hard 参数会抛弃当前工作区的修改</span><br><span class="line">// 使用 --soft 参数的话会回退到之前的版本，但是保留当前工作区的修改，可以重新提交</span><br></pre></td></tr></table></figure>
 <h6 id="如果此时使用push命令-会提示本地的版本落后于远端的版本；"><a href="#如果此时使用push命令-会提示本地的版本落后于远端的版本；" class="headerlink" title="如果此时使用push命令,会提示本地的版本落后于远端的版本；:"></a>如果此时使用push命令,会提示本地的版本落后于远端的版本；:</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/WX20181012-155029.png" alt=""></p>
-<h6 id="为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force"><a href="#为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force" class="headerlink" title="为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force"></a>为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force</h6><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> &lt;分支名&gt; --force</span><br></pre></td></tr></table></figure>
+<h6 id="为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force"><a href="#为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force" class="headerlink" title="为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force"></a>为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;分支名&gt; --force</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -471,7 +471,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -493,7 +493,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
