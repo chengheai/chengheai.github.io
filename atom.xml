@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-15T09:26:23.670Z</updated>
+  <updated>2019-04-17T13:27:17.666Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>el-input在vue中优雅实现禁止输入特殊字符</title>
+    <link href="http://yoursite.com/2019/04/15/el-input%E5%9C%A8vue%E4%B8%AD%E4%BC%98%E9%9B%85%E5%AE%9E%E7%8E%B0%E7%A6%81%E6%AD%A2%E8%BE%93%E5%85%A5%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/04/15/el-input在vue中优雅实现禁止输入特殊字符/</id>
+    <published>2019-04-15T13:10:10.000Z</published>
+    <updated>2019-04-17T13:27:17.666Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前提补充"><a href="#前提补充" class="headerlink" title="前提补充"></a>前提补充</h3><p>在vue中<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"text"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p><p>等价于<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag"> <span class="attr">:value</span>=<span class="string">"text"</span></span></span><br><span class="line"><span class="tag"> @<span class="attr">input</span>=<span class="string">"e =&gt; text = e.target.value"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure></p><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>前端提交form表单要求，不能输入 @#¥%……&amp;*…..<br>不是提示，而是 <font color="#660000">禁止输入</font></p><h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="https://github.com/chengheai/review-demo-image/blob/master/2019-04-16%2009-48-19.2019-04-16%2009_49_10.gif?raw=true" alt=""></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>** 在mian.js中添加【vue原型上添加方法，便于全局使用】<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.validForbid = <span class="function"><span class="keyword">function</span> (<span class="params">value, number = <span class="number">255</span></span>) </span>&#123;</span><br><span class="line">  value = value.replace(<span class="regexp">/[`~!@#$%^&amp;*()_\-+=&lt;&gt;?:"&#123;&#125;|,./;'\\[\]·~！@#￥%……&amp;*（）——\-+=&#123;&#125;|《》？：“”【】、；‘’，。、]/g</span>, <span class="string">''</span>).replace(<span class="regexp">/\s/g</span>, <span class="string">""</span>);</span><br><span class="line">  <span class="keyword">if</span> (value.length &gt;= number) &#123;</span><br><span class="line">    <span class="keyword">this</span>.$message(&#123;</span><br><span class="line">      type: <span class="string">"warning"</span>,</span><br><span class="line">      message: <span class="string">`输入内容不能超过<span class="subst">$&#123;number&#125;</span>个字符`</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>** 在component.vue中加入<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:value</span>=<span class="string">"form.name"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">input</span>=<span class="string">"e =&gt; form.name = validSe(e)"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">maxlength</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">placeholder</span>=<span class="string">"过滤特殊字符长度10"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br></pre></td></tr></table></figure></p><h3 id="over"><a href="#over" class="headerlink" title="over"></a>over</h3><h4 id="听说你要在线测试⁉️-那就点我🐙吧"><a href="#听说你要在线测试⁉️-那就点我🐙吧" class="headerlink" title="听说你要在线测试⁉️ 那就点我🐙吧"></a>听说你要在线测试⁉️ <a href="https://chengheai.github.io/daily-vue-demo/#/input" target="_blank" rel="noopener">那就点我🐙吧</a></h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前提补充&quot;&gt;&lt;a href=&quot;#前提补充&quot; class=&quot;headerlink&quot; title=&quot;前提补充&quot;&gt;&lt;/a&gt;前提补充&lt;/h3&gt;&lt;p&gt;在vue中&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="element" scheme="http://yoursite.com/tags/element/"/>
+    
+  </entry>
   
   <entry>
     <title>vue-cli 上传文件与文件夹进度条</title>
@@ -257,13 +282,13 @@
     </summary>
     
     
+      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
+    
       <category term="antd" scheme="http://yoursite.com/tags/antd/"/>
     
       <category term="mongodb" scheme="http://yoursite.com/tags/mongodb/"/>
     
       <category term="dvajs" scheme="http://yoursite.com/tags/dvajs/"/>
-    
-      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
     
       <category term="react" scheme="http://yoursite.com/tags/react/"/>
     
@@ -484,34 +509,9 @@
       <category term="nodejs后端开发" scheme="http://yoursite.com/categories/nodejs%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
-    
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
-  </entry>
-  
-  <entry>
-    <title>git撤销已经push到远端的commit</title>
-    <link href="http://yoursite.com/2018/10/12/git%E6%92%A4%E9%94%80%E5%B7%B2%E7%BB%8Fpush%E5%88%B0%E8%BF%9C%E7%AB%AF%E7%9A%84commit/"/>
-    <id>http://yoursite.com/2018/10/12/git撤销已经push到远端的commit/</id>
-    <published>2018-10-12T07:39:15.000Z</published>
-    <updated>2018-10-12T07:51:46.048Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？"><a href="#在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？" class="headerlink" title="在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？"></a>在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？</h4><h6 id="先在本地回退到相应的版本："><a href="#先在本地回退到相应的版本：" class="headerlink" title="先在本地回退到相应的版本："></a>先在本地回退到相应的版本：</h6><h6 id="版本号就是你的commitID"><a href="#版本号就是你的commitID" class="headerlink" title="版本号就是你的commitID"></a><strong>版本号就是你的commitID</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard &lt;版本号&gt;</span><br><span class="line">// 注意使用 --hard 参数会抛弃当前工作区的修改</span><br><span class="line">// 使用 --soft 参数的话会回退到之前的版本，但是保留当前工作区的修改，可以重新提交</span><br></pre></td></tr></table></figure><h6 id="如果此时使用push命令-会提示本地的版本落后于远端的版本；"><a href="#如果此时使用push命令-会提示本地的版本落后于远端的版本；" class="headerlink" title="如果此时使用push命令,会提示本地的版本落后于远端的版本；:"></a>如果此时使用push命令,会提示本地的版本落后于远端的版本；:</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;分支名&gt;</span><br></pre></td></tr></table></figure><p><img src="/images/WX20181012-155029.png" alt=""></p><h6 id="为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force"><a href="#为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force" class="headerlink" title="为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force"></a>为了覆盖掉远端的版本信息，使远端的仓库也回退到相应的版本，需要加上参数–force</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;分支名&gt; --force</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？&quot;&gt;&lt;a href=&quot;#在使用git时，不小心把多余的文件commit了，而且还push到远程了，怎么回退到提交之前的版本呢？&quot; class=&quot;headerlin
-      
-    
-    </summary>
-    
-      <category term="git使用笔记" scheme="http://yoursite.com/categories/git%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
     
   </entry>
   

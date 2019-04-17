@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Vue," />
+  <meta name="keywords" content="vue,element," />
 
 
 
@@ -81,21 +81,20 @@
 
 
 
-<meta name="description" content="[demo](https://chengheai.github.io/Element-UI/docs/) 效果 代码12345678&amp;lt;div&amp;gt;  &amp;lt;div v-for=&quot;item in showdetailList&quot; :key=&apos;item.message&apos;&amp;gt;    &amp;lt;h3&amp;gt;&amp;#123;&amp;#123;item.message&amp;#125;&amp;#125;&amp;lt;/h3&amp;g">
-<meta name="keywords" content="Vue">
+<meta name="description" content="前提补充在vue中1&amp;lt;input v-model=&quot;text&quot; /&amp;gt; 等价于1234&amp;lt;input :value=&quot;text&quot; @input=&quot;e =&amp;gt; text = e.target.value&quot;/&amp;gt; 需求前端提交form表单要求，不能输入 @#¥%……&amp;amp;*…..不是提示，而是 禁止输入 效果 代码** 在mian.js中添加【vue原型上添加方法，便于全局使">
+<meta name="keywords" content="vue,element">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue点击收起部分隐藏">
-<meta property="og:url" content="http://yoursite.com/2018/11/06/点击收起部分隐藏/index.html">
+<meta property="og:title" content="el-input在vue中优雅实现禁止输入特殊字符">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/el-input在vue中优雅实现禁止输入特殊字符/index.html">
 <meta property="og:site_name" content="CHI1130">
-<meta property="og:description" content="[demo](https://chengheai.github.io/Element-UI/docs/) 效果 代码12345678&amp;lt;div&amp;gt;  &amp;lt;div v-for=&quot;item in showdetailList&quot; :key=&apos;item.message&apos;&amp;gt;    &amp;lt;h3&amp;gt;&amp;#123;&amp;#123;item.message&amp;#125;&amp;#125;&amp;lt;/h3&amp;g">
+<meta property="og:description" content="前提补充在vue中1&amp;lt;input v-model=&quot;text&quot; /&amp;gt; 等价于1234&amp;lt;input :value=&quot;text&quot; @input=&quot;e =&amp;gt; text = e.target.value&quot;/&amp;gt; 需求前端提交form表单要求，不能输入 @#¥%……&amp;amp;*…..不是提示，而是 禁止输入 效果 代码** 在mian.js中添加【vue原型上添加方法，便于全局使">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/WX20181106-205401@2x.png">
-<meta property="og:image" content="http://yoursite.com/images/WX20181106-205333@2x.png">
-<meta property="og:updated_time" content="2018-11-07T01:34:50.230Z">
+<meta property="og:image" content="https://github.com/chengheai/review-demo-image/blob/master/2019-04-16%2009-48-19.2019-04-16%2009_49_10.gif?raw=true">
+<meta property="og:updated_time" content="2019-04-17T13:27:17.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue点击收起部分隐藏">
-<meta name="twitter:description" content="[demo](https://chengheai.github.io/Element-UI/docs/) 效果 代码12345678&amp;lt;div&amp;gt;  &amp;lt;div v-for=&quot;item in showdetailList&quot; :key=&apos;item.message&apos;&amp;gt;    &amp;lt;h3&amp;gt;&amp;#123;&amp;#123;item.message&amp;#125;&amp;#125;&amp;lt;/h3&amp;g">
-<meta name="twitter:image" content="http://yoursite.com/images/WX20181106-205401@2x.png">
+<meta name="twitter:title" content="el-input在vue中优雅实现禁止输入特殊字符">
+<meta name="twitter:description" content="前提补充在vue中1&amp;lt;input v-model=&quot;text&quot; /&amp;gt; 等价于1234&amp;lt;input :value=&quot;text&quot; @input=&quot;e =&amp;gt; text = e.target.value&quot;/&amp;gt; 需求前端提交form表单要求，不能输入 @#¥%……&amp;amp;*…..不是提示，而是 禁止输入 效果 代码** 在mian.js中添加【vue原型上添加方法，便于全局使">
+<meta name="twitter:image" content="https://github.com/chengheai/review-demo-image/blob/master/2019-04-16%2009-48-19.2019-04-16%2009_49_10.gif?raw=true">
 
 
 
@@ -125,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/06/点击收起部分隐藏/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/el-input在vue中优雅实现禁止输入特殊字符/"/>
 
 
 
 
 
-  <title>vue点击收起部分隐藏 | CHI1130</title>
+  <title>el-input在vue中优雅实现禁止输入特殊字符 | CHI1130</title>
   
 
 
@@ -258,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/点击收起部分隐藏/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/el-input在vue中优雅实现禁止输入特殊字符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="heai.cheng">
@@ -275,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue点击收起部分隐藏</h1>
+          <h1 class="post-title" itemprop="name headline">el-input在vue中优雅实现禁止输入特殊字符</h1>
         
 
         <div class="post-meta">
@@ -287,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-06T20:51:46+08:00">
-                2018-11-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T21:10:10+08:00">
+                2019-04-15
               </time>
             
 
@@ -325,11 +324,13 @@
       
 
       
-        <p>[demo](<a href="https://chengheai.github.io/Element-UI/docs/" target="_blank" rel="noopener">https://chengheai.github.io/Element-UI/docs/</a>)</p>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="/images/WX20181106-205401@2x.png" alt=""><br><img src="/images/WX20181106-205333@2x.png" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in showdetailList"</span> <span class="attr">:key</span>=<span class="string">'item.message'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123;item.message&#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"success"</span> <span class="attr">v-if</span>=<span class="string">"items.length &gt; 2"</span> <span class="attr">v-on:click</span>=<span class="string">"changeFoldState"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;brandFold?'展开':'收起'&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    brandFold: <span class="literal">true</span>,</span><br><span class="line">      items: [&#123;</span><br><span class="line">        message: <span class="string">"Foo"</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        message: <span class="string">"Bar"</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        message: <span class="string">"alex"</span></span><br><span class="line">      &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  showetailList: &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.brandFold) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.items.length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">this</span>.items</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> newArr = []</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">          <span class="keyword">let</span> item = <span class="keyword">this</span>.items[i]</span><br><span class="line">          newArr.push(item)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newArr</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.items</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.showdetailList = val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  changeFoldState() &#123;</span><br><span class="line">    <span class="keyword">this</span>.brandFold = !<span class="keyword">this</span>.brandFold</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h3 id="前提补充"><a href="#前提补充" class="headerlink" title="前提补充"></a>前提补充</h3><p>在vue中<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"text"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>等价于<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag"> <span class="attr">:value</span>=<span class="string">"text"</span></span></span><br><span class="line"><span class="tag"> @<span class="attr">input</span>=<span class="string">"e =&gt; text = e.target.value"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>前端提交form表单要求，不能输入 @#¥%……&amp;*…..<br>不是提示，而是 <font color="#660000">禁止输入</font></p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="https://github.com/chengheai/review-demo-image/blob/master/2019-04-16%2009-48-19.2019-04-16%2009_49_10.gif?raw=true" alt=""></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>** 在mian.js中添加【vue原型上添加方法，便于全局使用】<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.validForbid = <span class="function"><span class="keyword">function</span> (<span class="params">value, number = <span class="number">255</span></span>) </span>&#123;</span><br><span class="line">  value = value.replace(<span class="regexp">/[`~!@#$%^&amp;*()_\-+=&lt;&gt;?:"&#123;&#125;|,./;'\\[\]·~！@#￥%……&amp;*（）——\-+=&#123;&#125;|《》？：“”【】、；‘’，。、]/g</span>, <span class="string">''</span>).replace(<span class="regexp">/\s/g</span>, <span class="string">""</span>);</span><br><span class="line">  <span class="keyword">if</span> (value.length &gt;= number) &#123;</span><br><span class="line">    <span class="keyword">this</span>.$message(&#123;</span><br><span class="line">      type: <span class="string">"warning"</span>,</span><br><span class="line">      message: <span class="string">`输入内容不能超过<span class="subst">$&#123;number&#125;</span>个字符`</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>** 在component.vue中加入<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:value</span>=<span class="string">"form.name"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">input</span>=<span class="string">"e =&gt; form.name = validSe(e)"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">maxlength</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">placeholder</span>=<span class="string">"过滤特殊字符长度10"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="over"><a href="#over" class="headerlink" title="over"></a>over</h3><h4 id="听说你要在线测试⁉️-那就点我🐙吧"><a href="#听说你要在线测试⁉️-那就点我🐙吧" class="headerlink" title="听说你要在线测试⁉️ 那就点我🐙吧"></a>听说你要在线测试⁉️ <a href="https://chengheai.github.io/daily-vue-demo/#/input" target="_blank" rel="noopener">那就点我🐙吧</a></h4>
       
     </div>
     
@@ -346,7 +347,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"># Vue</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/element/" rel="tag"># element</a>
           
         </div>
       
@@ -359,8 +362,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/24/MongoDB导入与导出/" rel="next" title="MongoDB导入与导出">
-                <i class="fa fa-chevron-left"></i> MongoDB导入与导出
+              <a href="/2019/04/13/上传文件与文件夹进度条/" rel="next" title="vue-cli 上传文件与文件夹进度条">
+                <i class="fa fa-chevron-left"></i> vue-cli 上传文件与文件夹进度条
               </a>
             
           </div>
@@ -368,10 +371,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/08/常见的-eslintrc-js配置及rules说明/" rel="prev" title="常见的.eslintrc.js配置及rules说明">
-                常见的.eslintrc.js配置及rules说明 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果"><span class="nav-number">1.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提补充"><span class="nav-number">1.</span> <span class="nav-text">前提补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需求"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果"><span class="nav-number">3.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#over"><span class="nav-number">5.</span> <span class="nav-text">over</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#听说你要在线测试⁉️-那就点我🐙吧"><span class="nav-number">5.1.</span> <span class="nav-text">听说你要在线测试⁉️ 那就点我🐙吧</span></a></li></ol></li></ol></div>
             
 
           </div>
