@@ -208,8 +208,6 @@ Ctrl + Shift +</code> 新建终端<br>Command + Up 向上滚动<br>Command + Dow
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/10/18/VSCode快捷键Mac/" target="_blank" rel="external">https://github.com/chengheai/2018/10/18/VSCode快捷键Mac/</a>
-        
     </div>
     
     <footer>
@@ -310,6 +308,23 @@ Ctrl + Shift +</code> 新建终端<br>Command + Up 向上滚动<br>Command + Dow
 
 
 
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '5cf255c50afffd30d9ee',
+                client_secret: '424476e9b84f043baf5ad10adaa56d9f5e17209c',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
 
 
 

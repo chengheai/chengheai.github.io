@@ -203,7 +203,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-与vue-element结合组件，<a href="https://github.com/chengheai/daily-vue-demo/blob/master/src/components/Calendar.vue" target="_blank" rel="noopener">请转到🌈</a></li>
+与vue-element结合组件，<a href="https://github.com/chengheai/daily-vue-demo/blob/master/src/components/Calendar.vue">请转到🌈</a></li>
 </ul>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -227,8 +227,6 @@
 </span><br>
 
 
-        
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/01/07/vue-element-实现支持按周切换的日历/" target="_blank" rel="external">https://github.com/chengheai/2019/01/07/vue-element-实现支持按周切换的日历/</a>
         
     </div>
     
@@ -330,6 +328,23 @@
 
 
 
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '5cf255c50afffd30d9ee',
+                client_secret: '424476e9b84f043baf5ad10adaa56d9f5e17209c',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
 
 
 
