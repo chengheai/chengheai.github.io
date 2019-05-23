@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>vue项目按需使用keep-alive | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="vue,vue-router">
+    <meta name="description" content="需求list 页面做缓存add/edit 页面不做缓存detail 页面不做缓存……….. 前人法子1234567&amp;lt;keep-alive&amp;gt;  &amp;lt;!-- 需要缓存 --&amp;gt;  &amp;lt;router-view :include=&quot;include&quot; v-if=&quot;$route.meta.keepAlive&quot; /&amp;gt;&amp;lt;/keep-alive&amp;gt;&amp;lt;!-- 不需要缓存">
+<meta name="keywords" content="vue,vue-router">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue项目按需使用keep-alive">
+<meta property="og:url" content="https://github.com/chengheai/2019/05/23/vue项目按需使用keep-alive/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="需求list 页面做缓存add/edit 页面不做缓存detail 页面不做缓存……….. 前人法子1234567&amp;lt;keep-alive&amp;gt;  &amp;lt;!-- 需要缓存 --&amp;gt;  &amp;lt;router-view :include=&quot;include&quot; v-if=&quot;$route.meta.keepAlive&quot; /&amp;gt;&amp;lt;/keep-alive&amp;gt;&amp;lt;!-- 不需要缓存">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-05-23T14:43:47.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue项目按需使用keep-alive">
+<meta name="twitter:description" content="需求list 页面做缓存add/edit 页面不做缓存detail 页面不做缓存……….. 前人法子1234567&amp;lt;keep-alive&amp;gt;  &amp;lt;!-- 需要缓存 --&amp;gt;  &amp;lt;router-view :include=&quot;include&quot; v-if=&quot;$route.meta.keepAlive&quot; /&amp;gt;&amp;lt;/keep-alive&amp;gt;&amp;lt;!-- 不需要缓存">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue项目按需使用keep-alive</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue项目按需使用keep-alive</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-23T14:05:40.000Z" itemprop="datePublished" class="page-time">
+  2019/05/23
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前人法子"><span class="post-toc-number">2.</span> <span class="post-toc-text">前人法子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#粗暴法子"><span class="post-toc-number">3.</span> <span class="post-toc-text">粗暴法子</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vue项目按需使用keep-alive"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue项目按需使用keep-alive</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/05/23 22:05:40" datetime="2019-05-23T14:05:40.000Z"  itemprop="datePublished">2019/05/23</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>list 页面做缓存<br>add/edit 页面不做缓存<br>detail 页面不做缓存<br>………..</p>
+<h2 id="前人法子"><a href="#前人法子" class="headerlink" title="前人法子"></a>前人法子</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;!-- 需要缓存 --&gt;</span><br><span class="line">  &lt;router-view :include=<span class="string">"include"</span> v-<span class="keyword">if</span>=<span class="string">"$route.meta.keepAlive"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/keep-alive&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;!-- 不需要缓存 --&gt;</span></span><br><span class="line"><span class="regexp">&lt;router-view v-if="!$route.meta.keepAlive" /</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	name: <span class="string">'app'</span>,</span><br><span class="line">	data: <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">		include: [],</span><br><span class="line">	&#125;),</span><br><span class="line">	watch: &#123;</span><br><span class="line">		$route(to, <span class="keyword">from</span>) &#123;</span><br><span class="line">			<span class="comment">//如果要to的页面是需要 keepAlive 缓存的，把 name push 进 include数组</span></span><br><span class="line">			<span class="keyword">if</span> (to.meta.keepAlive) &#123;</span><br><span class="line">				!<span class="keyword">this</span>.include.includes(to.name) &amp;&amp; <span class="keyword">this</span>.include.push(to.name);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//如果要form的页面是 keepAlive缓存的，</span></span><br><span class="line">			<span class="comment">//再根据 deepth 来判断是前进还是后退</span></span><br><span class="line">			<span class="comment">//如果是后退</span></span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">from</span>.meta.keepAlive &amp;&amp; to.meta.deepth &lt; <span class="keyword">from</span>.meta.deepth) &#123;</span><br><span class="line">				<span class="keyword">var</span> index = <span class="keyword">this</span>.include.indexOf(<span class="keyword">from</span>.name);</span><br><span class="line">				index !== <span class="number">-1</span> &amp;&amp; <span class="keyword">this</span>.include.splice(index, <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="粗暴法子"><a href="#粗暴法子" class="headerlink" title="粗暴法子"></a>粗暴法子</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"move"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 需要缓存的视图组件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"$route.meta.keepAlive"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 不需要缓存的视图组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"!$route.meta.keepAlive"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">watch: &#123;</span><br><span class="line">  $route(to, <span class="keyword">from</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(to);</span><br><span class="line">    <span class="comment">// 如果是后退</span></span><br><span class="line">    <span class="keyword">if</span> (to.meta.deepth &lt; <span class="keyword">from</span>.meta.deepth) &#123;</span><br><span class="line">      to.meta.keepAlive = <span class="literal">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      to.meta.keepAlive = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'index'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./views/keep-alive/index.vue'</span>),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        deepth: <span class="number">1</span>, <span class="comment">// 同级 不刷新</span></span><br><span class="line">        keepAlive: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/list'</span>,</span><br><span class="line">      name: <span class="string">'list'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./views/keep-alive/list.vue'</span>),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        deepth: <span class="number">1</span> <span class="comment">// 同级不刷新</span></span><br><span class="line">        keepAlive: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/detail'</span>,</span><br><span class="line">      name: <span class="string">'detail'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./views/keep-alive/detail.vue'</span>),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        deepth: <span class="number">0</span>, <span class="comment">// 进入list不刷新页面</span></span><br><span class="line">        keepAlive: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/edit'</span>,</span><br><span class="line">      name: <span class="string">'edit'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./views/keep-alive/edit.vue'</span>),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        deepth: <span class="number">2</span>, <span class="comment">// 进入list刷新页面</span></span><br><span class="line">        keepAlive: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-05-23T14:43:47.136Z" itemprop="dateUpdated">2019/05/23 22:43:47</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-router/">vue-router</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '5cf255c50afffd30d9ee',
+                client_secret: '424476e9b84f043baf5ad10adaa56d9f5e17209c',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
