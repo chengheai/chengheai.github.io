@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/chengheai/"/>
-  <updated>2019-07-08T12:34:34.025Z</updated>
+  <updated>2019-07-08T13:08:43.439Z</updated>
   <id>https://github.com/chengheai/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git中配置别名git config --global alias.xxx</title>
+    <link href="https://github.com/chengheai/2019/07/08/git%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8Dgit/"/>
+    <id>https://github.com/chengheai/2019/07/08/git中配置别名git/</id>
+    <published>2019-07-08T12:40:19.000Z</published>
+    <updated>2019-07-08T13:08:43.439Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有没有经常敲错命令？<br>比如git status 打成 git stauts? stats…<br>你有没有见过别人敲指令的时候是 git st?<br>废话不多说，先呈上些实用的例子吧</p><h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git status</span><br><span class="line">||</span><br><span class="line"><span class="meta">$</span> git config --global alias.st status</span><br><span class="line">******* br *******</span><br><span class="line"><span class="meta">$</span> git checkout</span><br><span class="line">||</span><br><span class="line"><span class="meta">$</span> git config --global alias.co checkout</span><br><span class="line">******* br *******</span><br><span class="line">git commit</span><br><span class="line">||</span><br><span class="line"><span class="meta">$</span> git config --global alias.ci commit</span><br><span class="line">******* br *******</span><br><span class="line"><span class="meta">$</span> git branch</span><br><span class="line">||</span><br><span class="line"><span class="meta">$</span> git config --global alias.br branch</span><br></pre></td></tr></table></figure><p>以后你提交代码就可以这样输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ci -m &quot;biling,biling..&quot;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ git reset HEAD</span><br><span class="line">||</span><br><span class="line">$ git config --global alias.unstage &apos;reset HEAD&apos;</span><br><span class="line">******* br *******</span><br><span class="line">$ git last</span><br><span class="line">||</span><br><span class="line">$ git config --global alias.last &apos;log -1&apos;</span><br></pre></td></tr></table></figure><h2 id="gitk"><a href="#gitk" class="headerlink" title="gitk ."></a>gitk .</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure><h3 id="美图献上"><a href="#美图献上" class="headerlink" title="美图献上"></a>美图献上</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://github.com/chengheai/review-demo-image/blob/master/WX20190708-205604@2x.png?raw=true" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h2 id="撤销与查看"><a href="#撤销与查看" class="headerlink" title="撤销与查看"></a>撤销与查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ vi .gitconfig</span><br><span class="line">[alias]</span><br><span class="line">    co = checkout</span><br><span class="line">    ci = commit</span><br><span class="line">    br = branch</span><br><span class="line">    st = status</span><br><span class="line">[user]</span><br><span class="line">    name = Your Name</span><br><span class="line">    email = your@email.com</span><br></pre></td></tr></table></figure><p>别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。<br>而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;有没有经常敲错命令？&lt;br&gt;比如git status 打成 git stauts? stats…&lt;br&gt;你有没有见过别人敲指令的时候是 gi
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://github.com/chengheai/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>有关前端js中this指向的问题笔记</title>
@@ -212,9 +235,9 @@
     </summary>
     
     
-      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
-    
       <category term="element-ui" scheme="https://github.com/chengheai/tags/element-ui/"/>
+    
+      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
     
   </entry>
   
@@ -286,9 +309,9 @@
     </summary>
     
     
-      <category term="Mint-ui" scheme="https://github.com/chengheai/tags/Mint-ui/"/>
-    
       <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
+    
+      <category term="Mint-ui" scheme="https://github.com/chengheai/tags/Mint-ui/"/>
     
   </entry>
   
@@ -339,9 +362,9 @@
     </summary>
     
     
-      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
-    
       <category term="element-ui" scheme="https://github.com/chengheai/tags/element-ui/"/>
+    
+      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
     
   </entry>
   
@@ -494,29 +517,6 @@
     
     
       <category term="Vue" scheme="https://github.com/chengheai/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB导入与导出</title>
-    <link href="https://github.com/chengheai/2018/10/24/MongoDB%E5%AF%BC%E5%85%A5%E4%B8%8E%E5%AF%BC%E5%87%BA/"/>
-    <id>https://github.com/chengheai/2018/10/24/MongoDB导入与导出/</id>
-    <published>2018-10-24T07:50:48.000Z</published>
-    <updated>2018-10-24T08:01:53.339Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>mongoDB 中的 mongoexport 工具可以把一个 collection 导出成 JSON 格式或 CSV 格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mongoexport -d dbname -c collectionname -o file --type json/csv -f field</span><br><span class="line">        参数说明：</span><br><span class="line">            -d ：数据库名</span><br><span class="line">            -c ：collection名</span><br><span class="line">            -o ：输出的路径和文件名</span><br><span class="line">            --type ： 输出的格式，默认为json</span><br><span class="line">            -f ：输出的字段，如果-type为csv，则需要加上-f "字段名"</span><br></pre></td></tr></table></figure><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  mongodb-vue git:(master) ✗ mongoexport -d lolTest -c myhero -o /Users/chengheai/Desktop/a.json --<span class="built_in">type</span> json</span><br><span class="line">2018-10-24T15:41:56.489+0800connected to: localhost</span><br><span class="line">2018-10-24T15:41:56.496+0800exported 12 records</span><br></pre></td></tr></table></figure><h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    mongoimport -d dbname -c collectionname --file filename --headerline --type json/csv -f field</span><br><span class="line">   参数说明：</span><br><span class="line">            -d ：数据库名</span><br><span class="line">            -c ：collection名</span><br><span class="line">            --type ：导入的格式默认json</span><br><span class="line">            -f ：导入的字段名</span><br><span class="line">            --headerline ：如果导入的格式是csv，则可以使用第一行的标题作为导入的字段</span><br><span class="line">            --file ：要导入的文件</span><br></pre></td></tr></table></figure><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  mongodb-vue git:(master) ✗ mongoimport -d mgDbs -c myhero --file /Users/chengheai/Desktop/a.json  --<span class="built_in">type</span> json</span><br><span class="line">2018-10-24T15:47:09.209+0800connected to: localhost</span><br><span class="line">2018-10-24T15:47:09.273+0800imported 12 documents</span><br></pre></td></tr></table></figure><h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h host -d dbname -o directory</span><br><span class="line">mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存在路径</span><br><span class="line">Eg： # mongodump -d test -o /data/</span><br><span class="line">参数说明：</span><br><span class="line">如果想导出所有数据库，可以去掉-d</span><br><span class="line">-h：MongDB所在服务器地址，如：127.0.0.1，也可以指定端口号：127.0.0.1:27017</span><br><span class="line">-d：需要备份的数据库名称，如：db_test</span><br><span class="line">-o：备份的数据存放位置，如：~\dump，当然该目录需要提前建立，在备份完成后，系统自动在dump目录下建立一个db_test目录，这个目录里面存放该数据库实例的备份数据。</span><br></pre></td></tr></table></figure><h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>mongorestore是Mongodb从备份中恢复数据的工具，它主要用来获取mongodump的输出结果，并将备份的数据插入到运行的Mongodb中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h host -d dbname --directoryperdb dbdirectory</span><br><span class="line">Eg:  # mongorestore --host=10.0.0.25 --port=27017 --db ztjy --dir=ztjy/</span><br><span class="line">参数说明：</span><br><span class="line">-h：MongoDB所在服务器地址</span><br><span class="line">-d：需要恢复的数据库名称，如：db_test，当然这个名称可以不同于备份的时候，比如new_db</span><br><span class="line">--directoryperdb：备份数据文件所在位置，如：~\dump\db_test（这里之所以要加db_test子目录，从mongoretore的help中的--directoryperdb，可以读出“每一个db在一个单独的目录”。）</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;导出&quot;&gt;&lt;a href=&quot;#导出&quot; class=&quot;headerlink&quot; title=&quot;导出&quot;&gt;&lt;/a&gt;导出&lt;/h2&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;mon
-      
-    
-    </summary>
-    
-    
-      <category term="mongoDB" scheme="https://github.com/chengheai/tags/mongoDB/"/>
     
   </entry>
   
