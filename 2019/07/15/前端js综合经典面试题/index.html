@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="CHI1130">
 <meta property="og:description" content="前记前些时间，面试中写的笔试题，偶然的机会做了两次，最后还是错了几道，结果回来在网上一挡，哎。。不过说实话，该公司面试题道道都是经典题，的确不错，长知识了。 题目1234567891011121314151617function Foo() &amp;#123;	getName = function() &amp;#123;console.log(1);&amp;#125;;	return this;&amp;#125;Foo.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-15T14:07:19.580Z">
+<meta property="og:updated_time" content="2019-07-16T00:48:02.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端js综合经典面试题">
 <meta name="twitter:description" content="前记前些时间，面试中写的笔试题，偶然的机会做了两次，最后还是错了几道，结果回来在网上一挡，哎。。不过说实话，该公司面试题道道都是经典题，的确不错，长知识了。 题目1234567891011121314151617function Foo() &amp;#123;	getName = function() &amp;#123;console.log(1);&amp;#125;;	return this;&amp;#125;Foo.">
@@ -197,7 +197,7 @@
 <p>从以上的运算符优先级资料中可以看出，”.”运算符的优先级是比”new”运算符的优先级高的。</p>
 <h5 id="第五问-new-Foo-getName"><a href="#第五问-new-Foo-getName" class="headerlink" title="第五问 new Foo.getName()"></a>第五问 new Foo.getName()</h5><p>分析<br>1、相当于new (Foo.getName)();<br>2、执行Foo.getName函数，这时候就已经输出2了<br>3、实例化一个对象</p>
 <p>所以实际上将getName函数作为了构造函数来执行，故打印2。</p>
-<h5 id="第六问-new-Foo-getName"><a href="#第六问-new-Foo-getName" class="headerlink" title="第六问 new Foo().getName()"></a>第六问 new Foo().getName()</h5><p>1、相当于(new Foo()).getName();<br>.运算符的优先级是19，就是指.会优于其他运算符之前执行，但是执行点的时候，是按照点前和点后的表达式依次执行的，因为Foo后面有个括号，而圆括号的优先级是20，所以new运算符是归Foo()这个函数的。<br>2、函数中返回的是this，而this在构造函数中本来就代表当前实例化对象，遂最终Foo函数返回实例化对象。<br>之后调用实例化对象的getName函数，因为在Foo构造函数中没有为实例化对象添加任何属性，遂到当前对象的原型对象（prototype）中寻找getName，找到了。<a href="&#39;https://chengheai.github.io/2019/07/15/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%89%8B%E5%86%99return%E7%9A%84%E5%BD%B1%E5%93%8D/&#39;">构造函数中自定书写return问题</a><br>3、执行new Foo()，实例化一个对象，这个对象中拥有Foo.prototype.getName方法。<br>4、执行.getName()，调用Foo.prototype.getName方法，输出为3。</p>
+<h5 id="第六问-new-Foo-getName"><a href="#第六问-new-Foo-getName" class="headerlink" title="第六问 new Foo().getName()"></a>第六问 new Foo().getName()</h5><p>1、相当于(new Foo()).getName();<br>.运算符的优先级是19，就是指.会优于其他运算符之前执行，但是执行点的时候，是按照点前和点后的表达式依次执行的，因为Foo后面有个括号，而圆括号的优先级是20，所以new运算符是归Foo()这个函数的。<br>2、函数中返回的是this，而this在构造函数中本来就代表当前实例化对象，遂最终Foo函数返回实例化对象。<br>之后调用实例化对象的getName函数，因为在Foo构造函数中没有为实例化对象添加任何属性，遂到当前对象的原型对象（prototype）中寻找getName，找到了。<a href="https://chengheai.github.io/2019/07/15/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%89%8B%E5%86%99return%E7%9A%84%E5%BD%B1%E5%93%8D/" target="_blank" rel="noopener">构造函数中自定书写return问题</a><br>3、执行new Foo()，实例化一个对象，这个对象中拥有Foo.prototype.getName方法。<br>4、执行.getName()，调用Foo.prototype.getName方法，输出为3。</p>
 <h5 id="第七问-new-new-Foo-getName"><a href="#第七问-new-new-Foo-getName" class="headerlink" title="第七问 new new Foo().getName()"></a>第七问 new new Foo().getName()</h5><p>最终运行代码 new ((new Foo()).getName)();<br>先初始化Foo的实例化对象，然后将其原型上的getName函数作为构造函数再次new<br>1、.运算符的优先级是19，就是指.会优于其他运算符之前执行。执行点的时候，是按照点前和点后的表达式依次执行的。<br>看看左边的new new Foo()，带参数的new优先级是比不带参数的new优先级高的，所以左边的部分就相当于new (new Foo())<br>什么是带参数的new：new Foo()<br>什么是不带参数的new：new Foo<br>2、执行(new Foo()).getName()，相当于foo.getName()。<br>foo是new Foo()出来后的实例，这个结果和题目2是一样的。这时候已经输出3了。<br>3、执行new，实例化一个对象</p>
 
         </div>
@@ -207,7 +207,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-07-15T14:07:19.580Z" itemprop="dateUpdated">2019/07/15 22:07:19</time>
+    Last updated: <time datetime="2019-07-16T00:48:02.597Z" itemprop="dateUpdated">2019/07/16 08:48:02</time>
 </span><br>
 
 
