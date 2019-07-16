@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>常见js中易错小题介绍 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="JavaScript,面试题">
+    <meta name="description" content="前说在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目来考察面试者的基本水平。下面总结了一些典型的面试易错题。 典题1、下面哪个是错误的？   A : li:nth-of-child(1)  B : li:nth-of-type(1)  C : li:nth-last-child(1)  D : li:nth">
+<meta name="keywords" content="JavaScript,面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见js中易错小题介绍">
+<meta property="og:url" content="https://github.com/chengheai/2019/07/16/常见js中易错小题介绍/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="前说在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目来考察面试者的基本水平。下面总结了一些典型的面试易错题。 典题1、下面哪个是错误的？   A : li:nth-of-child(1)  B : li:nth-of-type(1)  C : li:nth-last-child(1)  D : li:nth">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-16T05:52:06.307Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见js中易错小题介绍">
+<meta name="twitter:description" content="前说在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目来考察面试者的基本水平。下面总结了一些典型的面试易错题。 典题1、下面哪个是错误的？   A : li:nth-of-child(1)  B : li:nth-of-type(1)  C : li:nth-last-child(1)  D : li:nth">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">常见js中易错小题介绍</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">常见js中易错小题介绍</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-16T05:31:49.000Z" itemprop="datePublished" class="page-time">
+  2019/07/16
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前说"><span class="post-toc-number">1.</span> <span class="post-toc-text">前说</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#典题"><span class="post-toc-number">2.</span> <span class="post-toc-text">典题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1、</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2、</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3、</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-常见js中易错小题介绍"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">常见js中易错小题介绍</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/07/16 13:31:49" datetime="2019-07-16T05:31:49.000Z"  itemprop="datePublished">2019/07/16</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前说"><a href="#前说" class="headerlink" title="前说"></a>前说</h2><p>在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目来考察面试者的基本水平。下面总结了一些典型的面试易错题。</p>
+<h2 id="典题"><a href="#典题" class="headerlink" title="典题"></a>典题</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><p>下面哪个是错误的？</p>
+<p>  A : li:nth-of-child(1)<br>  B : li:nth-of-type(1)<br>  C : li:nth-last-child(1)<br>  D : li:nth-last-of-type(1)<br>答案：A<br>解析：只有nth-child() 没有nth-of-child()</p>
+<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><p>关于IE的window对象表述正确的有：()<br>  A. window.opener属性本身就是指向window<br>  B. window.reload()方法可以用来刷新当前页面<br>  C. window.location = ‘a.html’ 和 window.location.href = ‘a.html’的作用都是把当前页面替换成a.html页面<br>  D. 定义了全局变量g， 可以通过window.g来取得该变量</p>
+<p> 答案：ACD<br> 解析：window不存在reload()方法， 只有location.reload()</p>
+<h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><p> 运行结果是什么？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'HelloWorld'</span></span><br><span class="line"><span class="built_in">console</span>.log(a.split(<span class="string">''</span>).sort().join(<span class="string">''</span>));</span><br></pre></td></tr></table></figure></p>
+<p>答案：HWdellloor<br>解析：sort根据Unicode排序<br>资料： <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener"> sort </a> <a href="https://baike.baidu.com/item/Unicode/750500?fr=aladdin" target="_blank" rel="noopener"> Unicode </a> <a href="https://baike.baidu.com/item/ASCII/309296?fr=aladdin" target="_blank" rel="noopener"> ASCII </a> <a href="http://m.elecfans.com/article/601592.html" target="_blank" rel="noopener"> Unicode与ASCII的区别 </a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-07-16T05:52:06.307Z" itemprop="dateUpdated">2019/07/16 13:52:06</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/16/面试题-1-2-3-map-parseInt-解析/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">面试题[1,2,3].map(parseInt)解析</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '900c4bc86ac26203c1ff',
+                client_secret: '256613d6dc04f9530891d9c301265523de6adb5e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

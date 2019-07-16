@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/chengheai/"/>
-  <updated>2019-07-16T02:45:58.111Z</updated>
+  <updated>2019-07-16T05:52:06.307Z</updated>
   <id>https://github.com/chengheai/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常见js中易错小题介绍</title>
+    <link href="https://github.com/chengheai/2019/07/16/%E5%B8%B8%E8%A7%81js%E4%B8%AD%E6%98%93%E9%94%99%E5%B0%8F%E9%A2%98%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://github.com/chengheai/2019/07/16/常见js中易错小题介绍/</id>
+    <published>2019-07-16T05:31:49.000Z</published>
+    <updated>2019-07-16T05:52:06.307Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前说"><a href="#前说" class="headerlink" title="前说"></a>前说</h2><p>在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目来考察面试者的基本水平。下面总结了一些典型的面试易错题。</p><h2 id="典题"><a href="#典题" class="headerlink" title="典题"></a>典题</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><p>下面哪个是错误的？</p><p>  A : li:nth-of-child(1)<br>  B : li:nth-of-type(1)<br>  C : li:nth-last-child(1)<br>  D : li:nth-last-of-type(1)<br>答案：A<br>解析：只有nth-child() 没有nth-of-child()</p><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><p>关于IE的window对象表述正确的有：()<br>  A. window.opener属性本身就是指向window<br>  B. window.reload()方法可以用来刷新当前页面<br>  C. window.location = ‘a.html’ 和 window.location.href = ‘a.html’的作用都是把当前页面替换成a.html页面<br>  D. 定义了全局变量g， 可以通过window.g来取得该变量</p><p> 答案：ACD<br> 解析：window不存在reload()方法， 只有location.reload()</p><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><p> 运行结果是什么？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'HelloWorld'</span></span><br><span class="line"><span class="built_in">console</span>.log(a.split(<span class="string">''</span>).sort().join(<span class="string">''</span>));</span><br></pre></td></tr></table></figure></p><p>答案：HWdellloor<br>解析：sort根据Unicode排序<br>资料： <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener"> sort </a> <a href="https://baike.baidu.com/item/Unicode/750500?fr=aladdin" target="_blank" rel="noopener"> Unicode </a> <a href="https://baike.baidu.com/item/ASCII/309296?fr=aladdin" target="_blank" rel="noopener"> ASCII </a> <a href="http://m.elecfans.com/article/601592.html" target="_blank" rel="noopener"> Unicode与ASCII的区别 </a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前说&quot;&gt;&lt;a href=&quot;#前说&quot; class=&quot;headerlink&quot; title=&quot;前说&quot;&gt;&lt;/a&gt;前说&lt;/h2&gt;&lt;p&gt;在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/chengheai/tags/JavaScript/"/>
+    
+      <category term="面试题" scheme="https://github.com/chengheai/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>面试题[1,2,3].map(parseInt)解析</title>
@@ -487,32 +512,6 @@
       <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
     
       <category term="element-ui" scheme="https://github.com/chengheai/tags/element-ui/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue中@keyup.enter.native输入法的回车与消息发送快捷键回车的冲突解决方法</title>
-    <link href="https://github.com/chengheai/2018/12/24/vue%E4%B8%AD-keyup-enter-native%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E5%9B%9E%E8%BD%A6%E4%B8%8E%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%9B%9E%E8%BD%A6%E7%9A%84%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>https://github.com/chengheai/2018/12/24/vue中-keyup-enter-native输入法的回车与消息发送快捷键回车的冲突解决方法/</id>
-    <published>2018-12-24T02:33:58.000Z</published>
-    <updated>2018-12-24T02:52:28.180Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>*当你在中文输入法下输入然后回车后，发现表单提交了。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"14"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"loginForm.content"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> @<span class="attr">keyup.enter.native</span> =<span class="string">"submitForm('loginForm')"</span> <span class="attr">placeholder</span>=<span class="string">"图形验证码"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot</span>=<span class="string">"prepend"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fa fa-picture-o"</span> <span class="attr">style</span>=<span class="string">"width: 13px"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/WechatIMG27.png" alt="文本" title="">                </div>                <div class="image-caption">文本</div>            </figure><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="代码更换"><a href="#代码更换" class="headerlink" title="代码更换"></a>代码更换</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@keyup.enter.native ="submitForm('loginForm')"</span><br><span class="line"></span><br><span class="line">                ||</span><br><span class="line">                ||</span><br><span class="line">                ||</span><br><span class="line">              \\||//</span><br><span class="line">               \\//</span><br><span class="line">                ||</span><br><span class="line">                👇</span><br><span class="line">                👇</span><br><span class="line">↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span><br><span class="line"></span><br><span class="line">@keypress.enter.native ="submitForm('loginForm')"</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;*当你在中文输入法下输入然后回车后，发现表单提交了。&lt;/p&gt;
-&lt;h3 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;header
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
-    
-      <category term="element" scheme="https://github.com/chengheai/tags/element/"/>
     
   </entry>
   
