@@ -254,28 +254,20 @@
     
 
 
-
-
-
-
-
-
 <section class="comments" id="comments">
-    <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <div id="disqus_thread"></div>
     <script>
-        var gitment = new Gitment({
-            owner: '',
-            repo: '',
-            oauth: {
-                client_id: '900c4bc86ac26203c1ff',
-                client_secret: '256613d6dc04f9530891d9c301265523de6adb5e',
-            },
-        })
-        gitment.render('comments')
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
     </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
+
+
+
+
+
+
 
 
 
