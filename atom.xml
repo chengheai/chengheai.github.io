@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/chengheai/"/>
-  <updated>2019-08-08T13:32:00.473Z</updated>
+  <updated>2019-08-08T13:54:16.722Z</updated>
   <id>https://github.com/chengheai/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如期,有人回来和离开</title>
+    <link href="https://github.com/chengheai/2019/08/08/%E6%9C%89%E4%BA%BA%E5%9B%9E%E6%9D%A5%E5%92%8C%E7%A6%BB%E5%BC%80/"/>
+    <id>https://github.com/chengheai/2019/08/08/有人回来和离开/</id>
+    <published>2019-08-08T13:39:31.000Z</published>
+    <updated>2019-08-08T13:54:16.722Z</updated>
+    
+    <content type="html"><![CDATA[<p><font>努力地克服惰性和游离的心绪，投入到理性而自律的生活中去。即便你坐在那里一动不动，即使你的内心世界已经坍塌粉碎，一地狼藉。 </font></p><table><tr><td bgcolor="#fff" center=""><br><font face="微软雅黑" size="6" color="orange"><center>我的爱</center></font><br><font face="微软雅黑" size="2" color="orange"><center>–王海涛</center></font><br><font face="微软雅黑" size="4" color="orange"><br><center><br>命运伴着时间，<br>有沉寂，<br>也有着精彩，<br>心中 渴望无忧的时光，<br>瑰丽 藏进尘埃，<br>在熟悉和平凡之地，<br>盛开，<br>你回头它都在，<br>鲜花盛开在风里，<br>远山映在蓝天里，<br>观沧海 乌云破开，<br>今霄宁静在心里，<br>五色云霞在梦里，<br>我的爱，<br>为你等待，<br>我的爱，<br>为你等待，<br>生命 把门推开，<br>有河堤，<br>有苍茫大海，<br>如期 有人回来和离开，<br>希望 藏进忧伤，<br>在你经过的人世里，<br>盛开，<br>你活着它都在，<br>只因离别的哭泣，<br>只因相聚的欢愉，<br>观沧海 乌云破开，<br>今霄宁静在心里，<br>五色云霞在梦里，<br>我的爱，<br>为你等待。<br>微软雅黑字体<br></center><br></font> </td></tr></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;font&gt;努力地克服惰性和游离的心绪，投入到理性而自律的生活中去。即便你坐在那里一动不动，即使你的内心世界已经坍塌粉碎，一地狼藉。 &lt;/font&gt;&lt;/p&gt;
+&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=&quot;#fff&quot; center=&quot;&quot;&gt;&lt;br&gt;&lt;font face=&quot;微软
+      
+    
+    </summary>
+    
+    
+      <category term="文学" scheme="https://github.com/chengheai/tags/%E6%96%87%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>vue自定义抽屉组件</title>
@@ -480,31 +504,6 @@
     
     
       <category term="JavaScript" scheme="https://github.com/chengheai/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>chart力导图node节点图片代替</title>
-    <link href="https://github.com/chengheai/2019/02/14/chart%E5%8A%9B%E5%AF%BC%E5%9B%BEnode%E8%8A%82%E7%82%B9%E5%9B%BE%E7%89%87%E4%BB%A3%E6%9B%BF/"/>
-    <id>https://github.com/chengheai/2019/02/14/chart力导图node节点图片代替/</id>
-    <published>2019-02-14T09:14:30.000Z</published>
-    <updated>2019-02-14T09:22:24.610Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://github.com/chengheai/review-demo-image/blob/master/WX20190214-171553.png?raw=true" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p><a href="https://jsfiddle.net/BlackLabel/ezo65rv1/12/" target="_blank" rel="noopener">在线demo</a></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">chart: &#123;</span><br><span class="line">      type: <span class="string">'networkgraph'</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  plotOptions: &#123;</span><br><span class="line">      networkgraph: &#123;</span><br><span class="line">          layoutAlgorithm: &#123;</span><br><span class="line">              enableSimulation: <span class="literal">true</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  series: [&#123;</span><br><span class="line">      link: &#123;</span><br><span class="line">          width: <span class="number">2</span></span><br><span class="line">      &#125;,</span><br><span class="line">      data: [&#123;</span><br><span class="line">          <span class="keyword">from</span>: <span class="string">'chengheai-1'</span>,</span><br><span class="line">          to: <span class="string">'chengheai-2'</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">          <span class="keyword">from</span>: <span class="string">'chengheai-2'</span>,</span><br><span class="line">          to: <span class="string">'chengheai-3'</span></span><br><span class="line">      &#125;],</span><br><span class="line">      nodes: [&#123;</span><br><span class="line">          id: <span class="string">'chengheai-1'</span>,</span><br><span class="line">          marker: &#123;</span><br><span class="line">              width: <span class="number">20</span>,</span><br><span class="line">              height: <span class="number">20</span>,</span><br><span class="line">              symbol: <span class="string">'url(https://avatars3.githubusercontent.com/u/26807610?s=88&amp;v=4)'</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">          id: <span class="string">'chengheai-2'</span>,</span><br><span class="line">          marker: &#123;</span><br><span class="line">              width: <span class="number">40</span>,</span><br><span class="line">              height: <span class="number">40</span>,</span><br><span class="line">              symbol: <span class="string">'url(https://avatars3.githubusercontent.com/u/26807610?s=88&amp;v=4)'</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">          id: <span class="string">'chengheai-3'</span>,</span><br><span class="line">          marker: &#123;</span><br><span class="line">              width: <span class="number">40</span>,</span><br><span class="line">              height: <span class="number">40</span>,</span><br><span class="line">              symbol: <span class="string">'url(https://avatars3.githubusercontent.com/u/26807610?s=88&amp;v=4)'</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;]</span><br><span class="line">  &#125;]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h3&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
-                &lt;div class=&quot;img-lightbox&quot;&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="charts" scheme="https://github.com/chengheai/tags/charts/"/>
     
   </entry>
   
