@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>vue-quill-editor富文本内容在页面中样式丢失 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="vue,富文本">
+    <meta name="description" content="现象用富文本的情况有很多，例如在后台管理系统排版好的富文本页面，准备在移动端页面去显示，或者在官网显示，两个项目不在一起，在管理系统排好的样式在显示页面显示的一塌糊涂，为啥呢？大多数情况是样式没有引入。 解决给容器增加一个class ql-editor，才能正常显示，另外前面是主题类名，不同的主题显示不同的样式123&amp;lt;link href=&quot;http://cdn.quilljs.com/1.3">
+<meta name="keywords" content="vue,富文本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-quill-editor富文本内容在页面中样式丢失">
+<meta property="og:url" content="https://github.com/chengheai/2019/08/20/vue-quill-editor富文本内容在页面中样式丢失/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="现象用富文本的情况有很多，例如在后台管理系统排版好的富文本页面，准备在移动端页面去显示，或者在官网显示，两个项目不在一起，在管理系统排好的样式在显示页面显示的一塌糊涂，为啥呢？大多数情况是样式没有引入。 解决给容器增加一个class ql-editor，才能正常显示，另外前面是主题类名，不同的主题显示不同的样式123&amp;lt;link href=&quot;http://cdn.quilljs.com/1.3">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-20T14:03:18.583Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-quill-editor富文本内容在页面中样式丢失">
+<meta name="twitter:description" content="现象用富文本的情况有很多，例如在后台管理系统排版好的富文本页面，准备在移动端页面去显示，或者在官网显示，两个项目不在一起，在管理系统排好的样式在显示页面显示的一塌糊涂，为啥呢？大多数情况是样式没有引入。 解决给容器增加一个class ql-editor，才能正常显示，另外前面是主题类名，不同的主题显示不同的样式123&amp;lt;link href=&quot;http://cdn.quilljs.com/1.3">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue-quill-editor富文本内容在页面中样式丢失</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue-quill-editor富文本内容在页面中样式丢失</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-20T13:47:11.000Z" itemprop="datePublished" class="page-time">
+  2019/08/20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#现象"><span class="post-toc-number">1.</span> <span class="post-toc-text">现象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vue-quill-editor富文本内容在页面中样式丢失"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue-quill-editor富文本内容在页面中样式丢失</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/08/20 21:47:11" datetime="2019-08-20T13:47:11.000Z"  itemprop="datePublished">2019/08/20</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>用富文本的情况有很多，例如在后台管理系统排版好的富文本页面，准备在移动端页面去显示，或者在官网显示，两个项目不在一起，在管理系统排好的样式在显示页面显示的一塌糊涂，为啥呢？大多数情况是样式没有引入。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>给容器增加一个class ql-editor，才能正常显示，另外前面是主题类名，不同的主题显示不同的样式<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href="http://cdn.quilljs.com/1.3.4/quill.snow.css" rel="stylesheet"&gt;</span><br><span class="line">&lt;link href="http://cdn.quilljs.com/1.3.4/quill.bubble.css" rel="stylesheet"&gt;</span><br><span class="line">&lt;link href="http://cdn.quilljs.com/1.3.4/quill.core.css" rel="stylesheet"&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 我这边是snow，那么前缀就是ql-snow<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ql-snow ql-editor"</span> <span class="attr">v-html</span>=<span class="string">"report.foreword"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>关于图片上传之后无法提交，报413错误 [ Request Entity Too Large ],解决方法<a href="https://chengheai.github.io/2019/08/15/vue-quill-editor%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0/" target="_blank" rel="noopener">将图片上传到七牛云</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-08-20T14:03:18.583Z" itemprop="dateUpdated">2019/08/20 22:03:18</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/富文本/">富文本</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/15/vue-quill-editor富文本编辑器实现图片插入七牛云上传/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue-quill-editor富文本编辑器实现图片插入七牛云上传</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
