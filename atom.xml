@@ -446,9 +446,9 @@
     </summary>
     
     
-      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
-    
       <category term="element-ui" scheme="https://github.com/chengheai/tags/element-ui/"/>
+    
+      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
     
   </entry>
   
