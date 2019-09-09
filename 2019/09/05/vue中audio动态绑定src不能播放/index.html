@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="CHI1130">
 <meta property="og:description" content="前言略去。。。 代码123&amp;lt;audio id=&quot;audio&quot; controls&amp;gt;  &amp;lt;source :src=&quot;audUrl || &apos;../assets/alarm.ogg&apos;&quot; type=&quot;audio/ogg&quot; /&amp;gt;&amp;lt;/audio&amp;gt; 问题发现问题绑定的时候,发现并不管用12345let audio = document.querySelector(&apos;#audio">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:23:24.839Z">
+<meta property="og:updated_time" content="2019-09-09T13:56:27.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中audio动态绑定src不能播放">
 <meta name="twitter:description" content="前言略去。。。 代码123&amp;lt;audio id=&quot;audio&quot; controls&amp;gt;  &amp;lt;source :src=&quot;audUrl || &apos;../assets/alarm.ogg&apos;&quot; type=&quot;audio/ogg&quot; /&amp;gt;&amp;lt;/audio&amp;gt; 问题发现问题绑定的时候,发现并不管用12345let audio = document.querySelector(&apos;#audio">
@@ -187,7 +187,8 @@
 <h3 id="解决问题思路"><a href="#解决问题思路" class="headerlink" title="解决问题思路"></a>解决问题思路</h3><p>～打印res.data.xxx是有值的。那为啥不生效呢？【 排除接口问题 】<br>～审查html audio元素，src属性是不是我们想要的返回值 【 排除页面属性挂载问题 】<br>～重新写一个audio标签写在页面上，引入接口返回的url地址 【 排除接口返回资源是否正确及audio标签是否正常 】<br>。。。。。</p>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>代码改为<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">ref</span>=<span class="string">'audio'</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">:src</span>=<span class="string">"audUrl || '../assets/alarm.ogg'"</span> <span class="attr">type</span>=<span class="string">"audio/ogg"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>绑定的时候<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.audio.src = res.data.xxx</span><br></pre></td></tr></table></figure></p>
-<h4 id="下一节，Vue中实现微信语音播放暂停功能"><a href="#下一节，Vue中实现微信语音播放暂停功能" class="headerlink" title="下一节，Vue中实现微信语音播放暂停功能"></a>下一节，Vue中实现微信语音播放暂停功能</h4>
+<h4 id="下一节，Vue中实现微信语音播放暂停功能"><a href="#下一节，Vue中实现微信语音播放暂停功能" class="headerlink" title="下一节，Vue中实现微信语音播放暂停功能"></a>下一节，Vue中实现微信语音播放暂停功能</h4><p><a href="https://chengheai.github.io/2019/09/09/vue%E4%B8%ADaudio%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%94%BE%E5%8A%A8%E7%94%BB/" target="_blank" rel="noopener">传送门</a></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -195,7 +196,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-09-05T13:23:24.839Z" itemprop="dateUpdated">2019/09/05 21:23:24</time>
+    Last updated: <time datetime="2019-09-09T13:56:27.821Z" itemprop="dateUpdated">2019/09/09 21:56:27</time>
 </span><br>
 
 
