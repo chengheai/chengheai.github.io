@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>解决vscode中js文件提示typescript语法报错 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="vscode">
+    <meta name="description" content="前言最近在vue项目中，全局安装了一下typescript，再看看vue项目代码就有一大堆ts提示错误然后网上一搜也没啥好答案～例如：❌❌解决办法：在设置里面加上 “javascript.validate.enable”: false 禁用默认的 js 验证这样禁用那我js写错了都不知道。。。 正解～设置中搜索tsconfig -&amp;gt;Check JS Experimental Decorato">
+<meta name="keywords" content="vscode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决vscode中js文件提示typescript语法报错">
+<meta property="og:url" content="https://github.com/chengheai/2019/09/11/解决vscode中js文件提示typescript语法报错/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="前言最近在vue项目中，全局安装了一下typescript，再看看vue项目代码就有一大堆ts提示错误然后网上一搜也没啥好答案～例如：❌❌解决办法：在设置里面加上 “javascript.validate.enable”: false 禁用默认的 js 验证这样禁用那我js写错了都不知道。。。 正解～设置中搜索tsconfig -&amp;gt;Check JS Experimental Decorato">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://github.com/chengheai/review-demo-image/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190911110647.png?raw=true">
+<meta property="og:updated_time" content="2019-09-11T13:55:10.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决vscode中js文件提示typescript语法报错">
+<meta name="twitter:description" content="前言最近在vue项目中，全局安装了一下typescript，再看看vue项目代码就有一大堆ts提示错误然后网上一搜也没啥好答案～例如：❌❌解决办法：在设置里面加上 “javascript.validate.enable”: false 禁用默认的 js 验证这样禁用那我js写错了都不知道。。。 正解～设置中搜索tsconfig -&amp;gt;Check JS Experimental Decorato">
+<meta name="twitter:image" content="https://github.com/chengheai/review-demo-image/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190911110647.png?raw=true">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">解决vscode中js文件提示typescript语法报错</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">解决vscode中js文件提示typescript语法报错</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-11T13:45:33.000Z" itemprop="datePublished" class="page-time">
+  2019/09/11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正解"><span class="post-toc-number">2.</span> <span class="post-toc-text">正解</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-解决vscode中js文件提示typescript语法报错"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">解决vscode中js文件提示typescript语法报错</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/09/11 21:45:33" datetime="2019-09-11T13:45:33.000Z"  itemprop="datePublished">2019/09/11</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在vue项目中，全局安装了一下typescript，再看看vue项目代码就有一大堆ts提示错误<br>然后网上一搜也没啥好答案<br>～例如：<br>❌❌解决办法：在设置里面加上 “javascript.validate.enable”: false 禁用默认的 js 验证<br>这样禁用那我js写错了都不知道。。。</p>
+<h2 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h2><p>～设置中搜索tsconfig -&gt;Check JS Experimental Decorators 去掉勾选☑️🐳<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/chengheai/review-demo-image/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190911110647.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-09-11T13:55:10.069Z" itemprop="dateUpdated">2019/09/11 21:55:10</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/09/11/在Linux服务器上部署vue静态项目/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">在Linux服务器上Nginx部署vue静态项目</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/09/Axios无法在Safari浏览器及微信中打开/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Axios无法在Safari浏览器及微信中打开</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
