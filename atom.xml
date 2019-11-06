@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/chengheai/"/>
-  <updated>2019-10-21T14:21:47.521Z</updated>
+  <updated>2019-11-06T14:47:23.847Z</updated>
   <id>https://github.com/chengheai/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>秋窗风雨夕</title>
+    <link href="https://github.com/chengheai/2019/11/06/%E7%A7%8B%E7%AA%97%E9%A3%8E%E9%9B%A8%E5%A4%95/"/>
+    <id>https://github.com/chengheai/2019/11/06/秋窗风雨夕/</id>
+    <published>2019-11-06T14:11:13.000Z</published>
+    <updated>2019-11-06T14:47:23.847Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在最近，生活在上海感觉压力很大很大，需要在上海买房安定，需要买车环游，需要挣钱结婚，需要挣钱养宝宝，这些并非生活所逼，而是个人自身理想所致，总之很多地方都是离不开钱的，虽然说钱不是万能的，但现在也没有到没有钱是万万不能的地步。每天下班回家到夜静人睡的时候，自己总会陷入沉思，然而陪伴我入睡的，便是这既华丽而又简练的词藻～</p><h2 id="热评"><a href="#热评" class="headerlink" title="热评"></a>热评</h2><font color="##FF6347" face="fantasy" size="4"><br>1、红楼梦的意境美则美矣，可看多了，总难免在五脏内缠绵着一股郁郁之气难以释怀；不管是文学作品还是影视作品，都是极其致郁的。沉浸进去了就总是想着出世，甚至一死了之。想来真正走心的经典，都是致郁的。唯有悲剧才是永恒之美，可这美不是人人都消受的起的。<br>2015年12月24日 17:09||4715<br><br></font><br><font color="##FF6347" face="fantasy" size="4"><br>2、评论有人说红楼是最没意思的书，真为这人感到惋惜，这样的作品，能流传到今天足以说明其经典和伟大，曹公字字是血。你不懂经典没关系，这座文学高峰不会因你不懂做出的嘲讽而撼动。因为有红楼这本书，我觉得生为中国人真好，真自豪，因为我能用母语去看懂读懂它，透过它去感知几个世纪前的事情<br>2016年5月6日 14:41||2981<br></font><p><table><tr><td bgcolor="#FF83FA"><center><font face="fantasy" size="8">Autumn window</font></center></td></tr></table></p><center><font color="#660000" face="fantasy" size="4">Autumn flowers are bleak, autumn grass yellow,<br><br>Autumn lights are long in autumn.<br><br>I have already noticed that the autumn window is not complete.<br><br>That can help the wind!<br><br>Ah~ help cool!<br><br>The tears of the candle are shaking and squatting.<br><br>I am afraid of moving away from feelings.<br><br>Whose autumn school has no wind,<br><br>Where is the autumn window without rain.<br><br>Ah~ no rain.<br><br>Luo Wei can’t help the autumn wind,<br><br>The residual sound reminds the autumn rain.<br><br>I don’t know when it’s raining,<br><br>Has taught tears and curtains wet.<br><br>Ah~ the window screen is wet.</font></center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在最近，生活在上海感觉压力很大很大，需要在上海买房安定，需要买车环游，需要挣钱结婚，需要挣钱养宝宝，这些并非生活所逼，而是个人自身理想所致，
+      
+    
+    </summary>
+    
+    
+      <category term="红楼梦" scheme="https://github.com/chengheai/tags/%E7%BA%A2%E6%A5%BC%E6%A2%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>多个el-select共用一个options且一个option只能用一次</title>
@@ -471,31 +494,6 @@
     
     
       <category term="材料" scheme="https://github.com/chengheai/tags/%E6%9D%90%E6%96%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见js中易错小题介绍</title>
-    <link href="https://github.com/chengheai/2019/07/16/%E5%B8%B8%E8%A7%81js%E4%B8%AD%E6%98%93%E9%94%99%E5%B0%8F%E9%A2%98%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://github.com/chengheai/2019/07/16/常见js中易错小题介绍/</id>
-    <published>2019-07-16T05:31:49.000Z</published>
-    <updated>2019-07-16T05:52:06.307Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前说"><a href="#前说" class="headerlink" title="前说"></a>前说</h2><p>在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目来考察面试者的基本水平。下面总结了一些典型的面试易错题。</p><h2 id="典题"><a href="#典题" class="headerlink" title="典题"></a>典题</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><p>下面哪个是错误的？</p><p>  A : li:nth-of-child(1)<br>  B : li:nth-of-type(1)<br>  C : li:nth-last-child(1)<br>  D : li:nth-last-of-type(1)<br>答案：A<br>解析：只有nth-child() 没有nth-of-child()</p><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><p>关于IE的window对象表述正确的有：()<br>  A. window.opener属性本身就是指向window<br>  B. window.reload()方法可以用来刷新当前页面<br>  C. window.location = ‘a.html’ 和 window.location.href = ‘a.html’的作用都是把当前页面替换成a.html页面<br>  D. 定义了全局变量g， 可以通过window.g来取得该变量</p><p> 答案：ACD<br> 解析：window不存在reload()方法， 只有location.reload()</p><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><p> 运行结果是什么？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'HelloWorld'</span></span><br><span class="line"><span class="built_in">console</span>.log(a.split(<span class="string">''</span>).sort().join(<span class="string">''</span>));</span><br></pre></td></tr></table></figure></p><p>答案：HWdellloor<br>解析：sort根据Unicode排序<br>资料： <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener"> sort </a> <a href="https://baike.baidu.com/item/Unicode/750500?fr=aladdin" target="_blank" rel="noopener"> Unicode </a> <a href="https://baike.baidu.com/item/ASCII/309296?fr=aladdin" target="_blank" rel="noopener"> ASCII </a> <a href="http://m.elecfans.com/article/601592.html" target="_blank" rel="noopener"> Unicode与ASCII的区别 </a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;前说&quot;&gt;&lt;a href=&quot;#前说&quot; class=&quot;headerlink&quot; title=&quot;前说&quot;&gt;&lt;/a&gt;前说&lt;/h2&gt;&lt;p&gt;在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/chengheai/tags/JavaScript/"/>
-    
-      <category term="面试题" scheme="https://github.com/chengheai/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
