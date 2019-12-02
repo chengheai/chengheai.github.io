@@ -109,6 +109,13 @@
               </a>
             </li>
         
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai/THIS_IS_ALEX.CHNEG/wiki/THIS-IS-ME-%5BAlex-C%5D" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                WeChat
+              </a>
+            </li>
+        
       </ul>
     </div>
   </div>
@@ -370,6 +377,23 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 
