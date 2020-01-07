@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>怎么使用docker运行nuxt项目 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="docker">
+    <meta name="description" content="添加 Dockerfile12345678910touch Dockerfilevi Dockerfile  FROM node:8.11.0  RUN mkdir -p /app  COPY . /app  WORKDIR /app  RUN npm install  EXPOSE 3000  RUN npm run build  CMD [&quot;npm&quot;, &quot;start&quot;] ~FROM node:">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎么使用docker运行nuxt项目">
+<meta property="og:url" content="https://github.com/chengheai/2020/01/07/怎么使用docker运行nuxt项目/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="添加 Dockerfile12345678910touch Dockerfilevi Dockerfile  FROM node:8.11.0  RUN mkdir -p /app  COPY . /app  WORKDIR /app  RUN npm install  EXPOSE 3000  RUN npm run build  CMD [&quot;npm&quot;, &quot;start&quot;] ~FROM node:">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://github.com/chengheai/review-demo-image/blob/master/WechatIMG370.png?raw=true">
+<meta property="og:updated_time" content="2020-01-07T14:11:14.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="怎么使用docker运行nuxt项目">
+<meta name="twitter:description" content="添加 Dockerfile12345678910touch Dockerfilevi Dockerfile  FROM node:8.11.0  RUN mkdir -p /app  COPY . /app  WORKDIR /app  RUN npm install  EXPOSE 3000  RUN npm run build  CMD [&quot;npm&quot;, &quot;start&quot;] ~FROM node:">
+<meta name="twitter:image" content="https://github.com/chengheai/review-demo-image/blob/master/WechatIMG370.png?raw=true">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai/THIS_IS_ALEX.CHNEG/wiki/THIS-IS-ME-%5BAlex-C%5D" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                WeChat
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">怎么使用docker运行nuxt项目</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">怎么使用docker运行nuxt项目</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-07T13:18:36.000Z" itemprop="datePublished" class="page-time">
+  2020/01/07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加-Dockerfile"><span class="post-toc-number">1.</span> <span class="post-toc-text">添加 Dockerfile</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加-dockerignore"><span class="post-toc-number">2.</span> <span class="post-toc-text">添加.dockerignore</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动"><span class="post-toc-number">3.</span> <span class="post-toc-text">启动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#附录"><span class="post-toc-number">4.</span> <span class="post-toc-text">附录</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-怎么使用docker运行nuxt项目"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">怎么使用docker运行nuxt项目</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020/01/07 21:18:36" datetime="2020-01-07T13:18:36.000Z"  itemprop="datePublished">2020/01/07</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="添加-Dockerfile"><a href="#添加-Dockerfile" class="headerlink" title="添加 Dockerfile"></a>添加 Dockerfile</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">touch Dockerfile</span><br><span class="line">vi Dockerfile</span><br><span class="line">  FROM node:<span class="number">8.11</span><span class="number">.0</span></span><br><span class="line">  RUN mkdir -p /app</span><br><span class="line">  COPY . /app</span><br><span class="line">  WORKDIR /app</span><br><span class="line">  RUN npm install</span><br><span class="line">  EXPOSE <span class="number">3000</span></span><br><span class="line">  RUN npm run build</span><br><span class="line">  CMD [<span class="string">"npm"</span>, <span class="string">"start"</span>]</span><br></pre></td></tr></table></figure>
+<p>~FROM node:8.11.0：该 image 文件继承官方的 node image，冒号表示标签，这里标签是 8.11.0，即 8.11.0 版本的 node。<br>~COPY . /app：将当前目录下的所有文件（除了.dockerignore 排除的路径），都拷贝进入 image 文件的/app 目录。<br>~WORKDIR /app：指定接下来的工作路径为/app。<br>~RUN npm install：在/app 目录下，运行 npm install 命令安装依赖。注意，安装后所有的依赖，都将打包进入 image 文件。<br>~EXPOSE 3000: 3000 端口暴露出来， 允许外部连接这个端口。</p>
+<h2 id="添加-dockerignore"><a href="#添加-dockerignore" class="headerlink" title="添加.dockerignore"></a>添加.dockerignore</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">touch .dockerignore</span><br><span class="line">vi .dockerignore</span><br><span class="line">  .git</span><br><span class="line">  node_modules</span><br><span class="line">  npm-debug.log</span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker image build -t ssr-project.</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">docker image build -t ssr-project:0.0.1 .</span><br><span class="line"><span class="comment"># 最后面的空格和点不要漏</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/chengheai/review-demo-image/blob/master/WechatIMG370.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">okcer image ls // 查看 image</span><br><span class="line">docker image build -t ssr-project.  // 常见image</span><br><span class="line">docker rmi [containerID] // 删除指定镜像</span><br><span class="line">docker run -it --rm -p 3000:3000 ssr-project // docker container run命令会从 image 文件生成容器。--rm参数，在容器终止运行后自动删除容器文件</span><br><span class="line">docker ps // 列出本机正在运行的容器</span><br><span class="line">docker ps -a  // 列出本机所有容器，包括终止运行的容器</span><br><span class="line">docker container ls // 列出本机正在运行的容器</span><br><span class="line">docker container ls --all // 列出本机所有容器，包括终止运行的容器</span><br><span class="line">docker container rm [containerID] // 删除指定容器</span><br><span class="line">docker container <span class="built_in">kill</span> [containerID] // 终止容器运行，相当于向容器里面的主进程发出 SIGKILL 信号</span><br><span class="line">docker container stop [containerID] // 终止容器运行，相当于向容器里面的主进程发出 SIGTERM 信号，然后过一段时间再发出 SIGKILL 信号</span><br><span class="line">docker container start [containerID] // 启动已经生成、已经停止运行的容器</span><br><span class="line">docker container logs [containerID] // 用来查看 docker 容器的输出，即容器里面 Shell 的标准输出</span><br><span class="line">docker container <span class="built_in">exec</span> -it [containerID] /bin/bash // 用于进入一个正在运行的 docker 容器 进入容器就可以在容器的 Shell 执行命令了</span><br><span class="line">docker container cp [containID]:[/path/to/file] . // 用于从正在运行的 Docker 容器里面，将文件拷贝到本机</span><br></pre></td></tr></table></figure>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://www.cnblogs.com/DeepInThought/p/10896790.html" target="_blank" rel="noopener">docker 常用指令说明</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-01-07T14:11:14.060Z" itemprop="dateUpdated">2020/01/07 22:11:14</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/12/06/Engineer该有的姿态/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">一个优秀的Stack Engineer该有的姿态</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
