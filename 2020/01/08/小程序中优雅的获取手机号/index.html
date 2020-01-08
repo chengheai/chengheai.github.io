@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>小程序中优雅的获取手机号 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="小程序">
+    <meta name="description" content="前言最近在写小程序项目，有个获取手机号功能，网上荡了一下，虽不说是代码问题，有些文章都是残缺不全的，说到容易错误的区域又并未使用代码避免，说而不做的问题，索性自己结合网上的文章及官网文档写了一套完整的代码，完全开箱即用 🏄🏻‍♂️🏮🎹🐸 效果">
+<meta name="keywords" content="小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序中优雅的获取手机号">
+<meta property="og:url" content="https://github.com/chengheai/2020/01/08/小程序中优雅的获取手机号/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="前言最近在写小程序项目，有个获取手机号功能，网上荡了一下，虽不说是代码问题，有些文章都是残缺不全的，说到容易错误的区域又并未使用代码避免，说而不做的问题，索性自己结合网上的文章及官网文档写了一套完整的代码，完全开箱即用 🏄🏻‍♂️🏮🎹🐸 效果">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://github.com/chengheai/review-demo-image/blob/master/WX20200108-214825@2x.png?raw=true">
+<meta property="og:updated_time" content="2020-01-08T14:02:13.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序中优雅的获取手机号">
+<meta name="twitter:description" content="前言最近在写小程序项目，有个获取手机号功能，网上荡了一下，虽不说是代码问题，有些文章都是残缺不全的，说到容易错误的区域又并未使用代码避免，说而不做的问题，索性自己结合网上的文章及官网文档写了一套完整的代码，完全开箱即用 🏄🏻‍♂️🏮🎹🐸 效果">
+<meta name="twitter:image" content="https://github.com/chengheai/review-demo-image/blob/master/WX20200108-214825@2x.png?raw=true">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai/THIS_IS_ALEX.CHNEG/wiki/THIS-IS-ME-%5BAlex-C%5D" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                WeChat
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">小程序中优雅的获取手机号</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">小程序中优雅的获取手机号</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-08T13:33:09.000Z" itemprop="datePublished" class="page-time">
+  2020/01/08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果"><span class="post-toc-number">2.</span> <span class="post-toc-text">效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-小程序中优雅的获取手机号"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">小程序中优雅的获取手机号</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020/01/08 21:33:09" datetime="2020-01-08T13:33:09.000Z"  itemprop="datePublished">2020/01/08</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在写小程序项目，有个获取手机号功能，网上荡了一下，虽不说是代码问题，有些文章都是残缺不全的，说到容易错误的区域又并未使用代码避免，说而不做的问题，索性自己结合网上的文章及官网文档写了一套完整的代码，完全开箱即用 🏄🏻‍♂️🏮🎹🐸</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/chengheai/review-demo-image/blob/master/WX20200108-214825@2x.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Page Object</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;&#125;,</span><br><span class="line">  getPhoneNumber: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'e'</span>, e);</span><br><span class="line">    <span class="comment">//-----------------是否授权，授权通过进入主页面，授权拒绝则停留在登录界面</span></span><br><span class="line">    <span class="keyword">if</span> (e.detail.errMsg == <span class="string">'getPhoneNumber:fail user deny'</span>) &#123;</span><br><span class="line">      <span class="comment">//用户点击拒绝</span></span><br><span class="line">      wx.showModal(&#123;</span><br><span class="line">        content: <span class="string">'请输入手机号'</span>,</span><br><span class="line">        showCancel: <span class="literal">false</span>,</span><br><span class="line">        success(res) &#123;</span><br><span class="line">          <span class="keyword">if</span> (res.confirm) &#123;</span><br><span class="line">            <span class="comment">// your code ...</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> phoneQuery = &#123;</span><br><span class="line">        encryptedData: e.detail.encryptedData,</span><br><span class="line">        iv: e.detail.iv,</span><br><span class="line">        <span class="comment">// other params...</span></span><br><span class="line">        openid: wx.getStorageSync(<span class="string">'openid'</span>),</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">// 检查是session_key否过期</span></span><br><span class="line">      wx.checkSession(&#123;</span><br><span class="line">        success() &#123;</span><br><span class="line">          <span class="comment">//session_key 未过期，并且在本生命周期一直有效</span></span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'session_key 未过期，并且在本生命周期一直有效'</span>);</span><br><span class="line">          wx.request(&#123;</span><br><span class="line">            url: <span class="string">'https://xxx.com/api/v1/xx'</span>,</span><br><span class="line">            method: <span class="string">'POST'</span>,</span><br><span class="line">            data: phoneQuery,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">              <span class="comment">// your code...</span></span><br><span class="line">            &#125;,</span><br><span class="line">            fail: <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">              <span class="comment">// your code...</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        fail() &#123;</span><br><span class="line">          that.myLogin();</span><br><span class="line">          <span class="comment">// session_key 已经失效，需要重新执行登录流程</span></span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// login</span></span><br><span class="line">  myLogin() &#123;</span><br><span class="line">    wx.login(&#123;</span><br><span class="line">      success: <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//用code传给服务器调换session_key</span></span><br><span class="line">        <span class="keyword">let</span> query = &#123;</span><br><span class="line">          code: res.code,</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// my_login为wx.request(&#123;&#125;)封装</span></span><br><span class="line">        my_login(query).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// other code...</span></span><br><span class="line">          wx.setStorageSync(<span class="string">'unionid'</span>, unionid);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//options(Object)</span></span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;&#125;,</span><br><span class="line">  onReady: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  onShow: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  onHide: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  onUnload: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  onPullDownRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  onReachBottom: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  onShareAppMessage: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  onPageScroll: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  <span class="comment">//item(index,pagePath,text)</span></span><br><span class="line">  onTabItemTap: <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-01-08T14:02:13.620Z" itemprop="dateUpdated">2020/01/08 22:02:13</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/07/怎么使用docker运行nuxt项目/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">怎么使用docker运行nuxt项目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
