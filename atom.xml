@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/chengheai/"/>
-  <updated>2020-02-20T12:32:32.794Z</updated>
+  <updated>2020-02-23T13:47:05.546Z</updated>
   <id>https://github.com/chengheai/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nodejs中常见的跨域处理</title>
+    <link href="https://github.com/chengheai/2020/02/23/nodejs%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E8%B7%A8%E5%9F%9F%E5%A4%84%E7%90%86/"/>
+    <id>https://github.com/chengheai/2020/02/23/nodejs中常见的跨域处理/</id>
+    <published>2020-02-23T13:29:53.000Z</published>
+    <updated>2020-02-23T13:47:05.546Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>ajax 同源策略 协议 主机(ip,域名) 端口号</p><ol><li>协议，端口</li><li>cors</li><li>header 头文件信息</li><li>jsonp</li><li>服务器</li></ol><h2 id="解决-🧍‍♀️"><a href="#解决-🧍‍♀️" class="headerlink" title="解决 🧍‍♀️"></a>解决 🧍‍♀️</h2><blockquote><p>协议，端口</p></blockquote><p>将跨域的文件放入与服务器一样的文件下</p><blockquote><p>cors</p></blockquote><p>以 express 为例</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> cors = <span class="built_in">require</span>(<span class="string">'cors'</span>);</span><br><span class="line">...</span><br><span class="line">your codes...</span><br><span class="line">...</span><br><span class="line">app.use(cors());</span><br></pre></td></tr></table></figure><blockquote><p>header 头文件信息</p></blockquote><p>以 express 为例</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line">...</span><br><span class="line">your codes...</span><br><span class="line">...</span><br><span class="line">app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"X-Requested-With,Content-Type"</span>);</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><blockquote><p>jsonp</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JSONP.getJSON(<span class="string">'http://api.com'</span>, data, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><blockquote><p>服务器</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line">...</span><br><span class="line">your codes...</span><br><span class="line">...</span><br><span class="line"><span class="comment">// 本地api接口</span></span><br><span class="line">app.get(<span class="string">'/cors'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 发送一个服务器请求</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'cors.html的ajax'</span>);</span><br><span class="line">  <span class="comment">// 目标服务器，你想请求的服务器api</span></span><br><span class="line">  request(<span class="string">'http://www.google.com/xx/api/v1'</span>, (err, response, body) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(body);</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">      res.send(body);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;跨域问题&quot;&gt;&lt;a href=&quot;#跨域问题&quot; class=&quot;headerlink&quot; title=&quot;跨域问题&quot;&gt;&lt;/a&gt;跨域问题&lt;/h2&gt;&lt;p&gt;ajax 同源策略 协议 主机(ip,域名) 端口号&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;协议，端口&lt;/li&gt;
+&lt;li&gt;cors&lt;/l
+      
+    
+    </summary>
+    
+    
+      <category term="nodejs" scheme="https://github.com/chengheai/tags/nodejs/"/>
+    
+      <category term="跨域" scheme="https://github.com/chengheai/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>2019-nCoV为期两周的宅计划</title>
@@ -463,31 +491,6 @@
     
     
       <category term="git" scheme="https://github.com/chengheai/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue-quill-editor富文本内容在页面中样式丢失</title>
-    <link href="https://github.com/chengheai/2019/08/20/vue-quill-editor%E5%AF%8C%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E6%A0%B7%E5%BC%8F%E4%B8%A2%E5%A4%B1/"/>
-    <id>https://github.com/chengheai/2019/08/20/vue-quill-editor富文本内容在页面中样式丢失/</id>
-    <published>2019-08-20T13:47:11.000Z</published>
-    <updated>2019-08-20T14:03:18.583Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>用富文本的情况有很多，例如在后台管理系统排版好的富文本页面，准备在移动端页面去显示，或者在官网显示，两个项目不在一起，在管理系统排好的样式在显示页面显示的一塌糊涂，为啥呢？大多数情况是样式没有引入。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>给容器增加一个class ql-editor，才能正常显示，另外前面是主题类名，不同的主题显示不同的样式<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href="http://cdn.quilljs.com/1.3.4/quill.snow.css" rel="stylesheet"&gt;</span><br><span class="line">&lt;link href="http://cdn.quilljs.com/1.3.4/quill.bubble.css" rel="stylesheet"&gt;</span><br><span class="line">&lt;link href="http://cdn.quilljs.com/1.3.4/quill.core.css" rel="stylesheet"&gt;</span><br></pre></td></tr></table></figure></p><p> 我这边是snow，那么前缀就是ql-snow<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ql-snow ql-editor"</span> <span class="attr">v-html</span>=<span class="string">"report.foreword"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>关于图片上传之后无法提交，报413错误 [ Request Entity Too Large ],解决方法<a href="https://chengheai.github.io/2019/08/15/vue-quill-editor%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0/" target="_blank" rel="noopener">将图片上传到七牛云</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;现象&quot;&gt;&lt;a href=&quot;#现象&quot; class=&quot;headerlink&quot; title=&quot;现象&quot;&gt;&lt;/a&gt;现象&lt;/h2&gt;&lt;p&gt;用富文本的情况有很多，例如在后台管理系统排版好的富文本页面，准备在移动端页面去显示，或者在官网显示，两个项目不在一起，在管理系统排好的样式在
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://github.com/chengheai/tags/vue/"/>
-    
-      <category term="富文本" scheme="https://github.com/chengheai/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/"/>
     
   </entry>
   
