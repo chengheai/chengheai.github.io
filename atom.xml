@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/chengheai/"/>
-  <updated>2020-03-01T12:08:15.822Z</updated>
+  <updated>2020-03-09T14:50:16.841Z</updated>
   <id>https://github.com/chengheai/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DateTimePicker自定义选择大于当前时间限制</title>
+    <link href="https://github.com/chengheai/2020/03/09/DateTimePicker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%80%89%E6%8B%A9%E5%A4%A7%E4%BA%8E%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E9%99%90%E5%88%B6/"/>
+    <id>https://github.com/chengheai/2020/03/09/DateTimePicker自定义选择大于当前时间限制/</id>
+    <published>2020-03-09T14:39:41.000Z</published>
+    <updated>2020-03-09T14:50:16.841Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 代码</span><br><span class="line"></span><br><span class="line">```html</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-form</span><br><span class="line">    :model=&quot;ruleForm&quot;</span><br><span class="line">    :rules=&quot;rules&quot;</span><br><span class="line">    ref=&quot;ruleForm&quot;</span><br><span class="line">    label-width=&quot;150px&quot;</span><br><span class="line">    class=&quot;demo-ruleForm&quot;</span><br><span class="line">  &gt;</span><br><span class="line">    &lt;el-form-item label=&quot;大于当前时间&quot; prop=&quot;mytime&quot;&gt;</span><br><span class="line">      &lt;el-date-picker</span><br><span class="line">        type=&quot;datetime&quot;</span><br><span class="line">        placeholder=&quot;选择日期&quot;</span><br><span class="line">        value-format=&quot;timestamp&quot;</span><br><span class="line">        :picker-options=&quot;pickerOptions&quot;</span><br><span class="line">        v-model=&quot;ruleForm.mytime&quot;</span><br><span class="line">      &gt;&lt;/el-date-picker&gt;</span><br><span class="line">    &lt;/el-form-item&gt;</span><br><span class="line">    &lt;el-form-item&gt;</span><br><span class="line">      &lt;el-button type=&quot;primary&quot; @click=&quot;submitForm(&apos;ruleForm&apos;)&quot;&gt;立即创建&lt;/el-button&gt;</span><br><span class="line">      &lt;el-button @click=&quot;resetForm(&apos;ruleForm&apos;)&quot;&gt;重置&lt;/el-button&gt;</span><br><span class="line">    &lt;/el-form-item&gt;</span><br><span class="line">  &lt;/el-form&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      var validateTime = (rule, value, callback) =&gt; &#123;</span><br><span class="line">        if (value &lt;= Date.now()) &#123;</span><br><span class="line">          callback(new Error(&apos;选择时间必须大于当前时间&apos;));</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          callback();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      return &#123;</span><br><span class="line">        pickerOptions: &#123;</span><br><span class="line">          // 限制收货时间不让选择今天以前的</span><br><span class="line">          disabledDate(time) &#123;</span><br><span class="line">            return time.getTime() &lt; Date.now() - 8.64e7;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        ruleForm: &#123;</span><br><span class="line">          mytime: &apos;&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">        rules: &#123;</span><br><span class="line">          mytime: [</span><br><span class="line">            &#123; required: true, message: &apos;请选择时间&apos;, trigger: &apos;change&apos; &#125;,</span><br><span class="line">            &#123; validator: validateTime, trigger: &apos;blur&apos; &#125;,</span><br><span class="line">          ],</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      submitForm(formName) &#123;</span><br><span class="line">        this.$refs[formName].validate(valid =&gt; &#123;</span><br><span class="line">          if (valid) &#123;</span><br><span class="line">            alert(&apos;submit!&apos;);</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            console.log(&apos;error submit!!&apos;);</span><br><span class="line">            return false;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;,</span><br><span class="line">      resetForm(formName) &#123;</span><br><span class="line">        this.$refs[formName].resetFields();</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
+      
+    
+    </summary>
+    
+    
+      <category term="element-ui" scheme="https://github.com/chengheai/tags/element-ui/"/>
+    
+  </entry>
   
   <entry>
     <title>原生js实现redux中getState,subscribe,listener,dispatch函数</title>
@@ -463,31 +486,6 @@
     
     
       <category term="css" scheme="https://github.com/chengheai/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>桃花源记</title>
-    <link href="https://github.com/chengheai/2019/09/02/%E6%A1%83%E8%8A%B1%E6%BA%90%E8%AE%B0/"/>
-    <id>https://github.com/chengheai/2019/09/02/桃花源记/</id>
-    <published>2019-09-02T12:58:29.000Z</published>
-    <updated>2019-09-02T13:11:10.030Z</updated>
-    
-    <content type="html"><![CDATA[<!--  --><p><center><font color="#00008B" size="6" face=" 华文行楷">桃花园记</font></center></p><font color="#EC6E3A" size="4" face=" 华文行楷"><br>晋太元中，武陵人捕鱼为业。缘溪行，忘路之远近。忽逢桃花林，夹岸数百步，中无杂树，芳草鲜美，落英缤纷，渔人甚异之，复前行，欲穷其林。<br><br>林尽水源，便得一山，山有小口，仿佛若有光。便舍船，从口入。初极狭，才通人。复行数十步，豁然开朗。土地平旷，屋舍俨然，有良田美池桑竹之属。阡陌交通，鸡犬相闻。其中往来种作，男女衣着，悉如外人。黄发垂髫，并怡然自乐。<br><br>见渔人，乃大惊，问所从来。具答之。便要还家，设酒杀鸡作食。村中闻有此人，咸来问讯。自云先世避秦时乱，率妻子邑人来此绝境，不复出焉，遂与外人间隔。问今是何世，乃不知有汉，无论魏晋。此人一一为具言所闻，皆叹惋。余人各复延至其家，皆出酒食。停数日，辞去。此中人语云：“不足为外人道也。”<br><br>既出，得其船，便扶向路，处处志之。及郡下，诣太守，说如此。太守即遣人随其往，寻向所志，遂迷，不复得路。<br><br>南阳刘子骥，高尚士也，闻之，欣然规往。未果，寻病终，后遂无问津者。<br></font><br><font color="#ccc" size="3" face=" 华文行楷"><br>有些时候阅读古文，很多文字中描述的画面会浮现在眼前，故而记录下….<br></font>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!--  --&gt;
-&lt;p&gt;&lt;center&gt;&lt;font color=&quot;#00008B&quot; size=&quot;6&quot; face=&quot; 华文行楷&quot;&gt;桃花园记&lt;/font&gt;&lt;/center&gt;&lt;/p&gt;
-&lt;font color=&quot;#EC6E3A&quot; size=&quot;4&quot; face=&quot; 华文行楷&quot;&gt;&lt;br&gt;晋太
-      
-    
-    </summary>
-    
-    
-      <category term="古文观止" scheme="https://github.com/chengheai/tags/%E5%8F%A4%E6%96%87%E8%A7%82%E6%AD%A2/"/>
     
   </entry>
   
