@@ -21,20 +21,20 @@
     
     
     <meta name="keywords" content="JavaScript">
-    <meta name="description" content="～～ 回首往昔， 更近一步 ～～  招式1. ES5 构造函数继承1234567891011function Parent() &amp;#123;  this.name = &apos;parent&apos;;">
+    <meta name="description" content="～～ 回首往昔， 更近一步 ～～  招式1. ES5 构造函数继承1234567891011function Parent() &amp;#123;  this.name = &apos;parent&apos;;  this.colors = [&apos;black&apos;, &apos;yellow&apos;, &apos;red&apos;]&amp;#125;function Child() &amp;#123;  Parent.call(this);  this.type = &apos;">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈js中函数的继承方式">
 <meta property="og:url" content="https://github.com/chengheai/2019/07/09/浅谈js中函数的继承方式/index.html">
 <meta property="og:site_name" content="CHI1130">
-<meta property="og:description" content="～～ 回首往昔， 更近一步 ～～  招式1. ES5 构造函数继承1234567891011function Parent() &amp;#123;  this.name = &apos;parent&apos;;">
+<meta property="og:description" content="～～ 回首往昔， 更近一步 ～～  招式1. ES5 构造函数继承1234567891011function Parent() &amp;#123;  this.name = &apos;parent&apos;;  this.colors = [&apos;black&apos;, &apos;yellow&apos;, &apos;red&apos;]&amp;#125;function Child() &amp;#123;  Parent.call(this);  this.type = &apos;">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://github.com/chengheai/review-demo-image/blob/master/u=1418646752,692709038&fm=173&app=49&f=JPEG.jpeg?raw=true">
+<meta property="og:image" content="https://github.com/chengheai/2019/07/09/浅谈js中函数的继承方式/%27https://github.com/chengheai/review-demo-image/blob/master/u=1418646752,692709038&fm=173&app=49&f=JPEG.jpeg?raw=true%27">
 <meta property="og:updated_time" content="2019-07-09T07:42:19.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈js中函数的继承方式">
-<meta name="twitter:description" content="～～ 回首往昔， 更近一步 ～～  招式1. ES5 构造函数继承1234567891011function Parent() &amp;#123;  this.name = &apos;parent&apos;;">
-<meta name="twitter:image" content="https://github.com/chengheai/review-demo-image/blob/master/u=1418646752,692709038&fm=173&app=49&f=JPEG.jpeg?raw=true">
+<meta name="twitter:description" content="～～ 回首往昔， 更近一步 ～～  招式1. ES5 构造函数继承1234567891011function Parent() &amp;#123;  this.name = &apos;parent&apos;;  this.colors = [&apos;black&apos;, &apos;yellow&apos;, &apos;red&apos;]&amp;#125;function Child() &amp;#123;  Parent.call(this);  this.type = &apos;">
+<meta name="twitter:image" content="https://github.com/chengheai/2019/07/09/浅谈js中函数的继承方式/%27https://github.com/chengheai/review-demo-image/blob/master/u=1418646752,692709038&fm=173&app=49&f=JPEG.jpeg?raw=true%27">
     
         <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
     
@@ -190,13 +190,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/chengheai/review-demo-image/blob/master/u=1418646752,692709038&fm=173&app=49&f=JPEG.jpeg?raw=true" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+            <p><img src="&#39;https://github.com/chengheai/review-demo-image/blob/master/u=1418646752,692709038&amp;fm=173&amp;app=49&amp;f=JPEG.jpeg?raw=true&#39;" alt></p>
 <center><font face="黑体" color="red" size="4">～～ 回首往昔， 更近一步 ～～</font></center>
 
 <h2 id="招式"><a href="#招式" class="headerlink" title="招式"></a>招式</h2><h3 id="1-ES5-构造函数继承"><a href="#1-ES5-构造函数继承" class="headerlink" title="1. ES5 构造函数继承"></a>1. ES5 构造函数继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'parent'</span>;</span><br><span class="line">  <span class="keyword">this</span>.colors = [<span class="string">'black'</span>, <span class="string">'yellow'</span>, <span class="string">'red'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Parent.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'child'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> q1 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="built_in">console</span>.log(q1.name); <span class="comment">// parent</span></span><br><span class="line"><span class="built_in">console</span>.log(q1.colors); <span class="comment">// [ 'black', 'yellow', 'red' ]</span></span><br></pre></td></tr></table></figure>
@@ -235,6 +229,10 @@
 </blockquote>
 
         
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
 
 
         <div class="post-footer">
@@ -303,6 +301,32 @@
 
 </article>
 
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
 
 
 </div>
@@ -335,7 +359,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 
 
 </script>

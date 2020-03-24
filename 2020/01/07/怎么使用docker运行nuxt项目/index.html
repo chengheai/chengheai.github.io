@@ -195,13 +195,7 @@
 <p>~FROM node:8.11.0：该 image 文件继承官方的 node image，冒号表示标签，这里标签是 8.11.0，即 8.11.0 版本的 node。<br>~ADD . /opt：将当前目录文件下的所有文件（除了.dockerignore 排除的路径），都拷贝进入 image 文件的/opt 目录。<br>~WORKDIR /opt：指定接下来的工作路径为/opt。<br>~RUN npm install 或者 ADD node_modules：在/opt 目录下，运行 npm install 命令安装依赖。注意，安装后所有的依赖，都将打包进入 image 文件。<br>~EXPOSE 3000: 3000 端口暴露出来， 允许外部连接这个端口。</p>
 <h2 id="添加-dockerignore"><a href="#添加-dockerignore" class="headerlink" title="添加.dockerignore"></a>添加.dockerignore</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">touch .dockerignore</span><br><span class="line">vi .dockerignore</span><br><span class="line">  .git</span><br><span class="line">  <span class="comment"># node_modules</span></span><br><span class="line">  npm-debug.log</span><br></pre></td></tr></table></figure>
 <h2 id="build"><a href="#build" class="headerlink" title="build"></a>build</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker image build -t ssr-project.</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">docker image build -t ssr-project:0.0.1 .</span><br><span class="line"><span class="comment"># 最后面的空格和点不要漏</span></span><br></pre></td></tr></table></figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/chengheai/review-demo-image/blob/master/WechatIMG370.png?raw=true" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://github.com/chengheai/review-demo-image/blob/master/WechatIMG370.png?raw=true" alt></p>
 <h2 id="start"><a href="#start" class="headerlink" title="start"></a>start</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --name ssr-server -p 3000:3000 <span class="built_in">test</span>-ssr</span><br><span class="line">ssr-server: 容器名称</span><br><span class="line"><span class="built_in">test</span>-ssr: 镜像</span><br><span class="line">关闭</span><br><span class="line">$ docker stop ssr-server</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">okcer image ls // 查看 image</span><br><span class="line">docker image build -t ssr-project.  // 常见image</span><br><span class="line">docker rmi [containerID] // 删除指定镜像</span><br><span class="line">docker run -it --rm -p 3000:3000 ssr-project // docker container run命令会从 image 文件生成容器。--rm参数，在容器终止运行后自动删除容器文件</span><br><span class="line">docker ps // 列出本机正在运行的容器</span><br><span class="line">docker ps -a  // 列出本机所有容器，包括终止运行的容器</span><br><span class="line">docker container ls // 列出本机正在运行的容器</span><br><span class="line">docker container ls --all // 列出本机所有容器，包括终止运行的容器</span><br><span class="line">docker container rm [containerID] // 删除指定容器</span><br><span class="line">docker container <span class="built_in">kill</span> [containerID] // 终止容器运行，相当于向容器里面的主进程发出 SIGKILL 信号</span><br><span class="line">docker container stop [containerID] // 终止容器运行，相当于向容器里面的主进程发出 SIGTERM 信号，然后过一段时间再发出 SIGKILL 信号</span><br><span class="line">docker container start [containerID] // 启动已经生成、已经停止运行的容器</span><br><span class="line">docker container logs [containerID] // 用来查看 docker 容器的输出，即容器里面 Shell 的标准输出</span><br><span class="line">docker container <span class="built_in">exec</span> -it [containerID] /bin/bash // 用于进入一个正在运行的 docker 容器 进入容器就可以在容器的 Shell 执行命令了</span><br><span class="line">docker container cp [containID]:[/path/to/file] . // 用于从正在运行的 Docker 容器里面，将文件拷贝到本机</span><br></pre></td></tr></table></figure>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://www.cnblogs.com/DeepInThought/p/10896790.html" target="_blank" rel="noopener">docker 常用指令说明</a></p>
@@ -229,6 +223,10 @@
 </blockquote>
 
         
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
 
 
         <div class="post-footer">
@@ -297,6 +295,32 @@
 
 </article>
 
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
 
 
 </div>
@@ -329,7 +353,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 
 
 </script>
