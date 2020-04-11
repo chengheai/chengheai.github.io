@@ -21,19 +21,19 @@
     
     
     <meta name="keywords" content="vue">
-    <meta name="description" content="预览 思路拿到时长做倒计时，时长 = （ 时长 + 1 ） * 100; destroy的时候清除一下 代码123456789101112131415161718&amp;lt;div style=&quot;display:none&quot;&amp;gt;  &amp;lt;audio controls=&quot;controls&quot; ref=&quot;audio&quot;&amp;gt;    &amp;lt;source :src=&quot;url || &apos;&apos;&quot; type=&quot;au">
+    <meta name="description" content="预览                                                                                                           思路拿到时长做倒计时，时长 = （ 时长 + 1 ） * 100; destroy的时候清除一下 代码123456789101112131415161718&amp;lt;div style">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue中audio实现微信语音播放动画">
 <meta property="og:url" content="https://github.com/chengheai/2019/09/09/vue中audio实现微信语音播放动画/index.html">
 <meta property="og:site_name" content="CHI1130">
-<meta property="og:description" content="预览 思路拿到时长做倒计时，时长 = （ 时长 + 1 ） * 100; destroy的时候清除一下 代码123456789101112131415161718&amp;lt;div style=&quot;display:none&quot;&amp;gt;  &amp;lt;audio controls=&quot;controls&quot; ref=&quot;audio&quot;&amp;gt;    &amp;lt;source :src=&quot;url || &apos;&apos;&quot; type=&quot;au">
+<meta property="og:description" content="预览                                                                                                           思路拿到时长做倒计时，时长 = （ 时长 + 1 ） * 100; destroy的时候清除一下 代码123456789101112131415161718&amp;lt;div style">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://github.com/chengheai/review-demo-image/blob/master/2019-09-09%2021-01-51.2019-09-09%2021_02_34.gif?raw=true">
 <meta property="og:updated_time" content="2019-09-09T13:28:10.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中audio实现微信语音播放动画">
-<meta name="twitter:description" content="预览 思路拿到时长做倒计时，时长 = （ 时长 + 1 ） * 100; destroy的时候清除一下 代码123456789101112131415161718&amp;lt;div style=&quot;display:none&quot;&amp;gt;  &amp;lt;audio controls=&quot;controls&quot; ref=&quot;audio&quot;&amp;gt;    &amp;lt;source :src=&quot;url || &apos;&apos;&quot; type=&quot;au">
+<meta name="twitter:description" content="预览                                                                                                           思路拿到时长做倒计时，时长 = （ 时长 + 1 ） * 100; destroy的时候清除一下 代码123456789101112131415161718&amp;lt;div style">
 <meta name="twitter:image" content="https://github.com/chengheai/review-demo-image/blob/master/2019-09-09%2021-01-51.2019-09-09%2021_02_34.gif?raw=true">
     
         <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
@@ -151,7 +151,7 @@
         <h5 class="subtitle">
             
                 <time datetime="2019-09-09T12:58:24.000Z" itemprop="datePublished" class="page-time">
-  2019/09/09
+  2019/09/09 20:58:24
 </time>
 
 
@@ -181,7 +181,7 @@
     <div class="post-card">
         <h1 class="post-card-title">vue中audio实现微信语音播放动画</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019/09/09 20:58:24" datetime="2019-09-09T12:58:24.000Z"  itemprop="datePublished">2019/09/09</time>
+            <time class="post-time" title="2019/09/09 20:58:24 20:58:24" datetime="2019-09-09T12:58:24.000Z"  itemprop="datePublished">2019/09/09 20:58:24</time>
 
             
 
@@ -190,7 +190,13 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><img src="https://github.com/chengheai/review-demo-image/blob/master/2019-09-09%2021-01-51.2019-09-09%2021_02_34.gif?raw=true" alt></p>
+            <h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/chengheai/review-demo-image/blob/master/2019-09-09%2021-01-51.2019-09-09%2021_02_34.gif?raw=true" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>拿到时长做倒计时，时长 = （ 时长 + 1 ） * 100; destroy的时候清除一下</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>=<span class="string">"controls"</span> <span class="attr">ref</span>=<span class="string">"audio"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">:src</span>=<span class="string">"url || ''"</span> <span class="attr">type</span>=<span class="string">"audio/mpeg"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"voice-bg"</span> @<span class="attr">click</span>=<span class="string">"handlePlay"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"isPlaying"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">"./../../assets/images/goods/voice-play.gif"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">alt</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">"./../../assets/images/goods/voice.png"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">alt</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; duration || 0 &#125;&#125;"<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    url: <span class="string">''</span>,</span><br><span class="line">    timer: <span class="literal">null</span>,</span><br><span class="line">    isPlaying: <span class="literal">false</span>,</span><br><span class="line">    currentTime: <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">  handlePlay() &#123;</span><br><span class="line">    <span class="keyword">let</span> audio = <span class="keyword">this</span>.$refs.audio;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.isPlaying) &#123;</span><br><span class="line">      audio.play();</span><br><span class="line">      <span class="keyword">this</span>.isPlaying = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">this</span>.watchEnd();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      audio.pause();</span><br><span class="line">      clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">      <span class="keyword">this</span>.isPlaying = <span class="literal">false</span>;</span><br><span class="line">      audio.currentTime = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watchEnd() &#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      that.isPlaying = <span class="literal">false</span>;</span><br><span class="line">    &#125;, (that.duration + <span class="number">1</span>) * <span class="number">1000</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br><span class="line">beforeDestroy() &#123;</span><br><span class="line">  clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -204,7 +210,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-09-09T13:28:10.706Z" itemprop="dateUpdated">2019/09/09 21:28:10</time>
+    Last updated: <time datetime="2019-09-09T13:28:10.706Z" itemprop="dateUpdated">2019/09/09 21:28:10 21:28:10</time>
 </span><br>
 
 

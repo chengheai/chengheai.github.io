@@ -152,7 +152,7 @@
         <h5 class="subtitle">
             
                 <time datetime="2019-05-13T13:33:29.000Z" itemprop="datePublished" class="page-time">
-  2019/05/13
+  2019/05/13 21:33:29
 </time>
 
 
@@ -182,7 +182,7 @@
     <div class="post-card">
         <h1 class="post-card-title">Mac下使用rz、sz远程上传、下载</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019/05/13 21:33:29" datetime="2019-05-13T13:33:29.000Z"  itemprop="datePublished">2019/05/13</time>
+            <time class="post-time" title="2019/05/13 21:33:29 21:33:29" datetime="2019-05-13T13:33:29.000Z"  itemprop="datePublished">2019/05/13 21:33:29</time>
 
             
 
@@ -195,7 +195,20 @@
 <h3 id="为什么要用rz-sz"><a href="#为什么要用rz-sz" class="headerlink" title="为什么要用rz/sz"></a>为什么要用rz/sz</h3><p>普通Linux和Windows之间的文件共享方法，主要有建立nfs实现文件共享，和tftp之类的方法，但是都很麻烦，而如果只是小文件（几十K，几百K），那么直接用rz/sz，就显得极其地方便了。大文件的话，还是要考虑上面说得，其他的共享方法了，毕竟，rz/sz速度只有10K左右，传大文件会累死人的。</p>
 <h2 id="Mac上如何使用"><a href="#Mac上如何使用" class="headerlink" title="Mac上如何使用"></a>Mac上如何使用</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.下载并安装iTerm2 (一般来说都安装过了)<br><a href="http://www.iterm2.com/#/section/downloads" target="_blank" rel="noopener">http://www.iterm2.com/#/section/downloads</a><br>2.下载安装lrzsz<br>sudo brew install lrzsz(或者 brew install lrzsz)<br>3.下载并安装automatic zmoderm for iTerm2<br>-1 usr/local/bin<br>-2 sudo wget <a href="https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-send-zmodem.sh" target="_blank" rel="noopener">https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-send-zmodem.sh</a><br>sudo wget <a href="https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-recv-zmodem.sh" target="_blank" rel="noopener">https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-recv-zmodem.sh</a><br>-3 sudo chmod 777 /usr/local/bin/iterm2-*<br>4.添加iTerm2 trigger<br>Term2 –&gt; Profiles –&gt; Advanced –&gt; Edit Trigger</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Regular expression      　　Action      　　　　　　　Parameters</span><br><span class="line"></span><br><span class="line">\*\*B0100　　　　　　　　Run Silent Coprocess　　/usr/local/bin/iterm2-send-zmodem.sh</span><br><span class="line"></span><br><span class="line">\*\*B00000000000000　  Run Silent Coprocess　　/usr/local/bin/iterm2-recv-zmodem.sh</span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/chengheai/review-demo-image/blob/master/WX20190513-215337@2x.png?raw=true" alt><br><img src="https://github.com/chengheai/review-demo-image/blob/master/WX20190513-215356@2x.png?raw=true" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/chengheai/review-demo-image/blob/master/WX20190513-215337@2x.png?raw=true" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/chengheai/review-demo-image/blob/master/WX20190513-215356@2x.png?raw=true" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -204,7 +217,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-05-13T13:59:11.961Z" itemprop="dateUpdated">2019/05/13 21:59:11</time>
+    Last updated: <time datetime="2019-05-13T13:59:11.961Z" itemprop="dateUpdated">2019/05/13 21:59:11 21:59:11</time>
 </span><br>
 
 
