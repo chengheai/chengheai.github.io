@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>深入理解js中防抖跟截流的区别 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="Javascript">
+    <meta name="description" content="前言在日常项目开发中，通常会碰到监听处理的操作，比如监听浏览器窗口大小改变，监听滚动事件，监听输入事件等等，然而做这方面功能的时候就要想着怎么优化性能，防抖跟截流就派上用场了 防抖 触发高频事件后delay内函数只会执行一次，如果delay内高频事件再次被触发，则重新计算时间   实现方式：每次触发事件时设置一个延迟调用方法，并且取消之前的延时调用方法 缺点：如果事件在规定的时间间隔内被不断的触发">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解js中防抖跟截流的区别">
+<meta property="og:url" content="https://github.com/chengheai/2021/07/15/深入理解js中防抖跟截流的区别/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="前言在日常项目开发中，通常会碰到监听处理的操作，比如监听浏览器窗口大小改变，监听滚动事件，监听输入事件等等，然而做这方面功能的时候就要想着怎么优化性能，防抖跟截流就派上用场了 防抖 触发高频事件后delay内函数只会执行一次，如果delay内高频事件再次被触发，则重新计算时间   实现方式：每次触发事件时设置一个延迟调用方法，并且取消之前的延时调用方法 缺点：如果事件在规定的时间间隔内被不断的触发">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-09T08:48:32.094Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解js中防抖跟截流的区别">
+<meta name="twitter:description" content="前言在日常项目开发中，通常会碰到监听处理的操作，比如监听浏览器窗口大小改变，监听滚动事件，监听输入事件等等，然而做这方面功能的时候就要想着怎么优化性能，防抖跟截流就派上用场了 防抖 触发高频事件后delay内函数只会执行一次，如果delay内高频事件再次被触发，则重新计算时间   实现方式：每次触发事件时设置一个延迟调用方法，并且取消之前的延时调用方法 缺点：如果事件在规定的时间间隔内被不断的触发">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">深入理解js中防抖跟截流的区别</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">深入理解js中防抖跟截流的区别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-07-15T13:29:55.000Z" itemprop="datePublished" class="page-time">
+  2021/07/15 21:29:55
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#防抖"><span class="post-toc-number">2.</span> <span class="post-toc-text">防抖</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#节流"><span class="post-toc-number"></span> <span class="post-toc-text">节流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他版本"><span class="post-toc-number"></span> <span class="post-toc-text">其他版本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#demo"><span class="post-toc-number"></span> <span class="post-toc-text">demo</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number"></span> <span class="post-toc-text">总结</span></a>
+        </nav>
+    </aside>
+
+
+<article id="post-深入理解js中防抖跟截流的区别"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">深入理解js中防抖跟截流的区别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021/07/15 21:29:55 21:29:55" datetime="2021-07-15T13:29:55.000Z"  itemprop="datePublished">2021/07/15 21:29:55</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在日常项目开发中，通常会碰到监听处理的操作，比如监听浏览器窗口大小改变，监听滚动事件，监听输入事件等等，然而做这方面功能的时候就要想着怎么优化性能，防抖跟截流就派上用场了</p>
+<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><blockquote>
+<p>触发高频事件后delay内函数只会执行一次，如果delay内高频事件再次被触发，则重新计算时间</p>
+</blockquote>
+<ol>
+<li>实现方式：每次触发事件时设置一个延迟调用方法，并且取消之前的延时调用方法</li>
+<li>缺点：如果事件在规定的时间间隔内被不断的触发，则调用方法会被不断的延迟</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//debounce</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">method, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">      clearTimeout(timer)</span><br><span class="line">      timer = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      method.apply(self, <span class="built_in">arguments</span>)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(xxx);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 滚动事件</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, debounce(handle,<span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+<h1 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h1><blockquote>
+<p>指在规定时间内只触发一次事件，减少事件执行的频率</p>
+</blockquote>
+<ol>
+<li>实现方式：每次触发事件时，如果当前有等待执行的延时函数，则直接return</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> canRun = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">if</span> (!canRun) <span class="keyword">return</span></span><br><span class="line">    canRun = <span class="literal">false</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn.apply(self, <span class="built_in">arguments</span>)</span><br><span class="line">      canRun = <span class="literal">true</span></span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="其他版本"><a href="#其他版本" class="headerlink" title="其他版本"></a>其他版本</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 时间戳</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle1</span> (<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> prev = <span class="built_in">Date</span>.now()</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> now = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="keyword">if</span> (now - prev &gt;= delay) &#123;</span><br><span class="line">      fn()</span><br><span class="line">      prev = <span class="built_in">Date</span>.now()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定时器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle2</span> (<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">      timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        fn()</span><br><span class="line">        timer = <span class="literal">null</span></span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://chengheai.github.io/daily-vue-demo/#/throttle" target="_blank" rel="noopener">throttle 截流</a><br><a href="https://chengheai.github.io/daily-vue-demo/#/debounce" target="_blank" rel="noopener">debounce 防抖</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>一般情况下onresize，onkeyup事件使用防抖；onscroll、onmousemove等事件使用截流。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-09T08:48:32.094Z" itemprop="dateUpdated">2021/10/09 16:48:32 16:48:32</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/07/06/jenkins-docker-github-nginx前端实现自动化部署/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">jenkins+docker+github+nginx前端实现自动化部署</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>vue-quill-editor富文本编辑器实现图片插入七牛云上传 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="vue,富文本">
+    <meta name="description" content="前言vue-quill-editor是我们再使用vue框架的时候常用的一个富文本编辑器，在进行富文本编辑的时候，我们往往要插入一些图片，vue-quill-editor默认的处理方式是直接将图片转成base64编码，这样的结果是整个富文本的html片段十分冗余，通常来讲，每个服务器端接收的post的数据大小都是有限制的，这样的话有可能导致提交失败，数据要传递很久才全部传送到服务器。因此，在富文本编">
+<meta name="keywords" content="vue,富文本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-quill-editor富文本编辑器实现图片插入七牛云上传">
+<meta property="og:url" content="https://github.com/chengheai/2019/08/15/vue-quill-editor富文本编辑器实现图片插入七牛云上传/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="前言vue-quill-editor是我们再使用vue框架的时候常用的一个富文本编辑器，在进行富文本编辑的时候，我们往往要插入一些图片，vue-quill-editor默认的处理方式是直接将图片转成base64编码，这样的结果是整个富文本的html片段十分冗余，通常来讲，每个服务器端接收的post的数据大小都是有限制的，这样的话有可能导致提交失败，数据要传递很久才全部传送到服务器。因此，在富文本编">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-09T08:48:32.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-quill-editor富文本编辑器实现图片插入七牛云上传">
+<meta name="twitter:description" content="前言vue-quill-editor是我们再使用vue框架的时候常用的一个富文本编辑器，在进行富文本编辑的时候，我们往往要插入一些图片，vue-quill-editor默认的处理方式是直接将图片转成base64编码，这样的结果是整个富文本的html片段十分冗余，通常来讲，每个服务器端接收的post的数据大小都是有限制的，这样的话有可能导致提交失败，数据要传递很久才全部传送到服务器。因此，在富文本编">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue-quill-editor富文本编辑器实现图片插入七牛云上传</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue-quill-editor富文本编辑器实现图片插入七牛云上传</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-15T14:23:26.000Z" itemprop="datePublished" class="page-time">
+  2019/08/15 22:23:26
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#template"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">template</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#script"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">script</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vue-quill-editor富文本编辑器实现图片插入七牛云上传"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue-quill-editor富文本编辑器实现图片插入七牛云上传</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/08/15 22:23:26 22:23:26" datetime="2019-08-15T14:23:26.000Z"  itemprop="datePublished">2019/08/15 22:23:26</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>vue-quill-editor是我们再使用vue框架的时候常用的一个富文本编辑器，在进行富文本编辑的时候，我们往往要插入一些图片，vue-quill-editor默认的处理方式是直接将图片转成base64编码，这样的结果是整个富文本的html片段十分冗余，通常来讲，每个服务器端接收的post的数据大小都是有限制的，这样的话有可能导致提交失败，数据要传递很久才全部传送到服务器。<br>因此，在富文本编辑的过程中，对于图片的处理，我们更合理的做法是将图片上传到服务器，再将图片链接插入到富文本中。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 图片上传组件辅助--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-upload</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"avatar-uploader"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:action</span>=<span class="string">"serverUrl"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"img"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:headers</span>=<span class="string">"header"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:show-file-list</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:on-success</span>=<span class="string">"uploadSuccess"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:on-error</span>=<span class="string">"uploadError"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:before-upload</span>=<span class="string">"beforeUpload"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">el-upload</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--富文本编辑器组件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-row</span> <span class="attr">v-loading</span>=<span class="string">"quillUpdateImg"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">quill-editor</span></span></span><br><span class="line"><span class="tag">        <span class="attr">v-model</span>=<span class="string">"detailContent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">ref</span>=<span class="string">"myQuillEditor"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">:options</span>=<span class="string">"editorOption"</span></span></span><br><span class="line"><span class="tag">        @<span class="attr">change</span>=<span class="string">"onEditorChange($event)"</span></span></span><br><span class="line"><span class="tag">        @<span class="attr">ready</span>=<span class="string">"onEditorReady($event)"</span></span></span><br><span class="line"><span class="tag">      &gt;</span><span class="tag">&lt;/<span class="name">quill-editor</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 工具栏配置</span></span><br><span class="line"><span class="keyword">const</span> toolbarOptions = [</span><br><span class="line">  [<span class="string">'bold'</span>, <span class="string">'italic'</span>, <span class="string">'underline'</span>, <span class="string">'strike'</span>], <span class="comment">// toggled buttons</span></span><br><span class="line">  [<span class="string">'blockquote'</span>, <span class="string">'code-block'</span>],</span><br><span class="line"></span><br><span class="line">  [&#123; <span class="attr">header</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">header</span>: <span class="number">2</span> &#125;], <span class="comment">// custom button values</span></span><br><span class="line">  [&#123; <span class="attr">list</span>: <span class="string">'ordered'</span> &#125;, &#123; <span class="attr">list</span>: <span class="string">'bullet'</span> &#125;],</span><br><span class="line">  [&#123; <span class="attr">script</span>: <span class="string">'sub'</span> &#125;, &#123; <span class="attr">script</span>: <span class="string">'super'</span> &#125;], <span class="comment">// superscript/subscript</span></span><br><span class="line">  [&#123; <span class="attr">indent</span>: <span class="string">'-1'</span> &#125;, &#123; <span class="attr">indent</span>: <span class="string">'+1'</span> &#125;], <span class="comment">// outdent/indent</span></span><br><span class="line">  [&#123; <span class="attr">direction</span>: <span class="string">'rtl'</span> &#125;], <span class="comment">// text direction</span></span><br><span class="line"></span><br><span class="line">  [&#123; <span class="attr">size</span>: [<span class="string">'small'</span>, <span class="literal">false</span>, <span class="string">'large'</span>, <span class="string">'huge'</span>] &#125;], <span class="comment">// custom dropdown</span></span><br><span class="line">  [&#123; <span class="attr">header</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="literal">false</span>] &#125;],</span><br><span class="line"></span><br><span class="line">  [&#123; <span class="attr">color</span>: [] &#125;, &#123; <span class="attr">background</span>: [] &#125;], <span class="comment">// dropdown with defaults from theme</span></span><br><span class="line">  [&#123; <span class="attr">font</span>: [] &#125;],</span><br><span class="line">  [&#123; <span class="attr">align</span>: [] &#125;],</span><br><span class="line">  [<span class="string">'link'</span>, <span class="string">'image'</span>, <span class="string">'video'</span>],</span><br><span class="line">  [<span class="string">'clean'</span>], <span class="comment">// remove formatting button</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      serverUrl: <span class="string">''</span>, <span class="comment">// 这里写你要上传的图片服务器地址</span></span><br><span class="line">      header: &#123; <span class="attr">token</span>: sessionStorage.token &#125;, <span class="comment">// 有的图片服务器要求请求头需要有token之类的参数，写在这里</span></span><br><span class="line">      detailContent: <span class="string">''</span>, <span class="comment">// 富文本内容</span></span><br><span class="line">      editorOption: &#123;</span><br><span class="line">        placeholder: <span class="string">''</span>,</span><br><span class="line">        theme: <span class="string">'snow'</span>, <span class="comment">// or 'bubble'</span></span><br><span class="line">        modules: &#123;</span><br><span class="line">          toolbar: &#123;</span><br><span class="line">            container: toolbarOptions, <span class="comment">// 工具栏</span></span><br><span class="line">            handlers: &#123;</span><br><span class="line">              image: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (value) &#123;</span><br><span class="line">                  <span class="built_in">document</span>.querySelector(<span class="string">'#quill-upload input'</span>).click();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">this</span>.quill.format(<span class="string">'image'</span>, <span class="literal">false</span>);</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="comment">// 富文本图片上传前</span></span><br><span class="line">    beforeUpload() &#123;</span><br><span class="line">      <span class="comment">// 显示loading动画</span></span><br><span class="line">      <span class="keyword">this</span>.quillUpdateImg = <span class="literal">true</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    uploadSuccess(res, file) &#123;</span><br><span class="line">      <span class="comment">// res为图片服务器返回的数据</span></span><br><span class="line">      <span class="comment">// 获取富文本组件实例</span></span><br><span class="line">      <span class="keyword">let</span> quill = <span class="keyword">this</span>.$refs.myQuillEditor.quill;</span><br><span class="line">      <span class="comment">// 如果上传成功</span></span><br><span class="line">      <span class="keyword">if</span> (res.status === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取光标所在位置</span></span><br><span class="line">        <span class="keyword">let</span> length = quill.getSelection().index;</span><br><span class="line">        <span class="comment">// 插入图片  res.info为服务器返回的图片地址</span></span><br><span class="line">        quill.insertEmbed(length, <span class="string">'image'</span>, res.info);</span><br><span class="line">        <span class="comment">// 调整光标到最后</span></span><br><span class="line">        quill.setSelection(length + <span class="number">1</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.$message.error(<span class="string">'图片插入失败'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// loading动画消失</span></span><br><span class="line">      <span class="keyword">this</span>.quillUpdateImg = <span class="literal">false</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 富文本图片上传失败</span></span><br><span class="line">    uploadError() &#123;</span><br><span class="line">      <span class="comment">// loading动画消失</span></span><br><span class="line">      <span class="keyword">this</span>.quillUpdateImg = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">this</span>.$message.error(<span class="string">'图片插入失败'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    onEditorReady(quill) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'editor ready!'</span>, quill);</span><br><span class="line">    &#125;,</span><br><span class="line">    onEditorChange(&#123; quill, html, text &#125;) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'editor change!'</span>, quill, html, text);</span><br><span class="line">      <span class="keyword">this</span>.detailContent = html;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-09T08:48:32.078Z" itemprop="dateUpdated">2021/10/09 16:48:32 16:48:32</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/富文本/">富文本</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/20/vue-quill-editor富文本内容在页面中样式丢失/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue-quill-editor富文本内容在页面中样式丢失</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/13/微信支付当前页面的URL未注册问题-单页面/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">微信支付当前页面的URL未注册问题[单页面]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

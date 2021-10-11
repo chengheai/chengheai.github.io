@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>前端库2018总结 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="总结">
+    <meta name="description" content="GitHub前端库2018/12/19打包工具 webpack - 打包项目。 rollup - 打包 npm 库。 parcel - webpack 竞品，但发展前景不乐观，再观察一段时间。 systemjs - 针对一些特殊场景会比较有用，比如云 ide，支付宝小程序 IDE 等。 microbundle - 基于 rollup，简化配置。 webpack-dev-server - webpa">
+<meta name="keywords" content="总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端库2018总结">
+<meta property="og:url" content="https://github.com/chengheai/2018/12/20/前端库2018总结/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="GitHub前端库2018/12/19打包工具 webpack - 打包项目。 rollup - 打包 npm 库。 parcel - webpack 竞品，但发展前景不乐观，再观察一段时间。 systemjs - 针对一些特殊场景会比较有用，比如云 ide，支付宝小程序 IDE 等。 microbundle - 基于 rollup，简化配置。 webpack-dev-server - webpa">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-09T08:48:32.086Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端库2018总结">
+<meta name="twitter:description" content="GitHub前端库2018/12/19打包工具 webpack - 打包项目。 rollup - 打包 npm 库。 parcel - webpack 竞品，但发展前景不乐观，再观察一段时间。 systemjs - 针对一些特殊场景会比较有用，比如云 ide，支付宝小程序 IDE 等。 microbundle - 基于 rollup，简化配置。 webpack-dev-server - webpa">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端库2018总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端库2018总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-20T02:15:05.000Z" itemprop="datePublished" class="page-time">
+  2018/12/20 10:15:05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GitHub"><span class="post-toc-number">1.</span> <span class="post-toc-text">GitHub</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前端库2018-12-19"><span class="post-toc-number"></span> <span class="post-toc-text">前端库2018/12/19</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#打包工具"><span class="post-toc-number"></span> <span class="post-toc-text">打包工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#webpack-loader-和插件"><span class="post-toc-number">1.</span> <span class="post-toc-text">webpack loader 和插件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#包管理"><span class="post-toc-number"></span> <span class="post-toc-text">包管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#babel"><span class="post-toc-number"></span> <span class="post-toc-text">babel</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试"><span class="post-toc-number"></span> <span class="post-toc-text">测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#框架"><span class="post-toc-number"></span> <span class="post-toc-text">框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#react-相关库"><span class="post-toc-number"></span> <span class="post-toc-text">react 相关库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vue-相关库"><span class="post-toc-number"></span> <span class="post-toc-text">vue 相关库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工具类"><span class="post-toc-number"></span> <span class="post-toc-text">工具类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据流"><span class="post-toc-number"></span> <span class="post-toc-text">数据流</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redux-扩展"><span class="post-toc-number">1.</span> <span class="post-toc-text">redux 扩展</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性能优化"><span class="post-toc-number"></span> <span class="post-toc-text">性能优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语言"><span class="post-toc-number"></span> <span class="post-toc-text">语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文档"><span class="post-toc-number"></span> <span class="post-toc-text">文档</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程"><span class="post-toc-number"></span> <span class="post-toc-text">工程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑器"><span class="post-toc-number"></span> <span class="post-toc-text">编辑器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#css"><span class="post-toc-number"></span> <span class="post-toc-text">css</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令行"><span class="post-toc-number"></span> <span class="post-toc-text">命令行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请求处理"><span class="post-toc-number"></span> <span class="post-toc-text">请求处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法解析"><span class="post-toc-number"></span> <span class="post-toc-text">语法解析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-number"></span> <span class="post-toc-text">其他</span></a>
+        </nav>
+    </aside>
+
+
+<article id="post-前端库2018总结"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端库2018总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018/12/20 10:15:05 10:15:05" datetime="2018-12-20T02:15:05.000Z"  itemprop="datePublished">2018/12/20 10:15:05</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a><a href="https://github.com/chengheai/stud-libs">GitHub</a></h3><h2 id="前端库2018-12-19"><a href="#前端库2018-12-19" class="headerlink" title="前端库2018/12/19"></a>前端库2018/12/19</h2><h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><ul>
+<li><a href="https://github.com/webpack/webpack">webpack</a> - 打包项目。</li>
+<li><a href="https://github.com/rollup/rollup">rollup</a> - 打包 npm 库。</li>
+<li><a href="https://github.com/parcel-bundler/parcel">parcel</a> - webpack 竞品，但发展前景不乐观，再观察一段时间。</li>
+<li><a href="https://github.com/systemjs/systemjs">systemjs</a> - 针对一些特殊场景会比较有用，比如云 ide，支付宝小程序 IDE 等。</li>
+<li><a href="https://github.com/developit/microbundle">microbundle</a> - 基于 rollup，简化配置。</li>
+<li><a href="https://github.com/webpack/webpack-dev-server">webpack-dev-server</a> - webpack 开发服务器。</li>
+<li><a href="https://github.com/webpack/webpack-dev-middleware">webpack-dev-middleware</a> - webpack 中间件。</li>
+<li><a href="https://github.com/vuejs/vue-cli">vue-cli</a> - vue 命令行工具。</li>
+<li><a href="https://github.com/facebook/create-react-app">create-react-app</a> - react 官方脚手架。</li>
+<li><a href="https://github.com/survivejs/webpack-merge">webpack-merge</a> - 合并 webpack 配置。</li>
+<li><a href="https://github.com/neutrinojs/webpack-chain">webpack-chain</a> - 通过 chain 风格 api 的方式修改 webpack 配置。</li>
+</ul>
+<h3 id="webpack-loader-和插件"><a href="#webpack-loader-和插件" class="headerlink" title="webpack loader 和插件"></a>webpack loader 和插件</h3><ul>
+<li><a href="https://github.com/mzgoddard/hard-source-webpack-plugin">hard-source-webpack-plugin</a> - 性能提升 70%，但有坑。</li>
+<li><a href="https://github.com/smooth-code/svgr">svgr</a> - svg 转 react 组件。</li>
+<li><a href="https://github.com/postcss/postcss">postcss</a> - CSS 界的 babel。</li>
+<li><a href="https://github.com/postcss/autoprefixer">autoprefixer</a> - 为 CSS 选择权自动加 prefix。</li>
+<li><a href="https://github.com/cssnano/cssnano">cssnano</a> - CSS 压缩，也有类 preset 的概念。</li>
+<li><a href="https://github.com/webpack-contrib/mini-css-extract-plugin">mini-css-extract-plugin</a> - 提取 CSS 为单独文件。</li>
+<li><a href="https://github.com/nuxt/webpackbar">webpackbar</a> - webpack 进度条。</li>
+<li><a href="https://github.com/webpack-contrib/webpack-bundle-analyzer">webpack-bundle-analyzer</a> - 构建产物占比分析。</li>
+<li><a href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">uglifyjs-webpack-plugin</a> - JS 压缩，产物为 ES5 语法。</li>
+<li><a href="https://github.com/webpack-contrib/terser-webpack-plugin">terser-webpack-plugin</a> - JS 压缩，产物为 ES6 语法。</li>
+<li><a href="https://github.com/danethurber/webpack-manifest-plugin">webpack-manifest-plugin</a> - 生成 manifest.json。</li>
+<li><a href="https://github.com/webpack-contrib/copy-webpack-plugin">copy-webpack-plugin</a> - 复制额外的文件到输出目录。</li>
+<li><a href="https://github.com/Urthen/case-sensitive-paths-webpack-plugin">case-sensitive-paths-webpack-plugin</a> - 大小写敏感检测，能规避一些问题，但构建时性能消耗较大。</li>
+<li><a href="https://github.com/shepherdwind/css-hot-loader">css-hot-loader</a> - CSS 热更新，搭配 mini-css-extract-plugin 使用。</li>
+<li><a href="https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin">duplicate-package-checker-webpack-plugin</a> - 重复依赖检测。</li>
+</ul>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><ul>
+<li><a href="https://github.com/yarnpkg/yarn">yarn</a></li>
+<li><a href="https://github.com/npm/cli">npm</a></li>
+</ul>
+<h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><ul>
+<li><a href="https://github.com/babel/babel">babel</a></li>
+<li><a href="https://github.com/sokra/rawact">babel-plugin-rawest</a> - React 的 DOM 直出方案。</li>
+<li><a href="https://github.com/kentcdodds/babel-plugin-macros">babel-plugin-macros</a> - 前端文件写 node 逻辑。</li>
+<li><a href="https://github.com/airbnb/babel-plugin-dynamic-import-node">babel-plugin-dynamic-import-node</a> - 有些场景下会需要禁用 <code>import()</code> 语法。</li>
+<li><a href="https://github.com/vslinko/babel-plugin-react-require">babel-plugin-react-require</a> - 自动为 jsx 语法加 react 引用。</li>
+<li><a href="https://github.com/nkt/babel-plugin-react-remove-prop-types">babel-plugin-react-remove-prop-types</a> - 删除 prop-types，生产环境用。</li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ul>
+<li><a href="https://github.com/facebook/jest">jest</a></li>
+<li><a href="https://github.com/kulshekhar/ts-jest">ts-jest</a></li>
+<li><a href="https://github.com/airbnb/enzyme">enzyme</a></li>
+<li><a href="https://github.com/jsdom/jsdom">jsdom</a></li>
+<li><a href="https://github.com/GoogleChrome/puppeteer">puppeteer</a></li>
+<li><a href="https://github.com/facebook/react/tree/master/packages/react-test-renderer">react-test-rerender</a> - 官方出品。</li>
+<li><a href="https://github.com/kentcdodds/react-testing-library">react-testing-library</a> - kentcdodds 出品。</li>
+</ul>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><ul>
+<li><a href="https://github.com/facebook/react">react</a></li>
+<li><a href="https://github.com/vuejs/vue">vue</a></li>
+<li><a href="https://github.com/zeit/next.js">next.js</a></li>
+<li><a href="https://github.com/nuxt/nuxt.js">nuxt.js</a></li>
+<li><a href="https://github.com/gatsbyjs/gatsby">gastby</a></li>
+<li><a href="https://github.com/umijs/umi">umi</a></li>
+<li><a href="https://github.com/choojs/choo">choo</a></li>
+<li><a href="https://github.com/NervJS/taro">taro</a> - 用 React 写小程序，适配微信和支付宝等。</li>
+<li><a href="https://github.com/Meituan-Dianping/mpvue">mpvue</a> - 用 Vue 写小程序。</li>
+<li><a href="https://github.com/jaredpalmer/after.js">after.js</a></li>
+</ul>
+<h2 id="react-相关库"><a href="#react-相关库" class="headerlink" title="react 相关库"></a>react 相关库</h2><ul>
+<li><a href="https://github.com/developit/preact">preact</a> - 轻量级 React 实现。</li>
+<li><a href="https://github.com/infernojs/inferno">inferno</a> - 轻量级 React 实现。</li>
+<li><a href="https://github.com/ReactTraining/react-router">react-router</a> - React 路由方案。</li>
+<li><a href="https://github.com/reach/router">reach-router</a> - React 路由方案，较新，优势是可访问性。</li>
+<li><a href="https://github.com/router5/router5">router5</a> - 通用的路由方案。</li>
+<li><a href="https://github.com/jamiebuilds/react-loadable">react-loadable</a> - 按需加载 react 组件。</li>
+<li><a href="https://github.com/ant-design/ant-design">ant-design</a> - 蚂蚁金服的 React UI 库。</li>
+<li><a href="https://github.com/mui-org/material-ui">material-ui</a> - UI 库。</li>
+<li><a href="https://github.com/yahoo/react-intl">react-intl</a> - React 的国际化方案。</li>
+<li><a href="https://github.com/react-dnd/react-dnd">react-dnd</a> - 拖拽实现。</li>
+<li><a href="https://github.com/nfl/react-helmet">react-helmet</a> - 修改 html 的 header 内容。</li>
+</ul>
+<h2 id="vue-相关库"><a href="#vue-相关库" class="headerlink" title="vue 相关库"></a>vue 相关库</h2><ul>
+<li><a href="https://github.com/vuejs/vue-router">vue-router</a></li>
+</ul>
+<h2 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h2><ul>
+<li><a href="https://github.com/ReactTraining/history">history</a></li>
+<li><a href="https://github.com/pillarjs/path-to-regexp">path-to-regexp</a></li>
+<li><a href="https://github.com/lodash/lodash">lodash</a></li>
+<li><a href="https://github.com/ftlabs/fastclick">fastclick</a></li>
+</ul>
+<h2 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h2><ul>
+<li><a href="https://github.com/reduxjs/redux">redux</a></li>
+<li><a href="https://github.com/mweststrate/immer">immer</a></li>
+<li><a href="https://github.com/mobxjs/mobx">mobx</a></li>
+<li><a href="https://github.com/jamiebuilds/unstated">unstated</a></li>
+<li><a href="https://github.com/ReactiveX/rxjs">rxjs</a></li>
+<li><a href="https://github.com/dvajs/dva">dva</a></li>
+<li><a href="https://github.com/rematch/rematch">rematch</a> - 基于 redux。</li>
+<li><a href="https://github.com/vuejs/vuex">vuex</a></li>
+<li><a href="https://github.com/ngrx/platform">ngrx</a></li>
+</ul>
+<h3 id="redux-扩展"><a href="#redux-扩展" class="headerlink" title="redux 扩展"></a>redux 扩展</h3><ul>
+<li><a href="https://github.com/reduxjs/react-redux">react-redux</a> - 绑定 react 和 redux。</li>
+<li><a href="https://github.com/redux-saga/redux-saga">redux-saga</a></li>
+<li><a href="https://github.com/rt2zz/redux-persist">redux-persist</a></li>
+<li><a href="https://github.com/henrikjoreteg/redux-bundler">redux-bundler</a></li>
+<li><a href="https://github.com/anish000kumar/redux-box">redux-box</a></li>
+</ul>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><ul>
+<li><a href="https://github.com/GoogleChrome/workbox">workbox</a> - PWA 方案，Google 出品。</li>
+<li><a href="https://github.com/addyosmani/critical">critical</a> - 提取关键 CSS。</li>
+</ul>
+<h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><ul>
+<li><a href="https://github.com/Microsoft/TypeScript">typescript</a></li>
+<li><a href="https://github.com/facebook/flow">flow</a></li>
+<li><a href="https://github.com/graphql/graphql-js">graphql</a></li>
+</ul>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><ul>
+<li><a href="https://github.com/vuejs/vuepress">vuepress</a></li>
+<li><a href="https://github.com/pedronauck/docz">docz</a></li>
+</ul>
+<h2 id="工程"><a href="#工程" class="headerlink" title="工程"></a>工程</h2><ul>
+<li><a href="https://github.com/lerna/lerna">lerna</a> - monorepo 管理。</li>
+<li><a href="https://github.com/lerna/lerna-changelog">lerna-changelog</a> - 为 lerna 项目自动生成 changelog。</li>
+<li><a href="https://github.com/eslint/eslint">eslint</a> - JS 风格约束。</li>
+<li><a href="https://github.com/airbnb/javascript">eslint-config-airbnb</a></li>
+<li><a href="https://github.com/prettier/prettier">prettier</a> - 更主观的风格自动修改。</li>
+<li><a href="https://github.com/yeoman/generator">yeoman-generator</a> - 脚手架工具。</li>
+<li><a href="https://github.com/zeit/serve">serve</a> - 本地静态服务器。</li>
+<li><a href="https://github.com/sindresorhus/np">np</a> - npm publish 辅助，自动 push、打 tag、升版本等。</li>
+<li><a href="https://github.com/okonet/lint-staged">lint-staged</a> - eslint 提速，只 lint 提交的代码。</li>
+<li><a href="https://github.com/marketplace/coveralls">coveralls</a> - 覆盖率。</li>
+<li><a href="https://github.com/typicode/husky">husky</a> - 添加 git hooks。</li>
+<li><a href="https://github.com/kentcdodds/cross-env">cross-env</a> - 跨平台的环境变量声明。</li>
+<li><a href="https://github.com/popomore/projj">projj</a> - 本地 git 项目管理，支持 github 和 gitlab。</li>
+<li><a href="https://github.com/creationix/nvm">nvm</a> - 管理 node 版本。</li>
+<li><a href="https://github.com/kimmobrunfeldt/concurrently">concurrently</a> - 在 npm scripts 里并行执行命令。</li>
+<li><a href="https://github.com/zeit/ncc">@zeit/ncc</a> - 打包为 npm 包为一个文件。</li>
+</ul>
+<h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><ul>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a></li>
+<li><a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener">IntelliJ IDEA</a></li>
+<li><a href="https://codesandbox.io/" target="_blank" rel="noopener">codesandbox</a></li>
+<li><a href="https://stackblitz.com/" target="_blank" rel="noopener">stackblitz</a></li>
+</ul>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><ul>
+<li><a href="https://github.com/css-modules/css-modules">css modules</a></li>
+<li><a href="https://github.com/emotion-js/emotion">emotion</a></li>
+</ul>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><ul>
+<li><a href="https://github.com/yargs/yargs">yargs</a> - 命令行入口套件。</li>
+<li><a href="https://github.com/yargs/yargs-parser">yargs-parser</a> - 命令行参数解析。</li>
+<li><a href="https://github.com/chalk/chalk">chalk</a> - 输出不同颜色。</li>
+<li><a href="https://github.com/cheeriojs/cheerio">cheerio</a> - 用类 jQuery 语法处理 HTML。</li>
+<li><a href="https://github.com/paulmillr/chokidar">chokidar</a> - 文件监听。</li>
+<li><a href="https://github.com/sindresorhus/clipboardy">clipboardy</a> - 复制文本到粘贴板。</li>
+<li><a href="https://github.com/visionmedia/debug">debug</a> - 打印调试信息。</li>
+<li><a href="https://github.com/brianc/node-deprecate">deprecate</a> - 给过期警告。</li>
+<li><a href="https://github.com/isaacs/node-glob">glob</a> - 文件查找。</li>
+<li><a href="https://github.com/terkelg/tiny-glob">tiny-glob</a> - 文件查找。</li>
+<li><a href="https://github.com/klaussinani/signale">signale</a> - 漂亮的日志打印。</li>
+<li><a href="https://github.com/npm/node-semver">semver</a> - semver 版本处理。</li>
+<li><a href="https://github.com/yeoman/update-notifier">update-notifier</a> - 更新提醒。</li>
+<li><a href="https://github.com/isaacs/rimraf">rimraf</a> - 删除文件。</li>
+<li><a href="https://github.com/dougwilson/nodejs-depd">depd</a> - 给出 deprecated 警告。</li>
+</ul>
+<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><ul>
+<li><a href="https://github.com/github/fetch">whatwg-fetch</a></li>
+<li><a href="https://github.com/sindresorhus/got">got</a></li>
+<li><a href="https://github.com/axios/axios">axios</a></li>
+<li><a href="https://github.com/request/request">request</a></li>
+<li><a href="https://github.com/ded/reqwest">reqwest</a></li>
+</ul>
+<h2 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h2><ul>
+<li><a href="https://github.com/estools/esquery">esquery</a> - 语法树查询。</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><a href="https://github.com/electron/electron">electron</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-09T08:48:32.086Z" itemprop="dateUpdated">2021/10/09 16:48:32 16:48:32</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/24/vue中-keyup-enter-native输入法的回车与消息发送快捷键回车的冲突解决方法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue中@keyup.enter.native输入法的回车与消息发送快捷键回车的冲突解决方法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/10/react-antd-mongodb-express实现增删查改/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">react+antd+mongodb+express实现增删查改</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>git常用指令大全 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="git">
+    <meta name="description" content="查看、添加、提交、删除、找回，重置修改文件123456789101112131415161718git help &amp;lt;command&amp;gt; # 显示command的helpgit show # 显示某次提交的内容 git show $idgit co -- &amp;lt;file&amp;gt; # 抛弃工作区修改git co . # 抛弃工作区修改git add &amp;lt;file&amp;gt; # 将工作文件">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用指令大全">
+<meta property="og:url" content="https://github.com/chengheai/2019/08/20/git常用指令大全/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="查看、添加、提交、删除、找回，重置修改文件123456789101112131415161718git help &amp;lt;command&amp;gt; # 显示command的helpgit show # 显示某次提交的内容 git show $idgit co -- &amp;lt;file&amp;gt; # 抛弃工作区修改git co . # 抛弃工作区修改git add &amp;lt;file&amp;gt; # 将工作文件">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-09T08:48:32.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git常用指令大全">
+<meta name="twitter:description" content="查看、添加、提交、删除、找回，重置修改文件123456789101112131415161718git help &amp;lt;command&amp;gt; # 显示command的helpgit show # 显示某次提交的内容 git show $idgit co -- &amp;lt;file&amp;gt; # 抛弃工作区修改git co . # 抛弃工作区修改git add &amp;lt;file&amp;gt; # 将工作文件">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git常用指令大全</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git常用指令大全</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-20T14:05:20.000Z" itemprop="datePublished" class="page-time">
+  2019/08/20 22:05:20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看、添加、提交、删除、找回，重置修改文件"><span class="post-toc-number">1.</span> <span class="post-toc-text">查看、添加、提交、删除、找回，重置修改文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看、切换、创建和删除分支"><span class="post-toc-number">2.</span> <span class="post-toc-text">查看、切换、创建和删除分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看文件diff"><span class="post-toc-number">3.</span> <span class="post-toc-text">查看文件diff</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看提交记录"><span class="post-toc-number">4.</span> <span class="post-toc-text">查看提交记录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分支合并和rebase"><span class="post-toc-number">5.</span> <span class="post-toc-text">分支合并和rebase</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#暂存管理"><span class="post-toc-number">6.</span> <span class="post-toc-text">暂存管理</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-git常用指令大全"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git常用指令大全</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/08/20 22:05:20 22:05:20" datetime="2019-08-20T14:05:20.000Z"  itemprop="datePublished">2019/08/20 22:05:20</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="查看、添加、提交、删除、找回，重置修改文件"><a href="#查看、添加、提交、删除、找回，重置修改文件" class="headerlink" title="查看、添加、提交、删除、找回，重置修改文件"></a>查看、添加、提交、删除、找回，重置修改文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">git help &lt;command&gt; # 显示command的help</span><br><span class="line">git show # 显示某次提交的内容 git show $id</span><br><span class="line">git co -- &lt;file&gt; # 抛弃工作区修改</span><br><span class="line">git co . # 抛弃工作区修改</span><br><span class="line">git add &lt;file&gt; # 将工作文件修改提交到本地暂存区</span><br><span class="line">git add . # 将所有修改过的工作文件提交暂存区</span><br><span class="line">git rm &lt;file&gt; # 从版本库中删除文件</span><br><span class="line">git rm &lt;file&gt; --cached # 从版本库中删除文件，但不删除文件</span><br><span class="line">git reset &lt;file&gt; # 从暂存区恢复到工作文件</span><br><span class="line">git reset -- . # 从暂存区恢复到工作文件</span><br><span class="line">git reset --hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改</span><br><span class="line">git ci &lt;file&gt; git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　git ci -am "some comments"</span><br><span class="line">git ci --amend # 修改最后一次提交记录</span><br><span class="line">git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象</span><br><span class="line">git revert HEAD # 恢复最后一次提交的状态</span><br><span class="line">tig</span><br><span class="line">Mac上可以使用tig代替diff和log，brew install tig</span><br><span class="line">Git 本地分支管理</span><br></pre></td></tr></table></figure>
+<h2 id="查看、切换、创建和删除分支"><a href="#查看、切换、创建和删除分支" class="headerlink" title="查看、切换、创建和删除分支"></a>查看、切换、创建和删除分支</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">git br -r # 查看远程分支</span><br><span class="line">git br &lt;new_branch&gt; # 创建新的分支</span><br><span class="line">git br -v # 查看各个分支最后提交信息</span><br><span class="line">git br --merged # 查看已经被合并到当前分支的分支</span><br><span class="line">git br --no-merged # 查看尚未被合并到当前分支的分支</span><br><span class="line">git co &lt;branch&gt; # 切换到某个分支</span><br><span class="line">git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去</span><br><span class="line">git co -b &lt;new_branch&gt; &lt;branch&gt; # 基于branch创建新的new_branch</span><br><span class="line">git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除</span><br><span class="line">git co $id -b &lt;new_branch&gt; # 把某次历史提交记录checkout出来，创建成一个分支</span><br><span class="line">git br -d &lt;branch&gt; # 删除某个分支</span><br><span class="line">git br -D &lt;branch&gt; # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</span><br><span class="line">git remote -v # 查看远程服务器地址和仓库名称</span><br><span class="line">git remote show origin # 查看远程服务器仓库状态</span><br><span class="line">git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址</span><br><span class="line">git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm &lt;repository&gt; # 删除远程仓库</span><br><span class="line">git clone --bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库</span><br><span class="line">scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上</span><br><span class="line">mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git --bare init # 在服务器创建纯仓库</span><br><span class="line">git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址</span><br><span class="line">git push -u origin master # 客户端首次提交</span><br><span class="line">git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track</span><br><span class="line">git remote set-head origin master # 设置远程仓库的HEAD指向master分支</span><br><span class="line">也可以命令设置跟踪远程库和本地库</span><br><span class="line">git branch --set-upstream master origin/master</span><br><span class="line">git branch --set-upstream develop origin/develop</span><br></pre></td></tr></table></figure>
+<h2 id="查看文件diff"><a href="#查看文件diff" class="headerlink" title="查看文件diff"></a>查看文件diff</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;file&gt; # 比较当前文件和暂存区文件差异 git diff</span><br><span class="line">git diff &lt;id1&gt;&lt;id1&gt;&lt;id2&gt; # 比较两次提交之间的差异</span><br><span class="line">git diff &lt;branch1&gt;..&lt;branch2&gt; # 在两个分支之间比较</span><br><span class="line">git diff --staged # 比较暂存区和版本库差异</span><br><span class="line">git diff --cached # 比较暂存区和版本库差异</span><br><span class="line">git diff --stat # 仅仅比较统计信息</span><br></pre></td></tr></table></figure>
+<h2 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git log git log &lt;file&gt; # 查看该文件每次提交记录</span><br><span class="line">git log -p &lt;file&gt; # 查看每次详细修改内容的diff</span><br><span class="line">git log -p -2 # 查看最近两次详细修改内容的diff</span><br><span class="line">git log --stat #查看提交统计信息</span><br></pre></td></tr></table></figure>
+<h2 id="分支合并和rebase"><a href="#分支合并和rebase" class="headerlink" title="分支合并和rebase"></a>分支合并和rebase</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;branch&gt; # 将branch分支合并到当前分支</span><br><span class="line">git merge origin/master --no-ff # 不要Fast-Foward合并，这样可以生成merge提交</span><br><span class="line">git rebase master &lt;branch&gt; # 将master rebase到branch，相当于： git co &lt;branch&gt; &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="暂存管理"><a href="#暂存管理" class="headerlink" title="暂存管理"></a>暂存管理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git stash # 暂存</span><br><span class="line">git stash list # 列所有stash</span><br><span class="line">git stash apply # 恢复暂存的内容</span><br><span class="line">git stash drop # 删除暂存区</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-09T08:48:32.067Z" itemprop="dateUpdated">2021/10/09 16:48:32 16:48:32</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/27/服务端渲染添加多个swiper/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue-ssr服务端渲染添加多个swiper</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/20/vue-quill-editor富文本内容在页面中样式丢失/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue-quill-editor富文本内容在页面中样式丢失</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

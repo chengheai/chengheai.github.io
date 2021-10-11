@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>在docker下删除一个或多个image及container | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="docker">
+    <meta name="description" content="停止所有的container，这样才能够删除其中的images 删除一个container公式1docker rm container_name/ID 1234➜  docker git:(master) ✗ docker ps -aCONTAINER ID        IMAGE               COMMAND             CREATED             STA">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在docker下删除一个或多个image及container">
+<meta property="og:url" content="https://github.com/chengheai/2018/11/15/下删除一个或多个image及container/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="停止所有的container，这样才能够删除其中的images 删除一个container公式1docker rm container_name/ID 1234➜  docker git:(master) ✗ docker ps -aCONTAINER ID        IMAGE               COMMAND             CREATED             STA">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-09T08:48:32.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在docker下删除一个或多个image及container">
+<meta name="twitter:description" content="停止所有的container，这样才能够删除其中的images 删除一个container公式1docker rm container_name/ID 1234➜  docker git:(master) ✗ docker ps -aCONTAINER ID        IMAGE               COMMAND             CREATED             STA">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">在docker下删除一个或多个image及container</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">在docker下删除一个或多个image及container</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-15T06:13:52.000Z" itemprop="datePublished" class="page-time">
+  2018/11/15 14:13:52
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除一个container"><span class="post-toc-number">1.</span> <span class="post-toc-text">删除一个container</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#公式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">公式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除多个container"><span class="post-toc-number">2.</span> <span class="post-toc-text">删除多个container</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除一个image"><span class="post-toc-number">3.</span> <span class="post-toc-text">删除一个image</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#停止"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">停止</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看所有"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">查看所有</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检查是否删除"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">检查是否删除</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除多个image"><span class="post-toc-number">4.</span> <span class="post-toc-text">删除多个image</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#强制删除"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">强制删除</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="在docker-下删除一个或多个image及container"
+  class="post-article article-type-在docker fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">在docker下删除一个或多个image及container</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018/11/15 14:13:52 14:13:52" datetime="2018-11-15T06:13:52.000Z"  itemprop="datePublished">2018/11/15 14:13:52</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><table><tr><td bgcolor="orange">停止所有的container，这样才能够删除其中的images</td></tr></table></p>
+<h3 id="删除一个container"><a href="#删除一个container" class="headerlink" title="删除一个container"></a>删除一个container</h3><h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm container_name/ID</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  docker git:(master) ✗ docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS               NAMES</span><br><span class="line">41c2ed15b32a        koa-demo            <span class="string">"/bin/bash"</span>         About an hour ago   Exited (127) About an hour ago                       awesome_noyce</span><br><span class="line">caec5440819a        hello-world         <span class="string">"/hello"</span>            2 hours ago         Exited (0) 2 hours ago                               festive_austin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  docker git:(master) ✗ docker rm caec5440819a</span><br><span class="line">caec5440819a</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  docker git:(master) ✗ docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS               NAMES</span><br><span class="line">41c2ed15b32a        koa-demo            &quot;/bin/bash&quot;         About an hour ago   Exited (127) About an hour ago                       awesome_noyce</span><br></pre></td></tr></table></figure>
+<h3 id="删除多个container"><a href="#删除多个container" class="headerlink" title="删除多个container"></a>删除多个container</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h3 id="删除一个image"><a href="#删除一个image" class="headerlink" title="删除一个image"></a>删除一个image</h3><h4 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  docker git:(master) ✗  docker stop $(docker  ps  -a -q)</span><br><span class="line">41c2ed15b32a</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有"><a href="#查看所有" class="headerlink" title="查看所有"></a>查看所有</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  docker git:(master) ✗ docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">koa-demo            latest              7d24f0109057        About an hour ago   676MB</span><br><span class="line">hello-world         latest              4ab4c602aa5e        2 months ago        1.84kB</span><br><span class="line">node                8.4                 386940f92d24        14 months ago       673MB</span><br></pre></td></tr></table></figure>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  docker git:(master) ✗ docker rmi 4ab4c602aa5e</span><br><span class="line">Untagged: hello-world:latest</span><br><span class="line">Untagged: hello-world@sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788</span><br><span class="line">Deleted: sha256:4ab4c602aa5eed5528a6620ff18a1dc4faef0e1ab3a5eddeddb410714478c67f</span><br><span class="line">Deleted: sha256:428c97da766c4c13b19088a471de6b622b038f3ae8efa10ec5a37d6d31a2df0b</span><br></pre></td></tr></table></figure>
+<h4 id="检查是否删除"><a href="#检查是否删除" class="headerlink" title="检查是否删除"></a>检查是否删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  docker git:(master) ✗ docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">koa-demo            latest              7d24f0109057        About an hour ago   676MB</span><br><span class="line">node                8.4                 386940f92d24        14 months ago       673MB</span><br></pre></td></tr></table></figure>
+<h3 id="删除多个image"><a href="#删除多个image" class="headerlink" title="删除多个image"></a>删除多个image</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi  $( docker  images -q )</span><br></pre></td></tr></table></figure>
+<h4 id="强制删除"><a href="#强制删除" class="headerlink" title="强制删除"></a>强制删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi  imagename 或者docker  rmi  -f   imagename</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-09T08:48:32.083Z" itemprop="dateUpdated">2021/10/09 16:48:32 16:48:32</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/10/react-antd-mongodb-express实现增删查改/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">react+antd+mongodb+express实现增删查改</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/08/常见的-eslintrc-js配置及rules说明/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">常见的.eslintrc.js配置及rules说明</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>MongoDB导入与导出 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#B71">
+    
+    
+    <meta name="keywords" content="mongoDB">
+    <meta name="description" content="导出概念mongoDB 中的 mongoexport 工具可以把一个 collection 导出成 JSON 格式或 CSV 格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。 语法1234567mongoexport -d dbname -c collectionname -o file --type json/csv -f field        参数说明：">
+<meta name="keywords" content="mongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB导入与导出">
+<meta property="og:url" content="https://github.com/chengheai/2018/10/24/MongoDB导入与导出/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="导出概念mongoDB 中的 mongoexport 工具可以把一个 collection 导出成 JSON 格式或 CSV 格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。 语法1234567mongoexport -d dbname -c collectionname -o file --type json/csv -f field        参数说明：">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-09T08:48:32.059Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB导入与导出">
+<meta name="twitter:description" content="导出概念mongoDB 中的 mongoexport 工具可以把一个 collection 导出成 JSON 格式或 CSV 格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。 语法1234567mongoexport -d dbname -c collectionname -o file --type json/csv -f field        参数说明：">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.facebook.com/heai.cheng.9" target="_blank" >
+                <i class="icon icon-lg icon-facebook"></i>
+                Facebook
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MongoDB导入与导出</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">MongoDB导入与导出</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-24T07:50:48.000Z" itemprop="datePublished" class="page-time">
+  2018/10/24 15:50:48
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导出"><span class="post-toc-number">1.</span> <span class="post-toc-text">导出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例子"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导入"><span class="post-toc-number">2.</span> <span class="post-toc-text">导入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例子-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#备份"><span class="post-toc-number">3.</span> <span class="post-toc-text">备份</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#恢复"><span class="post-toc-number">4.</span> <span class="post-toc-text">恢复</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念-1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">概念</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-MongoDB导入与导出"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MongoDB导入与导出</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018/10/24 15:50:48 15:50:48" datetime="2018-10-24T07:50:48.000Z"  itemprop="datePublished">2018/10/24 15:50:48</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>mongoDB 中的 mongoexport 工具可以把一个 collection 导出成 JSON 格式或 CSV 格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mongoexport -d dbname -c collectionname -o file --type json/csv -f field</span><br><span class="line">        参数说明：</span><br><span class="line">            -d ：数据库名</span><br><span class="line">            -c ：collection名</span><br><span class="line">            -o ：输出的路径和文件名</span><br><span class="line">            --type ： 输出的格式，默认为json</span><br><span class="line">            -f ：输出的字段，如果-type为csv，则需要加上-f "字段名"</span><br></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  mongodb-vue git:(master) ✗ mongoexport -d lolTest -c myhero -o /Users/chengheai/Desktop/a.json --<span class="built_in">type</span> json</span><br><span class="line">2018-10-24T15:41:56.489+0800	connected to: localhost</span><br><span class="line">2018-10-24T15:41:56.496+0800	exported 12 records</span><br></pre></td></tr></table></figure>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    mongoimport -d dbname -c collectionname --file filename --headerline --type json/csv -f field</span><br><span class="line">   参数说明：</span><br><span class="line">            -d ：数据库名</span><br><span class="line">            -c ：collection名</span><br><span class="line">            --type ：导入的格式默认json</span><br><span class="line">            -f ：导入的字段名</span><br><span class="line">            --headerline ：如果导入的格式是csv，则可以使用第一行的标题作为导入的字段</span><br><span class="line">            --file ：要导入的文件</span><br></pre></td></tr></table></figure>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  mongodb-vue git:(master) ✗ mongoimport -d mgDbs -c myhero --file /Users/chengheai/Desktop/a.json  --<span class="built_in">type</span> json</span><br><span class="line">2018-10-24T15:47:09.209+0800	connected to: localhost</span><br><span class="line">2018-10-24T15:47:09.273+0800	imported 12 documents</span><br></pre></td></tr></table></figure>
+<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h host -d dbname -o directory</span><br><span class="line">mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存在路径</span><br><span class="line">Eg： # mongodump -d test -o /data/</span><br><span class="line">参数说明：</span><br><span class="line">如果想导出所有数据库，可以去掉-d</span><br><span class="line">-h：MongDB所在服务器地址，如：127.0.0.1，也可以指定端口号：127.0.0.1:27017</span><br><span class="line">-d：需要备份的数据库名称，如：db_test</span><br><span class="line">-o：备份的数据存放位置，如：~\dump，当然该目录需要提前建立，在备份完成后，系统自动在dump目录下建立一个db_test目录，这个目录里面存放该数据库实例的备份数据。</span><br></pre></td></tr></table></figure>
+<h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>mongorestore是Mongodb从备份中恢复数据的工具，它主要用来获取mongodump的输出结果，并将备份的数据插入到运行的Mongodb中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h host -d dbname --directoryperdb dbdirectory</span><br><span class="line">Eg:  # mongorestore --host=10.0.0.25 --port=27017 --db ztjy --dir=ztjy/</span><br><span class="line">参数说明：</span><br><span class="line">-h：MongoDB所在服务器地址</span><br><span class="line">-d：需要恢复的数据库名称，如：db_test，当然这个名称可以不同于备份的时候，比如new_db</span><br><span class="line">--directoryperdb：备份数据文件所在位置，如：~\dump\db_test（这里之所以要加db_test子目录，从mongoretore的help中的--directoryperdb，可以读出“每一个db在一个单独的目录”。）</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-09T08:48:32.059Z" itemprop="dateUpdated">2021/10/09 16:48:32 16:48:32</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars1.githubusercontent.com/u/26807610?s=460&v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoDB/">mongoDB</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/06/点击收起部分隐藏/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue点击收起部分隐藏</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/19/css划圆形进度条的demo/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">css划圆形进度条的demo</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>HEAI &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一份🎁';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '给时光一份浅浅的回眸，给心灵一份淡淡的安暖，芬芳过往，岁月静好';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
