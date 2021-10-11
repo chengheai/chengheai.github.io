@@ -80,4 +80,4 @@ theme: indigo
 deploy:
   type: git
   repo: git@github.com:chengheai/chengheai.github.io.git
-  branch: main
+  branch: gh-pages
