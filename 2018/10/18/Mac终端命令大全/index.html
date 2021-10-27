@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Mac终端命令大全 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content="mac">
+    <meta name="description" content="目录操作   命令名 功能描述 使用举例     mkdir 创建一个目录 mkdir dirname   rmdir 删除一个目录 rmdir dirname   mvdir 移动或重命名一个目录 mvdir dir1 dir2   cd 改变当前目录 cd dirname   pwd 显示当前目录的路径名 pwd   ls 显示当前目录的内容 ls -la   dircmp 比较两个目录的内容">
+<meta name="keywords" content="mac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac终端命令大全">
+<meta property="og:url" content="https://github.com/chengheai/2018/10/18/Mac终端命令大全/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="目录操作   命令名 功能描述 使用举例     mkdir 创建一个目录 mkdir dirname   rmdir 删除一个目录 rmdir dirname   mvdir 移动或重命名一个目录 mvdir dir1 dir2   cd 改变当前目录 cd dirname   pwd 显示当前目录的路径名 pwd   ls 显示当前目录的内容 ls -la   dircmp 比较两个目录的内容">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-20T14:10:38.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac终端命令大全">
+<meta name="twitter:description" content="目录操作   命令名 功能描述 使用举例     mkdir 创建一个目录 mkdir dirname   rmdir 删除一个目录 rmdir dirname   mvdir 移动或重命名一个目录 mvdir dir1 dir2   cd 改变当前目录 cd dirname   pwd 显示当前目录的路径名 pwd   ls 显示当前目录的内容 ls -la   dircmp 比较两个目录的内容">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Mac终端命令大全</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Mac终端命令大全</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-18T05:18:18.000Z" itemprop="datePublished" class="page-time">
+  2018/10/18 13:18:18
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录操作"><span class="post-toc-number">1.</span> <span class="post-toc-text">目录操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">文件操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择操作"><span class="post-toc-number">3.</span> <span class="post-toc-text">选择操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安全操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">安全操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编程操作"><span class="post-toc-number">5.</span> <span class="post-toc-text">编程操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程操作"><span class="post-toc-number">6.</span> <span class="post-toc-text">进程操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间操作"><span class="post-toc-number">7.</span> <span class="post-toc-text">时间操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络与通信操作"><span class="post-toc-number">8.</span> <span class="post-toc-text">网络与通信操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#shell-命令"><span class="post-toc-number">9.</span> <span class="post-toc-text">shell 命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其它命令"><span class="post-toc-number">10.</span> <span class="post-toc-text">其它命令</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Mac终端命令大全"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Mac终端命令大全</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018/10/18 13:18:18 13:18:18" datetime="2018-10-18T05:18:18.000Z"  itemprop="datePublished">2018/10/18 13:18:18</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mkdir</td>
+<td style="text-align:left">创建一个目录</td>
+<td style="text-align:left">mkdir dirname</td>
+</tr>
+<tr>
+<td style="text-align:left">rmdir</td>
+<td style="text-align:left">删除一个目录</td>
+<td style="text-align:left">rmdir dirname</td>
+</tr>
+<tr>
+<td style="text-align:left">mvdir</td>
+<td style="text-align:left">移动或重命名一个目录</td>
+<td style="text-align:left">mvdir dir1 dir2</td>
+</tr>
+<tr>
+<td style="text-align:left">cd</td>
+<td style="text-align:left">改变当前目录</td>
+<td style="text-align:left">cd dirname</td>
+</tr>
+<tr>
+<td style="text-align:left">pwd</td>
+<td style="text-align:left">显示当前目录的路径名</td>
+<td style="text-align:left">pwd</td>
+</tr>
+<tr>
+<td style="text-align:left">ls</td>
+<td style="text-align:left">显示当前目录的内容</td>
+<td style="text-align:left">ls -la</td>
+</tr>
+<tr>
+<td style="text-align:left">dircmp</td>
+<td style="text-align:left">比较两个目录的内容</td>
+<td style="text-align:left">dircmp dir1 dir2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cat</td>
+<td style="text-align:left">显示或连接文件</td>
+<td style="text-align:left">cat filename</td>
+</tr>
+<tr>
+<td style="text-align:left">pg</td>
+<td style="text-align:left">分页格式化显示文件内容</td>
+<td style="text-align:left">pg filename</td>
+</tr>
+<tr>
+<td style="text-align:left">more</td>
+<td style="text-align:left">分屏显示文件内容</td>
+<td style="text-align:left">more filename</td>
+</tr>
+<tr>
+<td style="text-align:left">od</td>
+<td style="text-align:left">显示非文本文件的内容</td>
+<td style="text-align:left">od -c filename</td>
+</tr>
+<tr>
+<td style="text-align:left">cp</td>
+<td style="text-align:left">复制文件或目录</td>
+<td style="text-align:left">cp file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">rm</td>
+<td style="text-align:left">删除文件或目录</td>
+<td style="text-align:left">rm filename</td>
+</tr>
+<tr>
+<td style="text-align:left">mv</td>
+<td style="text-align:left">改变文件名或所在目录</td>
+<td style="text-align:left">mv file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">ln</td>
+<td style="text-align:left">联接文件</td>
+<td style="text-align:left">ln -s file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">find</td>
+<td style="text-align:left">使用匹配表达式查找文件</td>
+<td style="text-align:left">find . -name “*.c” -print</td>
+</tr>
+<tr>
+<td style="text-align:left">file</td>
+<td style="text-align:left">显示文件类型</td>
+<td style="text-align:left">file filename</td>
+</tr>
+<tr>
+<td style="text-align:left">open</td>
+<td style="text-align:left">使用默认的程序打开文件</td>
+<td style="text-align:left">open filename</td>
+</tr>
+</tbody>
+</table>
+<h2 id="选择操作"><a href="#选择操作" class="headerlink" title="选择操作"></a>选择操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">head</td>
+<td style="text-align:left">显示文件的最初几行</td>
+<td style="text-align:left">head -20 filename</td>
+</tr>
+<tr>
+<td style="text-align:left">tail</td>
+<td style="text-align:left">显示文件的最后几行</td>
+<td style="text-align:left">tail -15 filename</td>
+</tr>
+<tr>
+<td style="text-align:left">cut</td>
+<td style="text-align:left">显示文件每行中的某些域</td>
+<td style="text-align:left">cut -f1,7 -d: /etc/passwd</td>
+</tr>
+<tr>
+<td style="text-align:left">colrm</td>
+<td style="text-align:left">从标准输入中删除若干列</td>
+<td style="text-align:left">colrm 8 20 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">paste</td>
+<td style="text-align:left">横向连接文件</td>
+<td style="text-align:left">paste file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">diff</td>
+<td style="text-align:left">比较并显示两个文件的差异</td>
+<td style="text-align:left">diff file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">sed</td>
+<td style="text-align:left">非交互方式流编辑器</td>
+<td style="text-align:left">sed “s/red/green/g” filename</td>
+</tr>
+<tr>
+<td style="text-align:left">grep</td>
+<td style="text-align:left">在文件中按模式查找</td>
+<td style="text-align:left">grep “^[a-zA-Z]” filename</td>
+</tr>
+<tr>
+<td style="text-align:left">awk</td>
+<td style="text-align:left">在文件中查找并处理模式</td>
+<td style="text-align:left">awk ‘{print $1 $1}’ filename</td>
+</tr>
+<tr>
+<td style="text-align:left">sort</td>
+<td style="text-align:left">排序或归并文件</td>
+<td style="text-align:left">sort -d -f -u file1</td>
+</tr>
+<tr>
+<td style="text-align:left">uniq</td>
+<td style="text-align:left">去掉文件中的重复行</td>
+<td style="text-align:left">uniq file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">comm</td>
+<td style="text-align:left">显示两有序文件的公共和非公共行</td>
+<td style="text-align:left">comm file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:left">wc</td>
+<td style="text-align:left">统计文件的字符数、词数和行数</td>
+<td style="text-align:left">wc filename</td>
+</tr>
+<tr>
+<td style="text-align:left">nl</td>
+<td style="text-align:left">给文件加上行号</td>
+<td style="text-align:left">nl file1 &gt;file2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="安全操作"><a href="#安全操作" class="headerlink" title="安全操作"></a>安全操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">passwd</td>
+<td style="text-align:left">修改用户密码</td>
+<td style="text-align:left">passwd</td>
+</tr>
+<tr>
+<td style="text-align:left">chmod</td>
+<td style="text-align:left">改变文件或目录的权限</td>
+<td style="text-align:left">chmod ug+x filename</td>
+</tr>
+<tr>
+<td style="text-align:left">umask</td>
+<td style="text-align:left">定义创建文件的权限掩码</td>
+<td style="text-align:left">umask 027</td>
+</tr>
+<tr>
+<td style="text-align:left">chown</td>
+<td style="text-align:left">改变文件或目录的属主</td>
+<td style="text-align:left">chown newowner filename</td>
+</tr>
+<tr>
+<td style="text-align:left">chgrp</td>
+<td style="text-align:left">改变文件或目录的所属组</td>
+<td style="text-align:left">chgrp staff filename</td>
+</tr>
+<tr>
+<td style="text-align:left">xlock</td>
+<td style="text-align:left">给终端上锁</td>
+<td style="text-align:left">xlock -remote</td>
+</tr>
+</tbody>
+</table>
+<h2 id="编程操作"><a href="#编程操作" class="headerlink" title="编程操作"></a>编程操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">make</td>
+<td style="text-align:left">维护可执行程序的最新版本</td>
+<td style="text-align:left">make</td>
+</tr>
+<tr>
+<td style="text-align:left">touch</td>
+<td style="text-align:left">更新文件的访问和修改时间</td>
+<td style="text-align:left">touch -m 05202400 filename</td>
+</tr>
+<tr>
+<td style="text-align:left">dbx</td>
+<td style="text-align:left">命令行界面调试工具</td>
+<td style="text-align:left">dbx a.out</td>
+</tr>
+<tr>
+<td style="text-align:left">xde</td>
+<td style="text-align:left">图形用户界面调试工具</td>
+<td style="text-align:left">xde a.out</td>
+</tr>
+</tbody>
+</table>
+<h2 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ps</td>
+<td style="text-align:left">显示进程当前状态</td>
+<td style="text-align:left">ps u</td>
+</tr>
+<tr>
+<td style="text-align:left">kill</td>
+<td style="text-align:left">终止进程</td>
+<td style="text-align:left">kill -9 30142</td>
+</tr>
+<tr>
+<td style="text-align:left">nice</td>
+<td style="text-align:left">改变待执行命令的优先级</td>
+<td style="text-align:left">nice cc -c *.c</td>
+</tr>
+<tr>
+<td style="text-align:left">renice</td>
+<td style="text-align:left">改变已运行进程的优先级</td>
+<td style="text-align:left">renice +20 32768</td>
+</tr>
+</tbody>
+</table>
+<h2 id="时间操作"><a href="#时间操作" class="headerlink" title="时间操作"></a>时间操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">date</td>
+<td style="text-align:left">显示系统的当前日期和时间</td>
+<td style="text-align:left">date</td>
+</tr>
+<tr>
+<td style="text-align:left">cal</td>
+<td style="text-align:left">显示日历</td>
+<td style="text-align:left">cal 8 1996</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">统计程序的执行时间</td>
+<td style="text-align:left">time a.out</td>
+</tr>
+</tbody>
+</table>
+<h2 id="网络与通信操作"><a href="#网络与通信操作" class="headerlink" title="网络与通信操作"></a>网络与通信操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">telnet</td>
+<td style="text-align:left">远程登录</td>
+<td style="text-align:left">telnet hpc.sp.net.edu.cn</td>
+</tr>
+<tr>
+<td style="text-align:left">rlogin</td>
+<td style="text-align:left">远程登录</td>
+<td style="text-align:left">rlogin hostname -l username</td>
+</tr>
+<tr>
+<td style="text-align:left">rsh</td>
+<td style="text-align:left">在远程主机执行指定命令</td>
+<td style="text-align:left">rsh f01n03 date</td>
+</tr>
+<tr>
+<td style="text-align:left">ftp</td>
+<td style="text-align:left">在本地主机与远程主机之间传输文件</td>
+<td style="text-align:left">ftp ftp.sp.net.edu.cn</td>
+</tr>
+<tr>
+<td style="text-align:left">rcp</td>
+<td style="text-align:left">在本地主机与远程主机 之间复制文件</td>
+<td style="text-align:left">rcp file1 host1:file2</td>
+</tr>
+<tr>
+<td style="text-align:left">ping</td>
+<td style="text-align:left">给一个网络主机发送 回应请求</td>
+<td style="text-align:left">ping hpc.sp.net.edu.cn</td>
+</tr>
+<tr>
+<td style="text-align:left">mail</td>
+<td style="text-align:left">阅读和发送电子邮件</td>
+<td style="text-align:left">mail</td>
+</tr>
+<tr>
+<td style="text-align:left">write</td>
+<td style="text-align:left">给另一用户发送报文</td>
+<td style="text-align:left">write username pts/1</td>
+</tr>
+<tr>
+<td style="text-align:left">mesg</td>
+<td style="text-align:left">允许或拒绝接收报文</td>
+<td style="text-align:left">mesg n</td>
+</tr>
+</tbody>
+</table>
+<h2 id="shell-命令"><a href="#shell-命令" class="headerlink" title="shell 命令"></a>shell 命令</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">history</td>
+<td style="text-align:left">列出最近执行过的 几条命令及编号</td>
+<td style="text-align:left">history</td>
+</tr>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:left">重复执行最近执行过的 某条命令</td>
+<td style="text-align:left">r -2</td>
+</tr>
+<tr>
+<td style="text-align:left">alias</td>
+<td style="text-align:left">给某个命令定义别名</td>
+<td style="text-align:left">alias del=rm -i</td>
+</tr>
+<tr>
+<td style="text-align:left">unalias</td>
+<td style="text-align:left">取消对某个别名的定义</td>
+<td style="text-align:left">unalias del</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">uname</td>
+<td style="text-align:left">显示操作系统的有关信息</td>
+<td style="text-align:left">uname -a</td>
+</tr>
+<tr>
+<td style="text-align:left">clear</td>
+<td style="text-align:left">清除屏幕或窗口内容</td>
+<td style="text-align:left">clear</td>
+</tr>
+<tr>
+<td style="text-align:left">env</td>
+<td style="text-align:left">显示当前所有设置过的环境变量</td>
+<td style="text-align:left">env</td>
+</tr>
+<tr>
+<td style="text-align:left">who</td>
+<td style="text-align:left">列出当前登录的所有用户</td>
+<td style="text-align:left">who</td>
+</tr>
+<tr>
+<td style="text-align:left">whoami</td>
+<td style="text-align:left">显示当前正进行操作的用户名</td>
+<td style="text-align:left">whoami</td>
+</tr>
+<tr>
+<td style="text-align:left">tty</td>
+<td style="text-align:left">显示终端或伪终端的名称</td>
+<td style="text-align:left">tty</td>
+</tr>
+<tr>
+<td style="text-align:left">stty</td>
+<td style="text-align:left">显示或重置控制键定义</td>
+<td style="text-align:left">stty -a</td>
+</tr>
+<tr>
+<td style="text-align:left">du</td>
+<td style="text-align:left">查询磁盘使用情况</td>
+<td style="text-align:left">du -k subdir</td>
+</tr>
+<tr>
+<td style="text-align:left">df</td>
+<td style="text-align:left">显示文件系统的总空间和可用空间</td>
+<td style="text-align:left">df /tmp</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">显示当前系统活动的总信息</td>
+<td style="text-align:left">w</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-20T14:10:38.961Z" itemprop="dateUpdated">2021/10/20 22:10:38 22:10:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/10/18/Mac终端命令大全/" target="_blank" rel="external">https://github.com/chengheai/2018/10/18/Mac终端命令大全/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars.githubusercontent.com/u/26807610?v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/&title=《Mac终端命令大全》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/&title=《Mac终端命令大全》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2018/10/18/Mac终端命令大全/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac终端命令大全》 — CHI1130&url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/18/VSCode快捷键Mac/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">VSCode快捷键Mac</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/14/怎么在npm官网上传自己的包/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">怎么在npm官网上传自己的包</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/&title=《Mac终端命令大全》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/&title=《Mac终端命令大全》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2018/10/18/Mac终端命令大全/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac终端命令大全》 — CHI1130&url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2018/10/18/Mac终端命令大全/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3a0W6DMAwF0P7/T3cve6i0AddxmEZy8jRRUnKY5MZ2Xq94vD/G0fWf4/x7Pu9J5k4YGBgYj2UkSzl/ZDJ37qe/UDEwMDZgHEWw83uSYNoJuMnaMDAwMBLG2GYOAwMD4w5GfqWa1lZfHwYGxp6MPJk8f9h5Sa7zsqbl4hgYGA9kjG3j/ubvW/obGBgYj2K8i6M6Ny+xja3ney4GBsbSjLEW5qzQXH1ZF6ksBgbGNoxZRbecmgTx6JgaBgbGooxW6WqohZmE1GrIxsDAWJvRbz3OaiRcLLH6u4GBgbEQI0ks8+CYH5iY+7IwMDDWZuQls04Rv1qS6yfJGBgYKzHygNsv5XeuXGwxMTAwtmFEJa2h0Jmkskm2fTgXAwNjacZY8tkJjnk6WujBYmBgbMDIJ1SbAZ3vL7x7DAyMpRn5I/PIXW1bdtoPGBgYOzA6pa4ONb8/T6ExMDDWZrT2lcUge36QIoddnG7DwMBYlFFtFYxtIvsFu0MkBgbGNoxqe3LWQYqxoI+BgYFR3dJVN3PV9LhwjBUDA2M5xlhxrXpsIr+eP/Hwf4KBgbEQ410cY6Gwc7ysHGQxMDCWY+RjjNfZSpbLbRgYGEszkiXmR8GStmintXmRi2NgYCzNSDZ81Th9/s3VwF04bIGBgbE9o9ParFLzBgYGBgbG2DHTaqhtFdcwMDA2YORJbH7Ide7Wc3K5DQMD41GMTlCuLrS/6Ft+WzAwMP4v4wuPhm+F2DkOmAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

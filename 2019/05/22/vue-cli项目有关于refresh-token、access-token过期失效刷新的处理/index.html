@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content="axios,vue,token">
+    <meta name="description" content="需求用户登录之后，返回access_token, refresh_token 还有返回失效时间20秒.1,假如用户一直在数据交互。当access_token 失效了就用refresh_token 来更新一下 access_token.2,假如用户登录之后啥也不干，那么access_token 失效了就跳到login页面.3,假如用户在失效前30分钟存在数据交互，则用refresh_token 刷新">
+<meta name="keywords" content="axios,vue,token">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理">
+<meta property="og:url" content="https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="需求用户登录之后，返回access_token, refresh_token 还有返回失效时间20秒.1,假如用户一直在数据交互。当access_token 失效了就用refresh_token 来更新一下 access_token.2,假如用户登录之后啥也不干，那么access_token 失效了就跳到login页面.3,假如用户在失效前30分钟存在数据交互，则用refresh_token 刷新">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-20T14:10:38.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理">
+<meta name="twitter:description" content="需求用户登录之后，返回access_token, refresh_token 还有返回失效时间20秒.1,假如用户一直在数据交互。当access_token 失效了就用refresh_token 来更新一下 access_token.2,假如用户登录之后啥也不干，那么access_token 失效了就跳到login页面.3,假如用户在失效前30分钟存在数据交互，则用refresh_token 刷新">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-22T14:24:19.000Z" itemprop="datePublished" class="page-time">
+  2019/05/22 22:24:19
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">2.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vue-cli项目有关于refresh-token、access-token过期失效刷新的处理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/05/22 22:24:19 22:24:19" datetime="2019-05-22T14:24:19.000Z"  itemprop="datePublished">2019/05/22 22:24:19</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>用户登录之后，返回access_token, refresh_token 还有返回失效时间20秒.<br>1,假如用户一直在数据交互。当access_token 失效了就用refresh_token 来更新一下 access_token.<br>2,假如用户登录之后啥也不干，那么access_token 失效了就跳到login页面.<br>3,假如用户在失效前30分钟存在数据交互，则用refresh_token 刷新 access_token。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>于在网上搜索了一大半。都是说的是在接口401状态去用refresh_token 去调取新 access_token，这样那还不是存在一直登录不退出的状态？不现实。。这里又涉及到axios的二次封装。刚好项目中用到element-ui， 索性把错误状态提示也做了一下。思路则是在请求拦截，响应拦截做文章。废话不多说。下面是代码。<br><a href="https://chengheai.github.io/daily-vue-demo/#/axios" target="_blank" rel="noopener">源代码</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br><span class="line"><span class="keyword">import</span> Cookies <span class="keyword">from</span> <span class="string">'js-cookie'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Message &#125; <span class="keyword">from</span> <span class="string">'element-ui'</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./../router/index'</span>;</span><br><span class="line">axios.defaults.timeout = <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> init = &#123;                                              ❤️ 没画好？重画 [更多...]</span><br><span class="line">  <span class="comment">// 记录时间戳</span></span><br><span class="line">  timer: <span class="literal">null</span>,</span><br><span class="line">  <span class="comment">// 是否调过refresh_token函数</span></span><br><span class="line">  isRefresh: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 公用提示                                                  🥕🥕🥕         🥕🥕🥕🥕</span></span><br><span class="line">  openMessage: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;                             🥕🥕🥕🥕       🥕🥕🥕🥕🥕</span><br><span class="line">    Message(&#123;                                            🥕🥕🥕🥕🥕     🥕🥕🥕🥕🥕</span><br><span class="line">      message: msg,                                      🥕🥕🥕🥕🥕  🥕🥕🥕🥕🥕🥕</span><br><span class="line">      type: <span class="string">'error'</span>,                                      🥕 🥕🥕🥕🥕🥕🥕🥕🥕🥕</span><br><span class="line">      showClose: <span class="literal">true</span>,                                     🥕 🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕</span><br><span class="line">    &#125;);                                                      🥕🥕🥕🥕🥕🥕🥕🥕🥕</span><br><span class="line">  &#125;,                                                           🥕🥕🥕🥕🥕🥕🥕</span><br><span class="line">  getRefreshToken: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;                                  🥕🥕🥕🥕🥕🥕</span><br><span class="line">    <span class="keyword">let</span> params = &#123;                                                 🥕🥕🥕🥕🥕、</span><br><span class="line">      refresh_token: Cookies.get(<span class="string">'refresh_token'</span>),                   🥕🥕🥕🥕</span><br><span class="line">    &#125;;                                                                 🥕🥕🥕</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;                                                     🥕🥕</span><br><span class="line">    axios(&#123;</span><br><span class="line">      method: <span class="string">'post'</span>,</span><br><span class="line">      url: <span class="string">`api/v1/refresh_token<span class="subst">$&#123;params&#125;</span>`</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">      .then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (res.data.access_token) &#123;</span><br><span class="line">          <span class="comment">// 防止重复调refresh_token接口</span></span><br><span class="line">          that.isRefresh = <span class="literal">false</span>;</span><br><span class="line">          <span class="keyword">let</span> result = res.data;</span><br><span class="line">          <span class="keyword">let</span> millisecond = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">          <span class="keyword">let</span> expiresTime = result.expires_in * <span class="number">1000</span>;</span><br><span class="line">          <span class="keyword">let</span> utilTime = millisecond + expiresTime;</span><br><span class="line">          Cookies.set(<span class="string">'access_token'</span>, result.access_token, &#123; <span class="attr">expires</span>: expiresTime &#125;);</span><br><span class="line">          Cookies.set(<span class="string">'utilTime'</span>, utilTime);</span><br><span class="line">          Cookies.set(<span class="string">'refresh_token'</span>, result.refresh_token);</span><br><span class="line">          Cookies.set(<span class="string">'expires_in'</span>, result.expires_in);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">//刷新token失败只能跳转到登录页重新登录</span></span><br><span class="line">          localStorage.clear();</span><br><span class="line">          Cookies.remove(<span class="string">'access_token'</span>);</span><br><span class="line">          Cookies.remove(<span class="string">'utilTime'</span>);</span><br><span class="line">          Cookies.remove(<span class="string">'expires_in'</span>);</span><br><span class="line">          Cookies.remove(<span class="string">'refresh_token'</span>);</span><br><span class="line">          router.replace(&#123;</span><br><span class="line">            path: <span class="string">'/login'</span>,</span><br><span class="line">            query: &#123; <span class="attr">redirect</span>: router.currentRoute.fullPath &#125;,</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//刷新token失败只能跳转到登录页重新登录</span></span><br><span class="line">        get_sys_logout();</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        Cookies.remove(<span class="string">'access_token'</span>);</span><br><span class="line">        Cookies.remove(<span class="string">'utilTime'</span>);</span><br><span class="line">        Cookies.remove(<span class="string">'expires_in'</span>);</span><br><span class="line">        Cookies.remove(<span class="string">'refresh_token'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">        that.openMessage(<span class="string">'登录失效'</span>);</span><br><span class="line">        router.replace(&#123;</span><br><span class="line">          path: <span class="string">'/login'</span>,</span><br><span class="line">          query: &#123; <span class="attr">redirect</span>: router.currentRoute.fullPath &#125;,</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//http request 拦截器</span></span><br><span class="line">axios.interceptors.request.use(</span><br><span class="line">  config =&gt; &#123;</span><br><span class="line">    config.data = <span class="built_in">JSON</span>.stringify(config.data);</span><br><span class="line">    init.timer = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">if</span> (Cookies.get(<span class="string">'access_token'</span>)) &#123;</span><br><span class="line">      <span class="keyword">if</span> ((<span class="built_in">parseInt</span>(Cookies.get(<span class="string">'utilTime'</span>)) - init.timer) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        Cookies.remove(<span class="string">'access_token'</span>);</span><br><span class="line">        Cookies.remove(<span class="string">'utilTime'</span>);</span><br><span class="line">        Cookies.remove(<span class="string">'expires_in'</span>);</span><br><span class="line">        Cookies.remove(<span class="string">'refresh_token'</span>);</span><br><span class="line">        get_sys_logout();</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        router.replace(&#123;</span><br><span class="line">          path: <span class="string">'/login'</span>,</span><br><span class="line">          query: &#123; <span class="attr">redirect</span>: router.currentRoute.fullPath &#125;,</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">      config.headers = &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">        Authorization: <span class="string">`Bearer <span class="subst">$&#123;Cookies.get(<span class="string">'access_token'</span>)&#125;</span>`</span>,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      config.headers = &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    Message.error(&#123;</span><br><span class="line">      message: <span class="string">'加载超时'</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">//响应拦截器即异常处理</span></span><br><span class="line">axios.interceptors.response.use(</span><br><span class="line">  response =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (Cookies.get(<span class="string">'utilTime'</span>)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!init.isRefresh) &#123;</span><br><span class="line">        <span class="comment">// 是否是到期前30分钟</span></span><br><span class="line">        <span class="keyword">if</span> ((<span class="built_in">parseInt</span>(Cookies.get(<span class="string">'utilTime'</span>)) - init.timer) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>) &lt; <span class="number">0.5</span>) &#123;</span><br><span class="line">          init.isRefresh = <span class="literal">true</span>;</span><br><span class="line">          init.getRefreshToken();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">  &#125;,</span><br><span class="line">  err =&gt; &#123;</span><br><span class="line">    <span class="comment">// debugger</span></span><br><span class="line">    <span class="keyword">if</span> (err &amp;&amp; err.response) &#123;</span><br><span class="line">      <span class="keyword">switch</span> (err.response.status) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">400</span>:</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'错误请求'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">401</span>:</span><br><span class="line">          <span class="comment">//刷新token失败只能跳转到登录页重新登录</span></span><br><span class="line">          get_sys_logout();</span><br><span class="line">          localStorage.clear();</span><br><span class="line">          Cookies.remove(<span class="string">'access_token'</span>);</span><br><span class="line">          Cookies.remove(<span class="string">'expires_in'</span>);</span><br><span class="line">          Cookies.remove(<span class="string">'utilTime'</span>);</span><br><span class="line">          Cookies.remove(<span class="string">'refresh_token'</span>);</span><br><span class="line">          init.openMessage(<span class="string">'登录失效'</span>);</span><br><span class="line">          router.replace(&#123;</span><br><span class="line">            path: <span class="string">'/login'</span>,</span><br><span class="line">            query: &#123; <span class="attr">redirect</span>: router.currentRoute.fullPath &#125;,</span><br><span class="line">          &#125;);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">403</span>:</span><br><span class="line">          init.openMessage(<span class="string">'拒绝访问'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">404</span>:</span><br><span class="line">          init.openMessage(<span class="string">'请求错误,未找到该资源'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">405</span>:</span><br><span class="line">          init.openMessage(<span class="string">'请求方法未允许'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">408</span>:</span><br><span class="line">          init.openMessage(<span class="string">'请求超时'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">500</span>:</span><br><span class="line">          init.openMessage(<span class="string">'服务器端出错'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">501</span>:</span><br><span class="line">          init.openMessage(<span class="string">'网络未实现'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">502</span>:</span><br><span class="line">          init.openMessage(<span class="string">'网络错误'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">503</span>:</span><br><span class="line">          init.openMessage(<span class="string">'服务不可用'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">504</span>:</span><br><span class="line">          init.openMessage(<span class="string">'网络超时'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">505</span>:</span><br><span class="line">          init.openMessage(<span class="string">'http版本不支持该请求'</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">          init.openMessage(<span class="string">`连接错误<span class="subst">$&#123;err.response.status&#125;</span>`</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      init.openMessage(<span class="string">'连接服务器失败'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err.response);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> axios;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-20T14:10:38.967Z" itemprop="dateUpdated">2021/10/20 22:10:38 22:10:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/" target="_blank" rel="external">https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars.githubusercontent.com/u/26807610?v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/token/">token</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/&title=《vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/&title=《vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理》 — CHI1130&url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/23/vue项目按需使用keep-alive/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue项目按需使用keep-alive</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/13/Mac下使用rz、sz远程上传、下载/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Mac下使用rz、sz远程上传、下载</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/&title=《vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/&title=《vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue-cli axios 项目有关于refresh_token、access_token过期失效刷新的处理》 — CHI1130&url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2019/05/22/vue-cli项目有关于refresh-token、access-token过期失效刷新的处理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD30lEQVR42u3aS47iQBAFQO5/aeYANOa9zDJipPCqZaBcFV5k5+fxiK/ny5V8//W3+Xfe3Xn9O/n+4QsHDhw4cJRHzTd3DZRs7pop2eFst293jgMHDhw4DnHkh7llE3EoTcJ/HnRx4MCBA8cvcFwnZptELlk/XwcHDhw4cPwvHEkYa0PsKUQcOHDgwPE7HEm5LX9M21jKt54nlrfXSnHgwIEDRxrpHm3Q/f2/b5nvwIEDBw4cl6ErHxdIBho2K+SjdXkZMTodDhw4cOBYc7SFtnzreRup/VU76FDvCgcOHDhwLHaVl8/acbe8yJgPLswCc158xIEDBw4cZznaIYD8qHkClv9qX+L84z4OHDhw4FhztKW0PGWaleryYbg8qUs+xYEDBw4cd3DMxtTadlF+Jw/eeYCvC4g4cODAgWPE0QbFPBDmxcdNma/99MMpcODAgQPHmqMdI8gP0yZms6ZRu7d6tAIHDhw4cMQc+wPvC39FK6gcdKibVThw4MCBY82x32KeMrXrt+vcmNfiwIEDB45yP7MSW57+zYbe2me1AbvIHXHgwIEDxyhnyZO6pFnVbnf2nU36F70eHDhw4MBRrtOmUkk8SljbAD8LwPVLwoEDBw4chzjaqYdZiJ2NMuTJ2CpVw4EDBw4cX+Fo78+SwLyZdGosAwcOHDhw3M3RPmYz9HAfXJs6/vEsHDhw4MBxiGMTUM8Ow8349uMOOHDgwIHjFMf+mo04tMXB2SvZY+HAgQMHjpYjf0z76b4V9Ly8ZuXLD3w4cODAgWPNMQtaSSFvtmayWh7INwVNHDhw4MCx4WibT5tA267Qos+Sw9VYAw4cOHDguOQ4256ZJVfti5kNNLw9NQ4cOHDgWHPkD7h7EGGDMgvGb5+IAwcOHDgWHO0m8tBVv5My2LeNsahciAMHDhw4Fhz5Idu20CwAt0XD9v6HFBQHDhw4cKw5NqMM+Wqz8YVZw2nWfMKBAwcOHKc48hG3nK8tHc5Y81dYlDhx4MCBA8chjrZtM6tBbsbdZv8KtGknDhw4cOA4xdFWyTZHylOvvFm1H4PAgQMHDhynOJLHtIMFCeKqltkeL3gWDhw4cOA4xfEsr/0AQXuMdgivbYAV/1ngwIEDB44u4tTBL0/A2iJdOwaR76FNO3HgwIEDx4xjVgTcHOmO40UjC21GiwMHDhw4FhzJ1tv2zyZxmo0vHFgfBw4cOHB8naNN8+7ONWdNr7cr48CBAweOr3PcURZsgfJxh7q4iQMHDhw4DnEkxcH95pIBu+tjtCG5/i0OHDhw4Fhz5KW0JHHKUfKUL19nH85x4MCBA8eC4x+YISpcFHgjGwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

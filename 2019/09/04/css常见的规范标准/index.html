@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>css常见的规范标准 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content="css">
+    <meta name="description" content="前言你是否常常碰到以下问题：你总是看不懂他写的代码，或者读起来很吃力；你需要改他的代码却无从下手，或总是要去问他这里是什么改了会不会影响其他代码；你和他一起开发一个产品，你总是怕代码和他有冲突或互相影响；你的代码在多次维护任务之后变得越来越臃肿，越来越难以维护。很多时候起名字都很随意，但也想起个正常点的名字，有标准例子吗？ 附带MarkDown快速生成表格 统一语义理解和命名布局（.g-）">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css常见的规范标准">
+<meta property="og:url" content="https://github.com/chengheai/2019/09/04/css常见的规范标准/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="前言你是否常常碰到以下问题：你总是看不懂他写的代码，或者读起来很吃力；你需要改他的代码却无从下手，或总是要去问他这里是什么改了会不会影响其他代码；你和他一起开发一个产品，你总是怕代码和他有冲突或互相影响；你的代码在多次维护任务之后变得越来越臃肿，越来越难以维护。很多时候起名字都很随意，但也想起个正常点的名字，有标准例子吗？ 附带MarkDown快速生成表格 统一语义理解和命名布局（.g-）">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-20T14:10:38.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css常见的规范标准">
+<meta name="twitter:description" content="前言你是否常常碰到以下问题：你总是看不懂他写的代码，或者读起来很吃力；你需要改他的代码却无从下手，或总是要去问他这里是什么改了会不会影响其他代码；你和他一起开发一个产品，你总是怕代码和他有冲突或互相影响；你的代码在多次维护任务之后变得越来越臃肿，越来越难以维护。很多时候起名字都很随意，但也想起个正常点的名字，有标准例子吗？ 附带MarkDown快速生成表格 统一语义理解和命名布局（.g-）">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">css常见的规范标准</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">css常见的规范标准</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-04T12:44:13.000Z" itemprop="datePublished" class="page-time">
+  2019/09/04 20:44:13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#附带MarkDown"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">附带MarkDown</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#统一语义理解和命名"><span class="post-toc-number">2.</span> <span class="post-toc-text">统一语义理解和命名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#规则"><span class="post-toc-number">3.</span> <span class="post-toc-text">规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用类选择器，放弃-ID-选择器"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">使用类选择器，放弃 ID 选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NEC-特殊字符：”-“连字符"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">NEC 特殊字符：”-“连字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分类的命名方法：使用单个字母-”-“为前缀"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">分类的命名方法：使用单个字母+”-“为前缀</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#后代选择器命名"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">后代选择器命名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命名应简约而不失语义"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">命名应简约而不失语义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相同语义的不同类命名"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">相同语义的不同类命名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块和元件的扩展类的命名方法"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">模块和元件的扩展类的命名方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块和元件的后代选择器的扩展类"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">模块和元件的后代选择器的扩展类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#防止污染和被污染"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">防止污染和被污染</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实践"><span class="post-toc-number">4.</span> <span class="post-toc-text">实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最佳选择器写法"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">最佳选择器写法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-css常见的规范标准"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">css常见的规范标准</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/09/04 20:44:13 20:44:13" datetime="2019-09-04T12:44:13.000Z"  itemprop="datePublished">2019/09/04 20:44:13</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>你是否常常碰到以下问题：你总是看不懂他写的代码，或者读起来很吃力；你需要改他的代码却无从下手，或总是要去问他这里是什么改了会不会影响其他代码；你和他一起开发一个产品，你总是怕代码和他有冲突或互相影响；你的代码在多次维护任务之后变得越来越臃肿，越来越难以维护。很多时候起名字都很随意，但也想起个正常点的名字，有标准例子吗？</p>
+<h4 id="附带MarkDown"><a href="#附带MarkDown" class="headerlink" title="附带MarkDown"></a>附带MarkDown</h4><p><a href="https://tool.lu/tables/" target="_blank" rel="noopener">快速生成表格</a></p>
+<h2 id="统一语义理解和命名"><a href="#统一语义理解和命名" class="headerlink" title="统一语义理解和命名"></a>统一语义理解和命名</h2><p>布局（.g-）</p>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>命名</th>
+<th>简写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文档</td>
+<td>doc</td>
+<td>doc</td>
+</tr>
+<tr>
+<td>头部</td>
+<td>head</td>
+<td>hd</td>
+</tr>
+<tr>
+<td>主体</td>
+<td>body</td>
+<td>bd</td>
+</tr>
+<tr>
+<td>尾部</td>
+<td>foot</td>
+<td>ft</td>
+</tr>
+<tr>
+<td>主栏</td>
+<td>main</td>
+<td>mn</td>
+</tr>
+<tr>
+<td>主栏子容器</td>
+<td>mainc</td>
+<td>mnc</td>
+</tr>
+<tr>
+<td>侧栏</td>
+<td>side</td>
+<td>sd</td>
+</tr>
+<tr>
+<td>侧栏子容器</td>
+<td>sidec</td>
+<td>sdc</td>
+</tr>
+<tr>
+<td>盒容器</td>
+<td>wrap/box</td>
+<td>wrap/box</td>
+</tr>
+</tbody>
+</table>
+<p>模块（.m-）、元件（.u-）</p>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>命名</th>
+<th>简写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>导航</td>
+<td>nav</td>
+<td>nav</td>
+</tr>
+<tr>
+<td>子导航</td>
+<td>subnav</td>
+<td>snav</td>
+</tr>
+<tr>
+<td>面包屑</td>
+<td>crumb</td>
+<td>crm</td>
+</tr>
+<tr>
+<td>菜单</td>
+<td>menu</td>
+<td>menu</td>
+</tr>
+<tr>
+<td>选项卡</td>
+<td>tab</td>
+<td>tab</td>
+</tr>
+<tr>
+<td>标题区</td>
+<td>head/title</td>
+<td>hd/tt</td>
+</tr>
+<tr>
+<td>内容区</td>
+<td>body/content</td>
+<td>bd/ct</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>list</td>
+<td>lst</td>
+</tr>
+<tr>
+<td>表格</td>
+<td>table</td>
+<td>tb</td>
+</tr>
+<tr>
+<td>表单</td>
+<td>form</td>
+<td>fm</td>
+</tr>
+<tr>
+<td>热点</td>
+<td>hot</td>
+<td>hot</td>
+</tr>
+<tr>
+<td>排行</td>
+<td>top</td>
+<td>top</td>
+</tr>
+<tr>
+<td>登录</td>
+<td>login</td>
+<td>log</td>
+</tr>
+<tr>
+<td>标志</td>
+<td>logo</td>
+<td>logo</td>
+</tr>
+<tr>
+<td>广告</td>
+<td>advertise</td>
+<td>ad</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td>search</td>
+<td>sch</td>
+</tr>
+<tr>
+<td>幻灯</td>
+<td>slide</td>
+<td>sld</td>
+</tr>
+<tr>
+<td>提示</td>
+<td>tips</td>
+<td>tips</td>
+</tr>
+<tr>
+<td>帮助</td>
+<td>help</td>
+<td>help</td>
+</tr>
+<tr>
+<td>新闻</td>
+<td>news</td>
+<td>news</td>
+</tr>
+<tr>
+<td>下载</td>
+<td>download</td>
+<td>dld</td>
+</tr>
+<tr>
+<td>注册</td>
+<td>regist</td>
+<td>reg</td>
+</tr>
+<tr>
+<td>投票</td>
+<td>vote</td>
+<td>vote</td>
+</tr>
+<tr>
+<td>版权</td>
+<td>copyright</td>
+<td>cprt</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>result</td>
+<td>rst</td>
+</tr>
+<tr>
+<td>标题</td>
+<td>title</td>
+<td>tt</td>
+</tr>
+<tr>
+<td>按钮</td>
+<td>button</td>
+<td>btn</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>input</td>
+<td>ipt</td>
+</tr>
+</tbody>
+</table>
+<p>功能（.f-）</p>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>命名</th>
+<th>简写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>浮动清除</td>
+<td>clearboth</td>
+<td>cb</td>
+</tr>
+<tr>
+<td>向左浮动</td>
+<td>floatleft</td>
+<td>fl</td>
+</tr>
+<tr>
+<td>向右浮动</td>
+<td>floatright</td>
+<td>fr</td>
+</tr>
+<tr>
+<td>内联块级</td>
+<td>inlineblock</td>
+<td>ib</td>
+</tr>
+<tr>
+<td>文本居中</td>
+<td>textaligncenter</td>
+<td>tac</td>
+</tr>
+<tr>
+<td>文本居右</td>
+<td>textalignright</td>
+<td>tar</td>
+</tr>
+<tr>
+<td>文本居左</td>
+<td>textalignleft</td>
+<td>tal</td>
+</tr>
+<tr>
+<td>垂直居中</td>
+<td>verticalalignmiddle</td>
+<td>vam</td>
+</tr>
+<tr>
+<td>溢出隐藏</td>
+<td>overflowhidden</td>
+<td>oh</td>
+</tr>
+<tr>
+<td>完全消失</td>
+<td>displaynone</td>
+<td>dn</td>
+</tr>
+<tr>
+<td>字体大小</td>
+<td>fontsize</td>
+<td>fs</td>
+</tr>
+<tr>
+<td>字体粗细</td>
+<td>fontweight</td>
+<td>fw</td>
+</tr>
+</tbody>
+</table>
+<p>皮肤（.s-）</p>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>命名</th>
+<th>简写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>浮动清除</td>
+<td>clearboth</td>
+<td>cb</td>
+</tr>
+<tr>
+<td>向左浮动</td>
+<td>floatleft</td>
+<td>fl</td>
+</tr>
+<tr>
+<td>向右浮动</td>
+<td>floatright</td>
+<td>fr</td>
+</tr>
+<tr>
+<td>字体颜色</td>
+<td>fontcolor</td>
+<td>fc</td>
+</tr>
+<tr>
+<td>背景</td>
+<td>background</td>
+<td>bg</td>
+</tr>
+<tr>
+<td>背景颜色</td>
+<td>backgroundcolor</td>
+<td>bgc</td>
+</tr>
+<tr>
+<td>背景图片</td>
+<td>backgroundimage</td>
+<td>bgi</td>
+</tr>
+<tr>
+<td>背景定位</td>
+<td>backgroundposition</td>
+<td>bgp</td>
+</tr>
+<tr>
+<td>边框颜色</td>
+<td>bordercolor</td>
+<td>bdc</td>
+</tr>
+</tbody>
+</table>
+<p>状态（.z-）</p>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>命名</th>
+<th>简写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>选中</td>
+<td>selected</td>
+<td>sel</td>
+</tr>
+<tr>
+<td>当前</td>
+<td>current</td>
+<td>crt</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>show</td>
+<td>show</td>
+</tr>
+<tr>
+<td>隐藏</td>
+<td>hide</td>
+<td>hide</td>
+</tr>
+<tr>
+<td>打开</td>
+<td>open</td>
+<td>open</td>
+</tr>
+<tr>
+<td>关闭</td>
+<td>close</td>
+<td>close</td>
+</tr>
+<tr>
+<td>出错</td>
+<td>error</td>
+<td>err</td>
+</tr>
+<tr>
+<td>不可用</td>
+<td>disabled</td>
+<td>dis</td>
+</tr>
+<tr>
+<td>边框颜色</td>
+<td>bordercolor</td>
+<td>bdc</td>
+</tr>
+</tbody>
+</table>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><h3 id="使用类选择器，放弃-ID-选择器"><a href="#使用类选择器，放弃-ID-选择器" class="headerlink" title="使用类选择器，放弃 ID 选择器"></a>使用类选择器，放弃 ID 选择器</h3><p>ID 在一个页面中的唯一性导致了如果以 ID 为选择器来写 CSS，就无法重用。</p>
+<h3 id="NEC-特殊字符：”-“连字符"><a href="#NEC-特殊字符：”-“连字符" class="headerlink" title="NEC 特殊字符：”-“连字符"></a>NEC 特殊字符：”-“连字符</h3><p>“-“在本规范中并不表示连字符的含义。</p>
+<p>她只表示两种含义：分类前缀分隔符、扩展分隔符，详见以下具体规则。</p>
+<h3 id="分类的命名方法：使用单个字母-”-“为前缀"><a href="#分类的命名方法：使用单个字母-”-“为前缀" class="headerlink" title="分类的命名方法：使用单个字母+”-“为前缀"></a>分类的命名方法：使用单个字母+”-“为前缀</h3><p>布局（grid）（.g-）；模块（module）（.m-）；元件（unit）（.u-）；功能（function）（.f-）；皮肤（skin）（.s-）；状态（.z-）。</p>
+<p>对以上的解释详情参见：分类方法中的“CSS 内部的分类及其顺序”。</p>
+<p>注：在你样式中的选择器总是要以上面前五类开头，然后在里面使用后代选择器。</p>
+<p>如果这五类不能满足你的需求，你可以另外定义一个或多个大类，但必须符合单个字母+”-“为前缀的命名规则，即 .x- 的格式。</p>
+<p>特殊：.j-将被专用于 JS 获取节点，请勿使用.j-定义样式。</p>
+<h3 id="后代选择器命名"><a href="#后代选择器命名" class="headerlink" title="后代选择器命名"></a>后代选择器命名</h3><p>约定不以单个字母+”-“为前缀且长度大于等于 2 的类选择器为后代选择器，如：.item 为 m-list 模块里的每一个项，.text 为 m-list 模块里的文本部分：.m-list .item{}.m-list .text{}。<br>一个语义化的标签也可以是后代选择器，比如：.m-list li{}。<br>不允许单个字母的类选择器出现，原因详见下面的“模块和元件的后代选择器的扩展类”。<br>通过使用后代选择器的方法，你不需要考虑他的命名是否已被使用，因为他只在当前模块或元件中生效，同样的样式名可以在不同的模块或元件中重复使用，互不干扰；在多人协作或者分模块协作的时候效果尤为明显！</p>
+<p>后代选择器不需要完整表现结构树层级，尽量能短则短。</p>
+<p>注：后代选择器不要在页面布局中使用，因为污染的可能性较大；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这里的.itm和.cnt只在.m-list中有效 */</span></span><br><span class="line"><span class="selector-class">.m-list</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.m-list</span> <span class="selector-class">.itm</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">1px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.m-list</span> <span class="selector-class">.cnt</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 这里的.cnt和.num只在.m-page中有效 */</span></span><br><span class="line"><span class="selector-class">.m-page</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.m-page</span> <span class="selector-class">.cnt</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.m-page</span> <span class="selector-class">.num</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="命名应简约而不失语义"><a href="#命名应简约而不失语义" class="headerlink" title="命名应简约而不失语义"></a>命名应简约而不失语义</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 反对：表现化的或没有语义的命名 */</span></span><br><span class="line"><span class="selector-class">.m-abc</span> <span class="selector-class">.green2</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-left2</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 推荐：使用有语义的简短的命名 */</span></span><br><span class="line"><span class="selector-class">.m-list</span> <span class="selector-class">.wrap2</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-side2</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="相同语义的不同类命名"><a href="#相同语义的不同类命名" class="headerlink" title="相同语义的不同类命名"></a>相同语义的不同类命名</h3><p>方法：直接加数字或字母区分即可（如：.m-list、.m-list2、.m-list3 等，都是列表模块，但是是完全不一样的模块）。</p>
+<p>其他举例：.f-fw0、.f-fw1、.s-fc0、.s-fc1、.m-logo2、.m-logo3、u-btn、u-btn2 等等。</p>
+<h3 id="模块和元件的扩展类的命名方法"><a href="#模块和元件的扩展类的命名方法" class="headerlink" title="模块和元件的扩展类的命名方法"></a>模块和元件的扩展类的命名方法</h3><p>当 A、B、C、…它们类型相同且外形相似区别不大，那么就以它们中出现率最高的做成基类，其他做成基类的扩展。</p>
+<p>方法：+“-”+数字或字母（如：.m-list 的扩展类为.m-list-1、.m-list-2 等）。</p>
+<p>补充：基类自身可以独立使用（如：class=”m-list”即可），扩展类必须基于基类使用（如：class=”m-list m-list-2”）。</p>
+<p>如果你的扩展类是表示不同状态，那么你可以这样命名：u-btn-dis，u-btn-hov，m-box-sel，m-box-hov 等等，然后像这样使用：class=”u-btn u-btn-dis”。</p>
+<p>如果你的网站可以不兼容 IE6 等浏览器，那么你标识状态的方法也可以采取独立状态分类（.z-）方法：.u-btn.z-dis，.m-box.z-sel，然后像这样使用：class=”u-btn z-dis”。</p>
+<h3 id="模块和元件的后代选择器的扩展类"><a href="#模块和元件的后代选择器的扩展类" class="headerlink" title="模块和元件的后代选择器的扩展类"></a>模块和元件的后代选择器的扩展类</h3><p>有时候模块内会有些类似的东西，如果你没有把它们做成元件和扩展，那么也可以使用后代选择器和扩展。</p>
+<p>后代选择器：.m-login .btn{}。</p>
+<p>后代选择器扩展：.m-login .btn-1{}，.m-login .btn-dis{}。</p>
+<p>同样也可以采取独立状态分类（.z-）方法：.m-login .btn.z-dis{}，然后像这样使用：class=”btn z-dis”。</p>
+<p>注：此方法用于类选择器，直接使用标签做为选择器的则不需要使用此命名方法。</p>
+<p>注：为防止后代选择器的扩展类和大类命名规范冲突，后代选择器不允许使用单个字母。</p>
+<p>比如：.m-list .a{}是不允许的，因为当这个.a 需要扩展的时候就会变成.a-bb，这样就和大类的命名规范冲突。</p>
+<p>分组选择器有时可以代替扩展方法<br>有时候虽然两个同类型的模块很相似，但是你希望他们之间不要有依赖关系，也就是说你不希望使用扩展的方法，那么你可以通过合并选择器来设置共性的样式。</p>
+<p>使用本方法的前提是：相同类型、功能和外观都相似，写在同一片代码区域方便维护。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 两个元件共性的样式 */</span></span><br><span class="line"><span class="selector-class">.u-tip1</span>,</span><br><span class="line"><span class="selector-class">.u-tip2</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.u-tip1</span> <span class="selector-class">.itm</span>,</span><br><span class="line"><span class="selector-class">.u-tip2</span> <span class="selector-class">.itm</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 在分别是两个元件各自的样式 */</span></span><br><span class="line"><span class="comment">/* tip1 */</span></span><br><span class="line"><span class="selector-class">.u-tip1</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.u-tip1</span> <span class="selector-class">.itm</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* tip2 */</span></span><br><span class="line"><span class="selector-class">.u-tip2</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.u-tip2</span> <span class="selector-class">.itm</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="防止污染和被污染"><a href="#防止污染和被污染" class="headerlink" title="防止污染和被污染"></a>防止污染和被污染</h3><p>当模块或元件之间互相嵌套，且使用了相同的标签选择器或其他后代选择器，那么里面的选择器就会被外面相同的选择器所影响。</p>
+<p>所以，如果你的模块或元件可能嵌套或被嵌套于其他模块或元件，那么要慎用标签选择器，必要时采用类选择器，并注意命名方式，可以采用.m-layer .layerxxx、.m-list2 .list2xxx 的形式来降低后代选择器的污染性。</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="最佳选择器写法"><a href="#最佳选择器写法" class="headerlink" title="最佳选择器写法"></a>最佳选择器写法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这是某个模块 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 模块容器 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-tag">li</span>,</span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 先共性  优化组合 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 后个性  语义化标签选择器 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 后个性中的共性 按结构顺序 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-tag">a</span><span class="selector-class">.a1</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 后个性中的个性 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-tag">a</span><span class="selector-class">.a2</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 后个性中的个性 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.z-crt</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 交互状态变化 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.z-crt</span> <span class="selector-tag">a</span><span class="selector-class">.a1</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.z-crt</span> <span class="selector-tag">a</span><span class="selector-class">.a2</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.btn</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 典型后代选择器 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.btn-1</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 典型后代选择器扩展 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.btn-dis</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 典型后代选择器扩展（状态） */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.btn</span><span class="selector-class">.z-dis</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 作用同上，请二选一（如果可以不兼容IE6时使用） */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.m-sch</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 控制内部其他模块位置 */</span></span><br><span class="line"><span class="selector-class">.m-nav</span> <span class="selector-class">.u-sel</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 控制内部其他元件位置 */</span></span><br><span class="line"><span class="selector-class">.m-nav-1</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 模块扩展 */</span></span><br><span class="line"><span class="selector-class">.m-nav-1</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.m-nav-dis</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 模块扩展（状态） */</span></span><br><span class="line"><span class="selector-class">.m-nav</span><span class="selector-class">.z-dis</span> &#123;</span><br><span class="line">&#125; <span class="comment">/* 作用同上，请二选一（如果可以不兼容IE6时使用） */</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-20T14:10:38.963Z" itemprop="dateUpdated">2021/10/20 22:10:38 22:10:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/09/04/css常见的规范标准/" target="_blank" rel="external">https://github.com/chengheai/2019/09/04/css常见的规范标准/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars.githubusercontent.com/u/26807610?v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2019/09/04/css常见的规范标准/&title=《css常见的规范标准》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2019/09/04/css常见的规范标准/&title=《css常见的规范标准》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2019/09/04/css常见的规范标准/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《css常见的规范标准》 — CHI1130&url=https://github.com/chengheai/2019/09/04/css常见的规范标准/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2019/09/04/css常见的规范标准/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/09/05/vue中audio动态绑定src不能播放/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue中audio动态绑定src不能播放</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/27/服务端渲染添加多个swiper/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue-ssr服务端渲染添加多个swiper</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2019/09/04/css常见的规范标准/&title=《css常见的规范标准》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2019/09/04/css常见的规范标准/&title=《css常见的规范标准》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2019/09/04/css常见的规范标准/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《css常见的规范标准》 — CHI1130&url=https://github.com/chengheai/2019/09/04/css常见的规范标准/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2019/09/04/css常见的规范标准/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aQW7jQAwEwPz/09lLDgtspO0mNYYOpZMBy2PVGBjSJL++4uv7r+vq3fvX+Z3f/1xXqz124eHh4S0e/X7p+4dI7m8x+acufwA8PDy8Y7z8uL+/5yoY3K/wVJDAw8PDeycvT21npM39eHh4eG/mJQEgSZfbNB0PDw/vPbx86VlZdrZlbSkEDw8P7zO8Njl+w+sj/T08PDy8dVc9OXBnTbI8aZ6t9vMpPDw8vAO8/MDNU948Ub4vIszSZTw8PLzP8zZHeZvZ5sMBs4YZHh4e3gnerGy6DxWzekISSFaTC3h4eHgB71nk7IjPE/d8BTw8PLxzvCLvHpUP8kbaJjDUIQEPDw9vzcuP8lkpoR0OaEshl9+Oh4eHd4DXHtZFCaA84jdF2/+EJTw8PLwDvKRZtRmQmpUS2sGvaKPx8PDwHuXdL7QpCrTDB8lWPvC74eHh4Y14swLEvtTb3pk/zy+1Fjw8PLxjvFkAaAu4+zLxaiYCDw8P71Fe2+zfNKg2gwJ58o2Hh4d3jpc3nNqiwH6oawXGw8PD+zhv9tBJyNkk0MUz4+Hh4R3jtW2nNhgkG5cXZ4ughYeHh3eANxu9apPg7/JqU/D8LwEeHh7enrdpXCVfMCtzbMa2iio1Hh4e3og3O+LzYusm2JxIu/Hw8PCe4m1S51liPVttWIDAw8PDO8bLi7BJ2t22tWaYIoHGw8PDO8CbHcGzxn+bjufXL+vg4eHhPcqbtabae57aoHbj8PDw8E7w2gO3LVLMxq02r1fxBA8PD+/REatkh/JdbIcSVoEBDw8P7xhvU97NC7vtOEK7WZe1Fjw8PLwX89okO2lurcrBeHh4eC/gzcaqkqO/HY2NQggeHh7eMd6+6TUr/rbsNqHHw8PDO8Gb/eHff8Fs6CrfAjw8PLwDvD+IYzXKU0VGmgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>nodejs服务获取微信用户openid | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content="小技巧,node">
+    <meta name="description" content="前端代码 接口发送code就可以  12345678910&amp;lt;template&amp;gt;    &amp;lt;view class=&quot;brn-wrap&quot;&amp;gt;      &amp;lt;view class=&quot;uni-btn-v&quot; v-if=&quot;!hasLogin&quot;&amp;gt;        &amp;lt;button @click=&quot;handleBeforeLogin&quot;&amp;gt;&amp;#123;&amp;#123; title &amp;">
+<meta name="keywords" content="小技巧,node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs服务获取微信用户openid">
+<meta property="og:url" content="https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="前端代码 接口发送code就可以  12345678910&amp;lt;template&amp;gt;    &amp;lt;view class=&quot;brn-wrap&quot;&amp;gt;      &amp;lt;view class=&quot;uni-btn-v&quot; v-if=&quot;!hasLogin&quot;&amp;gt;        &amp;lt;button @click=&quot;handleBeforeLogin&quot;&amp;gt;&amp;#123;&amp;#123; title &amp;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-26T09:30:31.242Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs服务获取微信用户openid">
+<meta name="twitter:description" content="前端代码 接口发送code就可以  12345678910&amp;lt;template&amp;gt;    &amp;lt;view class=&quot;brn-wrap&quot;&amp;gt;      &amp;lt;view class=&quot;uni-btn-v&quot; v-if=&quot;!hasLogin&quot;&amp;gt;        &amp;lt;button @click=&quot;handleBeforeLogin&quot;&amp;gt;&amp;#123;&amp;#123; title &amp;">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">nodejs服务获取微信用户openid</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">nodejs服务获取微信用户openid</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-10-26T08:18:42.000Z" itemprop="datePublished" class="page-time">
+  2021/10/26 16:18:42
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前端代码"><span class="post-toc-number">1.</span> <span class="post-toc-text">前端代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后端代码"><span class="post-toc-number">2.</span> <span class="post-toc-text">后端代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完整代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">完整代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-nodejs服务获取微信用户openid"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">nodejs服务获取微信用户openid</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021/10/26 16:18:42 16:18:42" datetime="2021-10-26T08:18:42.000Z"  itemprop="datePublished">2021/10/26 16:18:42</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前端代码"><a href="#前端代码" class="headerlink" title="前端代码"></a>前端代码</h2><blockquote>
+<p>接口发送code就可以</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"brn-wrap"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"uni-btn-v"</span> <span class="attr">v-if</span>=<span class="string">"!hasLogin"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handleBeforeLogin"</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"uni-btn-v"</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handleTitleClick"</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; requestLogin &#125; <span class="keyword">from</span> <span class="string">'@/utils/str.js'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    title: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">'提交发布'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      hasLogin: <span class="literal">false</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleTitleClick() &#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'submit'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    handleBeforeLogin() &#123;</span><br><span class="line">      <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">      <span class="comment">// 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认</span></span><br><span class="line">      <span class="comment">// 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗</span></span><br><span class="line">      wx.getUserProfile(&#123;</span><br><span class="line">        desc: <span class="string">'用于完善用户资料'</span>, <span class="comment">// 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写</span></span><br><span class="line">        success: <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res);</span><br><span class="line">          that.doLogin(res);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    doLogin(detail) &#123;</span><br><span class="line">      <span class="keyword">const</span> self = <span class="keyword">this</span>;</span><br><span class="line">      <span class="keyword">if</span> (detail.errMsg === <span class="string">'getUserProfile:ok'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'==='</span>, detail);</span><br><span class="line">        <span class="keyword">const</span> options = wx.getLaunchOptionsSync();</span><br><span class="line">        <span class="keyword">const</span> scene = options.scene + <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">if</span> (scene.startsWith(<span class="string">'CRLAND:'</span>)) &#123;</span><br><span class="line">          detail.userInfo.scene = scene.substr(<span class="number">7</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        requestLogin().then(<span class="keyword">async</span> data =&gt; &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'========'</span>, detail.userInfo);</span><br><span class="line">          <span class="keyword">const</span> obj = &#123;</span><br><span class="line">            ...detail.userInfo,</span><br><span class="line">            userInfo: detail.rawData,</span><br><span class="line">            code: data.code</span><br><span class="line">          &#125;;</span><br><span class="line">          <span class="keyword">const</span> &#123; code, result &#125; = <span class="keyword">await</span> <span class="keyword">this</span>.$api.user.login(obj);</span><br><span class="line">          <span class="keyword">if</span> (code === <span class="number">200</span>) &#123;</span><br><span class="line">            uni.setStorageSync(<span class="string">'userInfo'</span>, <span class="built_in">JSON</span>.stringify(detail.userInfo));</span><br><span class="line">            uni.setStorageSync(<span class="string">'token'</span>, result.token);</span><br><span class="line">            uni.setStorageSync(<span class="string">'userId'</span>, result.userId);</span><br><span class="line">            <span class="keyword">this</span>.hasLogin =<span class="literal">true</span>;</span><br><span class="line">            uni.switchTab(&#123;</span><br><span class="line">              url: <span class="string">'/pages/index/index'</span></span><br><span class="line">            &#125;);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            uni.showModal(&#123;</span><br><span class="line">              title: <span class="string">'提示'</span>,</span><br><span class="line">              content: e.msg || <span class="string">'登录失败'</span>,</span><br><span class="line">              showCancel: <span class="literal">false</span>,</span><br><span class="line">              confirmText: <span class="string">'确定'</span>,</span><br><span class="line">              success: <span class="function"><span class="params">res</span> =&gt;</span> &#123;&#125;</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="后端代码"><a href="#后端代码" class="headerlink" title="后端代码"></a>后端代码</h2><blockquote>
+<p>后端只需要拿到code就可以，code不能二次使用</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'https'</span>)</span><br><span class="line"><span class="keyword">const</span> router = express.Router()</span><br><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line"><span class="keyword">const</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>)</span><br><span class="line"><span class="keyword">const</span> User = <span class="built_in">require</span>(<span class="string">'../models/User'</span>) <span class="comment">//引入模块模型</span></span><br><span class="line"><span class="keyword">const</span> vertoken = <span class="built_in">require</span>(<span class="string">'../utils/token'</span>) <span class="comment">//引入token</span></span><br><span class="line"><span class="keyword">const</span> wx = <span class="built_in">require</span>(<span class="string">'../config/wx'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 登录</span></span><br><span class="line">router.post(<span class="string">'/login'</span>, (_req, _res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(_req.body, <span class="string">' 页面传入参数'</span>)</span><br><span class="line">  <span class="keyword">let</span> user = <span class="built_in">Object</span>.assign(&#123;&#125;, _req.body)</span><br><span class="line">  <span class="keyword">var</span> query = &#123;</span><br><span class="line">    appid: wx.appid,</span><br><span class="line">    secret: wx.secret,</span><br><span class="line">    js_code: _req.body.code,</span><br><span class="line">    grant_type: <span class="string">'authorization_code'</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> content = qs.stringify(query)</span><br><span class="line">  <span class="keyword">var</span> options = &#123;</span><br><span class="line">    hostname: <span class="string">'api.weixin.qq.com'</span>,</span><br><span class="line">    port: <span class="string">''</span>,</span><br><span class="line">    path: <span class="string">'/sns/jscode2session?'</span> + content,</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">    header: &#123;</span><br><span class="line">      <span class="string">'content-type'</span>: <span class="string">'application/x-www-form-urlencoded;charset=UTF-8'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> req = http.request(options, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">_data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'_data: '</span>, _data)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> parsData = <span class="built_in">JSON</span>.parse(_data.toString())</span><br><span class="line">      <span class="keyword">const</span> &#123; openid &#125; = parsData</span><br><span class="line">      User.find(</span><br><span class="line">        &#123;</span><br><span class="line">          openid,</span><br><span class="line">        &#125;,</span><br><span class="line">        (err, users) =&gt; &#123;</span><br><span class="line">          <span class="keyword">if</span> (users &amp;&amp; users.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            vertoken.setToken(users[<span class="number">0</span>]._id, users[<span class="number">0</span>].openid).then(<span class="function">(<span class="params">token</span>) =&gt;</span> &#123;</span><br><span class="line">              _res.json(&#123;</span><br><span class="line">                code: <span class="number">200</span>,</span><br><span class="line">                result: &#123;</span><br><span class="line">                  token,</span><br><span class="line">                  userId:users[<span class="number">0</span>]._id</span><br><span class="line">                &#125;,</span><br><span class="line">                message: <span class="string">'登录成功'</span>,</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            user.openid = openid</span><br><span class="line">            <span class="keyword">new</span> User(user).save().then(<span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">              vertoken.setToken(val._id, openid).then(<span class="function">(<span class="params">token</span>) =&gt;</span> &#123;</span><br><span class="line">                _res.json(&#123;</span><br><span class="line">                  code: <span class="number">200</span>,</span><br><span class="line">                  result: &#123;</span><br><span class="line">                    token,</span><br><span class="line">                    userId:val._id</span><br><span class="line">                  &#125;,</span><br><span class="line">                  message: <span class="string">'登录成功'</span>,</span><br><span class="line">                &#125;)</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  req.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'problem with request: '</span> + e.message)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  req.end()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router</span><br></pre></td></tr></table></figure>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p><a href="https://github.com/chengheai/mini-write-messages">前端</a><br><a href="https://github.com/chengheai/mini-messages-server">node服务端</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-26T09:30:31.242Z" itemprop="dateUpdated">2021/10/26 17:30:31 17:30:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2021/10/26/nodejs服务获取微信用户openid/" target="_blank" rel="external">https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars.githubusercontent.com/u/26807610?v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小技巧/">小技巧</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/&title=《nodejs服务获取微信用户openid》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/&title=《nodejs服务获取微信用户openid》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《nodejs服务获取微信用户openid》 — CHI1130&url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/10/25/http转https/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">nginxhttp转https</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/&title=《nodejs服务获取微信用户openid》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/&title=《nodejs服务获取微信用户openid》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《nodejs服务获取微信用户openid》 — CHI1130&url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2021/10/26/nodejs服务获取微信用户openid/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3a0Y7CMAwEQP7/p7nXk46WXSdBnDR9QlAlmSA1ru3HI76ev66/31/dn4z2+87nxZWMuXTh4eHhLSw9mTgH3y892aB2I16MhoeHh3eMd/9wv2K8GfoWdr9x+ec3Fjw8PLwv4CULSjB5iNweJ3h4eHjfyWvvzD8nwTceHh7eN/CODF2Gzm3YvTnXgoeHhxfz8qD2ez4fqe/h4eHhLVfVk4f1bJy8GLYyCx4eHt4JXv7AbRe0qwWhPRjw8PDwPslrX+9nR0ibwmjbFF6MiYeHh3eAl4SzSZjbFrHaJEi7KXh4eHgneCsJglnQ3DZjzYpheHh4eOd4K3WzWfI3Kaq9SS60hTE8PDy8A7zZ0ldSEskxsHd2PDw8vBO8ZLL7h3WetmhHG6Zu8fDw8D7CyxO1bStAm3poQ3M8PDy8T/Jmj908QdAG6LPRHntPFTw8PLzbZ2aeMG0boWbB94z0Yjvw8PDwDvBmTU4rR8gsQF8J3/Hw8PD28maY9td8d9fvf9FThoeHh3eYt1Kkz8PxvZt4CcbDw8M7wMsX0aYbZkvPkyPJH4CHh4d3gjcrR+Xl/7whYL1F4E2LKh4eHt4mXlvmz1MDs/LVehh9+R/i4eHhbeKtYJIDJo/r27C+aBTAw8PD28rLX/vbwDdvKZi1EeR4PDw8vHO82cSzNOt6oSs6EvDw8PAO85KFJmF3UXkblcQe7YWHh4f3Ed5KmjU5NnL2hvXj4eHhbeU9y6vFt0H5LAV8+SseHh7eAd7esHvW7zQLqTeE2nh4eHgLvPYwaJMLeeJ4JakRvTHg4eHhbeXlqdWVQyUPfPMZ32wWHh4e3r/izQ6P/NiI1omHh4f3Bbw8xZAcEvmGtsllPDw8vNO8tvi0qzC20qAQ/VV4eHh4B3jtC387ZVISmyU1NsDw8PDwOt4PwW0NAX5QkckAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

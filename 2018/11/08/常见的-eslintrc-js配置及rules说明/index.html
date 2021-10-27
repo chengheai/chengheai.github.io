@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>常见的.eslintrc.js配置及rules说明 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content="EsLint">
+    <meta name="description" content="规则级别“off”或者0，不启用这个规则 “warn”或者1，出现问题会有警告 “error”或者2，出现问题会报错 关闭ESLint检测12345/* eslint-disable */console.log(&amp;apos;hello world&amp;apos;);/* eslint-enable */ 配置eslintrc.js123456789101112131415161718192021222">
+<meta name="keywords" content="EsLint">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的.eslintrc.js配置及rules说明">
+<meta property="og:url" content="https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="规则级别“off”或者0，不启用这个规则 “warn”或者1，出现问题会有警告 “error”或者2，出现问题会报错 关闭ESLint检测12345/* eslint-disable */console.log(&amp;apos;hello world&amp;apos;);/* eslint-enable */ 配置eslintrc.js123456789101112131415161718192021222">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-20T14:10:38.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见的.eslintrc.js配置及rules说明">
+<meta name="twitter:description" content="规则级别“off”或者0，不启用这个规则 “warn”或者1，出现问题会有警告 “error”或者2，出现问题会报错 关闭ESLint检测12345/* eslint-disable */console.log(&amp;apos;hello world&amp;apos;);/* eslint-enable */ 配置eslintrc.js123456789101112131415161718192021222">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">常见的.eslintrc.js配置及rules说明</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">常见的.eslintrc.js配置及rules说明</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-08T07:58:22.000Z" itemprop="datePublished" class="page-time">
+  2018/11/08 15:58:22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#规则级别"><span class="post-toc-number">1.</span> <span class="post-toc-text">规则级别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭ESLint检测"><span class="post-toc-number">2.</span> <span class="post-toc-text">关闭ESLint检测</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置eslintrc-js"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置eslintrc.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用规则"><span class="post-toc-number">4.</span> <span class="post-toc-text">常用规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FaceBook-React"><span class="post-toc-number">5.</span> <span class="post-toc-text">FaceBook React</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-常见的-eslintrc-js配置及rules说明"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">常见的.eslintrc.js配置及rules说明</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018/11/08 15:58:22 15:58:22" datetime="2018-11-08T07:58:22.000Z"  itemprop="datePublished">2018/11/08 15:58:22</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="规则级别"><a href="#规则级别" class="headerlink" title="规则级别"></a>规则级别</h3><p>“off”或者0，不启用这个规则</p>
+<p>“warn”或者1，出现问题会有警告</p>
+<p>“error”或者2，出现问题会报错</p>
+<h3 id="关闭ESLint检测"><a href="#关闭ESLint检测" class="headerlink" title="关闭ESLint检测"></a>关闭ESLint检测</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* eslint-disable */</span><br><span class="line"></span><br><span class="line">console.log(&apos;hello world&apos;);</span><br><span class="line"></span><br><span class="line">/* eslint-enable */</span><br></pre></td></tr></table></figure>
+<h3 id="配置eslintrc-js"><a href="#配置eslintrc-js" class="headerlink" title="配置eslintrc.js"></a>配置eslintrc.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// https://eslint.org/docs/user-guide/configuring</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//此项是用来告诉eslint找当前配置文件不能往父级查找</span></span><br><span class="line">  root: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">//此项是用来指定eslint解析器的，解析器必须符合规则，babel-eslint解析器是对babel解析器的包装使其与ESLint解析</span></span><br><span class="line">  parser: <span class="string">'babel-eslint'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">//此项是用来指定javaScript语言类型和风格，sourceType用来指定js导入的方式，默认是script，此处设置为module，指某块导入方式</span></span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    <span class="comment">// 设置 script(默认) 或 module，如果代码是在ECMASCRIPT中的模块</span></span><br><span class="line">    sourceType: <span class="string">'module'</span>,</span><br><span class="line">    <span class="string">"ecmaVersion"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"ecmaFeatures"</span>: &#123;</span><br><span class="line">      <span class="string">"jsx"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 此项指定环境的全局变量，下面的配置指定为浏览器环境</span></span><br><span class="line">  env: &#123;</span><br><span class="line">    <span class="string">"browser"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"commonjs"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"es6"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"amd"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// https://github.com/standard/standard/blob/master/docs/RULES-en.md</span></span><br><span class="line">  <span class="comment">// 此项是用来配置标准的js风格，就是说写代码的时候要规范的写，如果你使用vs-code我觉得应该可以避免出错</span></span><br><span class="line">  extends: <span class="string">'vue'</span>,</span><br><span class="line">  <span class="comment">// 此项是用来提供插件的，插件名称省略了eslint-plugin-，下面这个配置是用来规范html的</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="string">'html'</span>,</span><br><span class="line">    <span class="string">"flow-vars"</span>, </span><br><span class="line">    <span class="string">"react"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">/* </span></span><br><span class="line"><span class="comment">   下面这些rules是用来设置从插件来的规范代码的规则，使用必须去掉前缀eslint-plugin-</span></span><br><span class="line"><span class="comment">    主要有如下的设置规则，可以设置字符串也可以设置数字，两者效果一致</span></span><br><span class="line"><span class="comment">    "off" -&gt; 0 关闭规则</span></span><br><span class="line"><span class="comment">    "warn" -&gt; 1 开启警告规则</span></span><br><span class="line"><span class="comment">    "error" -&gt; 2 开启错误规则</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="comment">// 不需要</span></span><br><span class="line">    <span class="string">"space-before-function-paren"</span>: <span class="number">0</span>,  <span class="comment">// 函数定义时括号前面要不要有空格</span></span><br><span class="line">    <span class="string">"eol-last"</span>: <span class="number">0</span>,  <span class="comment">// 文件以单一的换行符结束</span></span><br><span class="line">    <span class="string">"no-extra-semi"</span>: <span class="number">0</span>, <span class="comment">// 可以多余的冒号</span></span><br><span class="line">    <span class="string">"semi"</span>: <span class="number">0</span>,  <span class="comment">// 语句可以不需要分号结尾</span></span><br><span class="line">    <span class="string">"eqeqeq"</span>: <span class="number">0</span>, <span class="comment">// 必须使用全等</span></span><br><span class="line">    <span class="string">"one-var"</span>: <span class="number">0</span>, <span class="comment">// 连续声明</span></span><br><span class="line">    <span class="string">"no-undef"</span>: <span class="number">0</span>, <span class="comment">// 可以 有未定义的变量</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 警告</span></span><br><span class="line">    <span class="string">"no-extra-boolean-cast"</span>: <span class="number">1</span>, <span class="comment">// 不必要的bool转换</span></span><br><span class="line">    <span class="string">"no-extra-parens"</span>: <span class="number">1</span>, <span class="comment">// 非必要的括号</span></span><br><span class="line">    <span class="string">"no-empty"</span>: <span class="number">1</span>, <span class="comment">// 块语句中的内容不能为空</span></span><br><span class="line">    <span class="string">"no-use-before-define"</span>: [<span class="number">1</span>, <span class="string">"nofunc"</span>], <span class="comment">// 未定义前不能使用</span></span><br><span class="line">    <span class="string">"complexity"</span>: [<span class="number">1</span>, <span class="number">10</span>], <span class="comment">// 循环复杂度</span></span><br><span class="line">    <span class="string">"no-unused-vars"</span>: <span class="number">1</span>, <span class="comment">// 不能有声明后未被使用的变量或参数</span></span><br><span class="line">    <span class="comment">// vue</span></span><br><span class="line">    <span class="string">"flow-vars/define-flow-type"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">"flow-vars/use-flow-type"</span>: <span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// react</span></span><br><span class="line">    <span class="string">"react/jsx-uses-react"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"react/jsx-uses-vars"</span>: <span class="number">2</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 错误</span></span><br><span class="line">    <span class="string">"comma-dangle"</span>: [<span class="number">2</span>, <span class="string">"never"</span>], <span class="comment">// 对象字面量项尾不能有逗号</span></span><br><span class="line">    <span class="string">"no-debugger"</span>: <span class="number">2</span>, <span class="comment">// 禁止使用debugger</span></span><br><span class="line">    <span class="string">"no-constant-condition"</span>: <span class="number">2</span>, <span class="comment">// 禁止在条件中使用常量表达式 if(true) if(1)</span></span><br><span class="line">    <span class="string">"no-dupe-args"</span>: <span class="number">2</span>, <span class="comment">// 函数参数不能重复</span></span><br><span class="line">    <span class="string">"no-dupe-keys"</span>: <span class="number">2</span>, <span class="comment">// 在创建对象字面量时不允许键重复 &#123;a:1,a:1&#125;</span></span><br><span class="line">    <span class="string">"no-duplicate-case"</span>: <span class="number">2</span>, <span class="comment">// switch中的case标签不能重复</span></span><br><span class="line">    <span class="string">"no-empty-character-class"</span>: <span class="number">2</span>, <span class="comment">// 正则表达式中的[]内容不能为空</span></span><br><span class="line">    <span class="string">"no-invalid-regexp"</span>: <span class="number">2</span>, <span class="comment">// 禁止无效的正则表达式</span></span><br><span class="line">    <span class="string">"no-func-assign"</span>: <span class="number">2</span>, <span class="comment">// 禁止重复的函数声明</span></span><br><span class="line">    <span class="string">"valid-typeof"</span>: <span class="number">2</span>,  <span class="comment">// 必须使用合法的typeof的值</span></span><br><span class="line">    <span class="string">"no-unreachable"</span>: <span class="number">2</span>, <span class="comment">// 不能有无法执行的代码</span></span><br><span class="line">    <span class="string">"no-unexpected-multiline"</span>: <span class="number">2</span>, <span class="comment">// 避免多行表达式</span></span><br><span class="line">    <span class="string">"no-sparse-arrays"</span>: <span class="number">2</span>, <span class="comment">// 禁止稀疏数组， [1,,2]</span></span><br><span class="line">    <span class="string">"no-shadow-restricted-names"</span>: <span class="number">2</span>, <span class="comment">// 严格模式中规定的限制标识符不能作为声明时的变量名使用</span></span><br><span class="line">    <span class="string">"no-cond-assign"</span>: <span class="number">2</span>, <span class="comment">// 禁止在条件表达式中使用赋值语句</span></span><br><span class="line">    <span class="string">"no-native-reassign"</span>: <span class="number">2</span>, <span class="comment">// 不能重写native对象</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 代码风格</span></span><br><span class="line">    <span class="string">"no-else-return"</span>: <span class="number">1</span>, <span class="comment">// 如果if语句里面有return,后面不能跟else语句</span></span><br><span class="line">    <span class="string">"no-multi-spaces"</span>: <span class="number">1</span>, <span class="comment">// 不能用多余的空格</span></span><br><span class="line">    <span class="string">"key-spacing"</span>: [<span class="number">1</span>, &#123;  <span class="comment">// 对象字面量中冒号的前后空格</span></span><br><span class="line">      <span class="string">"beforeColon"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="string">"afterColon"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="string">"block-scoped-var"</span>: <span class="number">2</span>, <span class="comment">// 块语句中使用var</span></span><br><span class="line">    <span class="string">"consistent-return"</span>: <span class="number">2</span>, <span class="comment">// return 后面是否允许省略</span></span><br><span class="line">    <span class="string">"accessor-pairs"</span>: <span class="number">2</span>, <span class="comment">// 在对象中使用getter/setter</span></span><br><span class="line">    <span class="string">"dot-location"</span>: [<span class="number">2</span>, <span class="string">"property"</span>], <span class="comment">// 对象访问符的位置，换行的时候在行首还是行尾</span></span><br><span class="line">    <span class="string">"no-lone-blocks"</span>: <span class="number">2</span>, <span class="comment">// 禁止不必要的嵌套块</span></span><br><span class="line">    <span class="string">"no-labels"</span>: <span class="number">2</span>, <span class="comment">// 禁止标签声明</span></span><br><span class="line">    <span class="string">"no-extend-native"</span>: <span class="number">2</span>, <span class="comment">// 禁止扩展native对象</span></span><br><span class="line">    <span class="string">"no-floating-decimal"</span>: <span class="number">2</span>, <span class="comment">// 禁止省略浮点数中的0 .5 3.</span></span><br><span class="line">    <span class="string">"no-loop-func"</span>: <span class="number">2</span>, <span class="comment">// 禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）</span></span><br><span class="line">    <span class="string">"no-new-func"</span>: <span class="number">2</span>,  <span class="comment">// 禁止使用new Function</span></span><br><span class="line">    <span class="string">"no-self-compare"</span>: <span class="number">2</span>, <span class="comment">// 不能比较自身</span></span><br><span class="line">    <span class="string">"no-sequences"</span>: <span class="number">2</span>, <span class="comment">// 禁止使用逗号运算符</span></span><br><span class="line">    <span class="string">"no-throw-literal"</span>: <span class="number">2</span>, <span class="comment">// 禁止抛出字面量错误 throw "error";</span></span><br><span class="line">    <span class="string">"no-return-assign"</span>: [<span class="number">2</span>, <span class="string">"always"</span>], <span class="comment">// return 语句中不能有赋值表达式</span></span><br><span class="line">    <span class="string">"no-redeclare"</span>: [<span class="number">2</span>, &#123;   <span class="comment">// 禁止重复声明变量</span></span><br><span class="line">      <span class="string">"builtinGlobals"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="string">"no-unused-expressions"</span>: [<span class="number">2</span>, &#123;  <span class="comment">// 禁止无用的表达式</span></span><br><span class="line">      <span class="string">"allowShortCircuit"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"allowTernary"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="string">"no-useless-call"</span>: <span class="number">2</span>, <span class="comment">// 禁止不必要的call和apply</span></span><br><span class="line">    <span class="string">"no-useless-concat"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"no-void"</span>: <span class="number">2</span>, <span class="comment">// 禁用void操作符</span></span><br><span class="line">    <span class="string">"no-with"</span>: <span class="number">2</span>, <span class="comment">// 禁用with</span></span><br><span class="line">    <span class="string">"space-infix-ops"</span>: <span class="number">2</span>, <span class="comment">// 中缀操作符周围要不要有空格</span></span><br><span class="line">    <span class="string">"valid-jsdoc"</span>: [<span class="number">2</span>, &#123; <span class="comment">// jsdoc规则</span></span><br><span class="line">      <span class="string">"requireParamDescription"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"requireReturnDescription"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="string">"no-warning-comments"</span>: [<span class="number">2</span>, &#123;  <span class="comment">// 不能有警告备注</span></span><br><span class="line">      <span class="string">"terms"</span>: [<span class="string">"todo"</span>, <span class="string">"fixme"</span>, <span class="string">"any other term"</span>],</span><br><span class="line">      <span class="string">"location"</span>: <span class="string">"anywhere"</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="string">"curly"</span>: <span class="number">1</span>, <span class="comment">// 必须使用 if()&#123;&#125; 中的&#123;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// common js</span></span><br><span class="line">    <span class="string">"no-duplicate-imports"</span>: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><p>规则的细节请到ESLint官方网站查看<a href="http://eslint.org/docs/rules/" target="_blank" rel="noopener">官网</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'rules'</span>: &#123;</span><br><span class="line">      <span class="string">"comma-dangle"</span>: [<span class="string">"error"</span>, <span class="string">"never"</span>], //是否允许对象中出现结尾逗号</span><br><span class="line">      <span class="string">"no-cond-assign"</span>: 2, //条件语句的条件中不允许出现赋值运算符</span><br><span class="line">      <span class="string">"no-console"</span>: 2, //不允许出现console语句</span><br><span class="line">      <span class="string">"no-constant-condition"</span>: 2, //条件语句的条件中不允许出现恒定不变的量</span><br><span class="line">      <span class="string">"no-control-regex"</span>: 2, //正则表达式中不允许出现控制字符</span><br><span class="line">      <span class="string">"no-debugger"</span>: 2, //不允许出现debugger语句</span><br><span class="line">      <span class="string">"no-dupe-args"</span>: 2, //函数定义的时候不允许出现重复的参数</span><br><span class="line">      <span class="string">"no-dupe-keys"</span>: 2, //对象中不允许出现重复的键</span><br><span class="line">      <span class="string">"no-duplicate-case"</span>: 2, //switch语句中不允许出现重复的<span class="keyword">case</span>标签</span><br><span class="line">      <span class="string">"no-empty"</span>: 2, //不允许出现空的代码块</span><br><span class="line">      <span class="string">"no-empty-character-class"</span>: 2, //正则表达式中不允许出现空的字符组</span><br><span class="line">      <span class="string">"no-ex-assign"</span>: 2, //在try catch语句中不允许重新分配异常变量</span><br><span class="line">      <span class="string">"no-extra-boolean-cast"</span>: 2, //不允许出现不必要的布尔值转换</span><br><span class="line">      <span class="string">"no-extra-parens"</span>: 0, //不允许出现不必要的圆括号</span><br><span class="line">      <span class="string">"no-extra-semi"</span>: 2, //不允许出现不必要的分号</span><br><span class="line">      <span class="string">"no-func-assign"</span>: 2, //不允许重新分配函数声明</span><br><span class="line">      <span class="string">"no-inner-declarations"</span>: [<span class="string">"error"</span>, <span class="string">"functions"</span>], //不允许在嵌套代码块里声明函数</span><br><span class="line">      <span class="string">"no-invalid-regexp"</span>: 2, //不允许在RegExp构造函数里出现无效的正则表达式</span><br><span class="line">      <span class="string">"no-irregular-whitespace"</span>: 2, //不允许出现不规则的空格</span><br><span class="line">      <span class="string">"no-negated-in-lhs"</span>: 2, //不允许在<span class="keyword">in</span>表达式语句中对最左边的运算数使用取反操作</span><br><span class="line">      <span class="string">"no-obj-calls"</span>: 2, //不允许把全局对象属性当做函数来调用</span><br><span class="line">      <span class="string">"no-regex-spaces"</span>: 2, //正则表达式中不允许出现多个连续空格</span><br><span class="line">      <span class="string">"quote-props"</span>: 2, //对象中的属性名是否需要用引号引起来</span><br><span class="line">      <span class="string">"no-sparse-arrays"</span>: 2, //数组中不允许出现空位置</span><br><span class="line">      <span class="string">"no-unreachable"</span>: 2, //在<span class="built_in">return</span>，throw，<span class="built_in">continue</span>，<span class="built_in">break</span>语句后不允许出现不可能到达的语句</span><br><span class="line">      <span class="string">"use-isnan"</span>: 2, //要求检查NaN的时候使用isNaN()</span><br><span class="line">      <span class="string">"valid-jsdoc"</span>: [<span class="string">"error"</span>, &#123;</span><br><span class="line">          <span class="string">"requireReturn"</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="string">"requireParamDescription"</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="string">"requireReturnDescription"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;], //强制JSDoc注释</span><br><span class="line">      <span class="string">"valid-typeof"</span>: [<span class="string">"error"</span>, &#123;</span><br><span class="line">          <span class="string">"requireStringLiterals"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;], //在使用typeof表达式比较的时候强制使用有效的字符串</span><br><span class="line">      <span class="string">"block-scoped-var"</span>: 2, //将变量声明放在合适的代码块里</span><br><span class="line">      <span class="string">"complexity"</span>: 0, //限制条件语句的复杂度</span><br><span class="line">      <span class="string">"consistent-return"</span>: 2, //无论有没有返回值都强制要求<span class="built_in">return</span>语句返回一个值</span><br><span class="line">      <span class="string">"curly"</span>: [<span class="string">"error"</span>, <span class="string">"all"</span>], //强制使用花括号的风格</span><br><span class="line">      <span class="string">"default-case"</span>: 0, //在switch语句中需要有default语句</span><br><span class="line">      <span class="string">"dot-notation"</span>: [<span class="string">"error"</span>, &#123;<span class="string">"allowKeywords"</span>: <span class="literal">false</span>, <span class="string">"allowPattern"</span>: <span class="string">""</span>&#125;], //获取对象属性的时候使用点号</span><br><span class="line">      <span class="string">"eqeqeq"</span>: [<span class="string">"error"</span>, <span class="string">"smart"</span>], //比较的时候使用严格等于</span><br><span class="line">      <span class="string">"no-alert"</span>: 1, //不允许使用alert，confirm，prompt语句</span><br><span class="line">      <span class="string">"no-caller"</span>: 2, //不允许使用arguments.callee和arguments.caller属性</span><br><span class="line">      <span class="string">"guard-for-in"</span>: 0, //监视<span class="keyword">for</span> <span class="keyword">in</span>循环，防止出现不可预料的情况</span><br><span class="line">      <span class="string">"no-div-regex"</span>: 2, //不能使用看起来像除法的正则表达式</span><br><span class="line">      <span class="string">"no-else-return"</span>: 0, //如果<span class="keyword">if</span>语句有<span class="built_in">return</span>，<span class="keyword">else</span>里的<span class="built_in">return</span>不用放在<span class="keyword">else</span>里</span><br><span class="line">      <span class="string">"no-labels"</span>: [<span class="string">"error"</span>, &#123;</span><br><span class="line">          <span class="string">"allowLoop"</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="string">"allowSwitch"</span>: <span class="literal">false</span></span><br><span class="line">      &#125;], //不允许标签语句</span><br><span class="line">      <span class="string">"no-eq-null"</span>: 2, //不允许对null用==或者!=</span><br><span class="line">      <span class="string">"no-eval"</span>: 2, //不允许使用<span class="built_in">eval</span>()</span><br><span class="line">      <span class="string">"no-extend-native"</span>: 2, //不允许扩展原生对象</span><br><span class="line">      <span class="string">"no-extra-bind"</span>: 2, //不允许不必要的函数绑定</span><br><span class="line">      <span class="string">"no-fallthrough"</span>: 2, //不允许switch按顺序全部执行所有<span class="keyword">case</span></span><br><span class="line">      <span class="string">"no-floating-decimal"</span>: 2, //不允许浮点数缺失数字</span><br><span class="line">      <span class="string">"no-implied-eval"</span>: 2, //不允许使用隐式<span class="built_in">eval</span>()</span><br><span class="line">      <span class="string">"no-iterator"</span>: 2, //不允许使用__iterator__属性</span><br><span class="line">      <span class="string">"no-lone-blocks"</span>: 2, //不允许不必要的嵌套代码块</span><br><span class="line">      <span class="string">"no-loop-func"</span>: 2, //不允许在循环语句中进行函数声明</span><br><span class="line">      <span class="string">"no-multi-spaces"</span>: 2, //不允许出现多余的空格</span><br><span class="line">      <span class="string">"no-multi-str"</span>: 2, //不允许用\来让字符串换行</span><br><span class="line">      <span class="string">"no-global-assign"</span>: 2, //不允许重新分配原生对象</span><br><span class="line">      <span class="string">"no-new"</span>: 2, //不允许new一个实例后不赋值或者不比较</span><br><span class="line">      <span class="string">"no-new-func"</span>: 2, //不允许使用new Function</span><br><span class="line">      <span class="string">"no-new-wrappers"</span>: 2, //不允许使用new String，Number和Boolean对象</span><br><span class="line">      <span class="string">"no-octal"</span>: 2, //不允许使用八进制字面值</span><br><span class="line">      <span class="string">"no-octal-escape"</span>: 2, //不允许使用八进制转义序列</span><br><span class="line">      <span class="string">"no-param-reassign"</span>: 0, //不允许重新分配函数参数<span class="string">"no-proto"</span>: 2, //不允许使用__proto__属性</span><br><span class="line">      <span class="string">"no-redeclare"</span>: 2, //不允许变量重复声明</span><br><span class="line">      <span class="string">"no-return-assign"</span>: 2, //不允许在<span class="built_in">return</span>语句中使用分配语句</span><br><span class="line">      <span class="string">"no-script-url"</span>: 2, //不允许使用javascript:void(0)</span><br><span class="line">      <span class="string">"no-self-compare"</span>: 2, //不允许自己和自己比较</span><br><span class="line">      <span class="string">"no-sequences"</span>: 2, //不允许使用逗号表达式</span><br><span class="line">      <span class="string">"no-throw-literal"</span>: 2, //不允许抛出字面量错误 throw <span class="string">"error"</span></span><br><span class="line">      <span class="string">"no-unused-expressions"</span>: 2, //不允许无用的表达式</span><br><span class="line">      <span class="string">"no-void"</span>: 2, //不允许void操作符</span><br><span class="line">      <span class="string">"no-warning-comments"</span>: [1, &#123;<span class="string">"terms"</span>: [<span class="string">"todo"</span>, <span class="string">"fixme"</span>, <span class="string">"any other term"</span>]&#125;], //不允许警告备注</span><br><span class="line">      <span class="string">"no-with"</span>: 2, //不允许使用with语句</span><br><span class="line">      <span class="string">"radix"</span>: 1, //使用parseInt时强制使用基数来指定是十进制还是其他进制</span><br><span class="line">      <span class="string">"vars-on-top"</span>: 0, //var必须放在作用域顶部</span><br><span class="line">      <span class="string">"wrap-iife"</span>: [2, <span class="string">"any"</span>], //立即执行表达式的括号风格</span><br><span class="line">      <span class="string">"yoda"</span>: [2, <span class="string">"never"</span>, &#123;<span class="string">"exceptRange"</span>: <span class="literal">true</span>&#125;], //不允许在<span class="keyword">if</span>条件中使用yoda条件</span><br><span class="line">      <span class="string">"strict"</span>: [2, <span class="string">"function"</span>], //使用严格模式</span><br><span class="line">      <span class="string">"no-catch-shadow"</span>: 2, //不允许try catch语句接受的err变量与外部变量重名<span class="string">"no-delete-var"</span>: 2, //不允许使用delete操作符</span><br><span class="line">      <span class="string">"no-label-var"</span>: 2, //不允许标签和变量同名</span><br><span class="line">      <span class="string">"no-shadow"</span>: 2, //外部作用域中的变量不能与它所包含的作用域中的变量或参数同名</span><br><span class="line">      <span class="string">"no-shadow-restricted-names"</span>: 2, //js关键字和保留字不能作为函数名或者变量名</span><br><span class="line">      <span class="string">"no-undef"</span>: 2, //不允许未声明的变量</span><br><span class="line">      <span class="string">"no-undef-init"</span>: 2, //不允许初始化变量时给变量赋值undefined</span><br><span class="line">      <span class="string">"no-undefined"</span>: 2, //不允许把undefined当做标识符使用</span><br><span class="line">      <span class="string">"no-unused-vars"</span>: [2, &#123;<span class="string">"vars"</span>: <span class="string">"all"</span>, <span class="string">"args"</span>: <span class="string">"after-used"</span>&#125;], //不允许有声明后未使用的变量或者参数</span><br><span class="line">      <span class="string">"no-use-before-define"</span>: [2, <span class="string">"nofunc"</span>], //不允许在未定义之前就使用变量<span class="string">"indent"</span>: 2, //强制一致的缩进风格</span><br><span class="line">      <span class="string">"brace-style"</span>: [2, <span class="string">"1tbs"</span>, &#123; <span class="string">"allowSingleLine"</span>: <span class="literal">false</span>&#125;], //大括号风格</span><br><span class="line">      <span class="string">"camelcase"</span>: [2, &#123;<span class="string">"properties"</span>: <span class="string">"never"</span>&#125;], //强制驼峰命名规则</span><br><span class="line">      <span class="string">"comma-style"</span>: [2, <span class="string">"last"</span>], //逗号风格</span><br><span class="line">      <span class="string">"consistent-this"</span>: [0, <span class="string">"self"</span>], //当获取当前环境的this是用一样的风格</span><br><span class="line">      <span class="string">"eol-last"</span>: 2, //文件以换行符结束</span><br><span class="line">      <span class="string">"func-names"</span>: 0, //函数表达式必须有名字</span><br><span class="line">      <span class="string">"func-style"</span>: 0, //函数风格，规定只能使用函数声明或者函数表达式</span><br><span class="line">      <span class="string">"key-spacing"</span>: [2, &#123;<span class="string">"beforeColon"</span>: <span class="literal">false</span>, <span class="string">"afterColon"</span>: <span class="literal">true</span>&#125;], //对象字面量中冒号的前后空格</span><br><span class="line">      <span class="string">"max-nested-callbacks"</span>: 0, //回调嵌套深度</span><br><span class="line">      <span class="string">"new-cap"</span>: [2, &#123;<span class="string">"newIsCap"</span>: <span class="literal">true</span>, <span class="string">"capIsNew"</span>: <span class="literal">false</span>&#125;], //构造函数名字首字母要大写</span><br><span class="line">      <span class="string">"new-parens"</span>: 2, //new时构造函数必须有小括号</span><br><span class="line">      <span class="string">"newline-after-var"</span>: 0, //变量声明后必须空一行</span><br><span class="line">      <span class="string">"no-array-constructor"</span>: 2, //不允许使用数组构造器</span><br><span class="line">      <span class="string">"no-inline-comments"</span>: 0, //不允许行内注释</span><br><span class="line">      <span class="string">"no-lonely-if"</span>: 0, //不允许<span class="keyword">else</span>语句内只有<span class="keyword">if</span>语句</span><br><span class="line">      <span class="string">"no-mixed-spaces-and-tabs"</span>: [2, <span class="string">"smart-tabs"</span>], //不允许混用tab和空格</span><br><span class="line">      <span class="string">"no-multiple-empty-lines"</span>: [2, &#123;<span class="string">"max"</span>: 2&#125;], //空行最多不能超过两行</span><br><span class="line">      <span class="string">"no-nested-ternary"</span>: 2, //不允许使用嵌套的三目运算符</span><br><span class="line">      <span class="string">"no-new-object"</span>: 2, //禁止使用new Object()</span><br><span class="line">      <span class="string">"fun-call-spacing"</span>: 2, //函数调用时，函数名与()之间不能有空格</span><br><span class="line">      <span class="string">"no-ternary"</span>: 0, //不允许使用三目运算符</span><br><span class="line">      <span class="string">"no-trailing-spaces"</span>: 2, //一行最后不允许有空格</span><br><span class="line">      <span class="string">"no-underscore-dangle"</span>: 2, //不允许标识符以下划线开头</span><br><span class="line">      <span class="string">"no-extra-parens"</span>: 0, //不允许出现多余的括号</span><br><span class="line">      <span class="string">"one-var"</span>: 0, //强制变量声明放在一起</span><br><span class="line">      <span class="string">"operator-assignment"</span>: 0, //赋值运算符的风格</span><br><span class="line">      <span class="string">"padded-blocks"</span>: [2, <span class="string">"never"</span>], //块内行首行尾是否空行</span><br><span class="line">      <span class="string">"quote-props"</span>: 0, //对象字面量中属性名加引号</span><br><span class="line">      <span class="string">"quotes"</span>: [1, <span class="string">"single"</span>, <span class="string">"avoid-escape"</span>], //引号风格</span><br><span class="line">      <span class="string">"semi"</span>: [2, <span class="string">"always"</span>], //强制语句分号结尾</span><br><span class="line">      <span class="string">"semi-spacing"</span>: [2, &#123;<span class="string">"before"</span>: <span class="literal">false</span>, <span class="string">"after"</span>: <span class="literal">true</span>&#125;], //分后前后空格</span><br><span class="line">      <span class="string">"sort-vars"</span>: 0, //变量声明时排序</span><br><span class="line">      <span class="string">"space-before-blocks"</span>: [2, <span class="string">"always"</span>], //块前的空格</span><br><span class="line">      <span class="string">"space-before-function-paren"</span>: [2, &#123;<span class="string">"anonymous"</span>: <span class="string">"always"</span>, <span class="string">"named"</span>: <span class="string">"never"</span>&#125;], //函数定义时括号前的空格</span><br><span class="line">      <span class="string">"space-infix-ops"</span>: [2, &#123;<span class="string">"int32Hint"</span>: <span class="literal">true</span>&#125;], //操作符周围的空格</span><br><span class="line">      <span class="string">"keyword-spacing"</span>: 2, //关键字前后的空格</span><br><span class="line">      <span class="string">"space-unary-ops"</span>: [2, &#123; <span class="string">"words"</span>: <span class="literal">true</span>, <span class="string">"nonwords"</span>: <span class="literal">false</span>&#125;], //一元运算符前后不要加空格</span><br><span class="line">      <span class="string">"wrap-regex"</span>: 2, //正则表达式字面量用括号括起来</span><br><span class="line">      <span class="string">"no-var"</span>: 0, //使用<span class="built_in">let</span>和const代替var</span><br><span class="line">      <span class="string">"generator-star-spacing"</span>: [2, <span class="string">"both"</span>], //生成器函数前后空格</span><br><span class="line">      <span class="string">"max-depth"</span>: 0, //嵌套块深度</span><br><span class="line">      <span class="string">"max-len"</span>: 0, //一行最大长度，单位为字符</span><br><span class="line">      <span class="string">"max-params"</span>: 0, //函数最多能有多少个参数</span><br><span class="line">      <span class="string">"max-statements"</span>: 0, //函数内最多有几个声明</span><br><span class="line">      <span class="string">"no-bitwise"</span>: 0, //不允许使用位运算符</span><br><span class="line">      <span class="string">"no-plusplus"</span>: 0 //不允许使用++ --运算符</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="FaceBook-React"><a href="#FaceBook-React" class="headerlink" title="FaceBook React"></a>FaceBook React</h3><p><a href="https://github.com/facebook/react/blob/master/.eslintrc.js">facebook/react</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-20T14:10:38.983Z" itemprop="dateUpdated">2021/10/20 22:10:38 22:10:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/11/08/常见的-eslintrc-js配置及rules说明/" target="_blank" rel="external">https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars.githubusercontent.com/u/26807610?v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EsLint/">EsLint</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/&title=《常见的.eslintrc.js配置及rules说明》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/&title=《常见的.eslintrc.js配置及rules说明》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常见的.eslintrc.js配置及rules说明》 — CHI1130&url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/15/下删除一个或多个image及container/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">在docker下删除一个或多个image及container</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/06/点击收起部分隐藏/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue点击收起部分隐藏</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/&title=《常见的.eslintrc.js配置及rules说明》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/&title=《常见的.eslintrc.js配置及rules说明》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常见的.eslintrc.js配置及rules说明》 — CHI1130&url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2018/11/08/常见的-eslintrc-js配置及rules说明/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3a0W7CQAwEQP7/p9vXSm3C2j4DlSZPqIVcJkg5s/bjER9fP477v/9+z/3Zfn/2/nhsHHh4eHiDS88Xvv/s1Sr3r6/ef/WpaHU8PDy8NV7vgu5Pnd+4+20m337w8PDwPpOXP7irBXr+fjw8PLz/y0se65PX80IcDw8Pb4+XF77zcjk5W34rj2UteHh4eAtdpM95vdLfw8PDwxt31fPHfR4f9DaA5tXi4eHhLfB6Y1Lzx/d96JCX2lFAjIeHh3eUl7ftq42o/OLyrSUPOPDw8PBeyTt26gBQpZZHEPDw8PDWeMnDfd7+r7bTegMEf/xWwMPDwzvKm0QDeTibD3LlG0Zh+8HDw8Nb4/UGoaqtqXzD6J3nMqXGw8PDO8TLw4gc2Sus89tXiIzx8PDwFni9MLdZ2sabTT7yFbXZ8PDw8F7CS5aflN1n44knq+Dh4eEd5R3LM1oDAdX/5kU5Hh4e3h6v13aaB6+9zaO6LeHh4eG9i5c/cKsxbt7l75XXeHh4eK/h5UNXvQGsSQMsKcSf3CA8PDy8o7zqo7zHqJbIx8prPDw8vEO8fFAgx+SkamyR/x0PDw9vj9ecNYhvRx5w9Aa8CmfAw8PDO8qbtJGqS1a3gUlkjIeHh7fHm7SUei2x3hjBV/HAw8PD2+PlUezkziVbQl6gl78rPDw8vDVeFVl9xJ/FRxEJHh4e3hov/zGfBAf5ec6uVZiJwMPDw2vxeoVydTQqCV57YUQ0GYGHh4d3lFdtOFWbZNUotldelxtgeHh4eGNevmRvgCBpjFXfWRgCw8PDw1vjTQab8gZVNdLtDWBdxrh4eHh4H8PrleDz2/eo6vHw8PDexNsIc0+tiIeHh/dKXh6tVi8uCTUmg1lPvio8PDy8BV7vB//ZALcaTIyKbDw8PLw+7xt9ulS5tncLwgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
