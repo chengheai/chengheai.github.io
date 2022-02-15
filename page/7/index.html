@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="javascript,react,angular,前端开发,nodejs,vuejs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CHI1130">
+<meta property="og:url" content="https://github.com/chengheai/page/7/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="javascript,react,angular,前端开发,nodejs,vuejs">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CHI1130">
+<meta name="twitter:description" content="javascript,react,angular,前端开发,nodejs,vuejs">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CHI1130</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CHI1130</h1>
+        <h5 class="subtitle">
+            
+                业精于勤，荒于嬉；行成于思，毁于随
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-vue中-keyup-enter-native输入法的回车与消息发送快捷键回车的冲突解决方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/12/24 10:33:58 10:33:58" datetime="2018-12-24T02:33:58.000Z"  itemprop="datePublished">2018/12/24 10:33:58</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/24/vue中-keyup-enter-native输入法的回车与消息发送快捷键回车的冲突解决方法/">vue中@keyup.enter.native输入法的回车与消息发送快捷键回车的冲突解决方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        问题*当你在中文输入法下输入然后回车后，发现表单提交了。
+代码12345&lt;el-col :span="14"&gt;  &lt;el-input type="text" v-model="loginForm.content" autocomplete="off" @keyup.enter.native ="submitForm('loginForm')" placeholder="图形...
+    
+
+        <a href="/2018/12/24/vue中-keyup-enter-native输入法的回车与消息发送快捷键回车的冲突解决方法/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/element/">element</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-前端库2018总结"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/12/20 10:15:05 10:15:05" datetime="2018-12-20T02:15:05.000Z"  itemprop="datePublished">2018/12/20 10:15:05</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/20/前端库2018总结/">前端库2018总结</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        GitHub前端库2018/12/19打包工具
+webpack - 打包项目。
+rollup - 打包 npm 库。
+parcel - webpack 竞品，但发展前景不乐观，再观察一段时间。
+systemjs - 针对一些特殊场景会比较有用，比如云 ide，支付宝小程序 IDE 等。
+microbundle - 基于 rollup，简化配置。
+webpack-dev-server - we...
+    
+
+        <a href="/2018/12/20/前端库2018总结/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-react-antd-mongodb-express实现增删查改"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/12/10 13:17:07 13:17:07" datetime="2018-12-10T05:17:07.000Z"  itemprop="datePublished">2018/12/10 13:17:07</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/10/react-antd-mongodb-express实现增删查改/">react+antd+mongodb+express实现增删查改</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前言：之前有一段时间做过react + antd的项目，还挺熟，但是现在在公司一直用的是vue，随着时间的推移，记忆也慢慢消失，所有趁工作之余的休息时间来写了这个小例子，实现本地起服务，调本地mongo数据，当然，你也可以放线上或者VPS上预览。[demo](http://144.34.148.126:10000/) ;另外也有一个vue+ element 的项目 [GitHub](http...
+    
+
+        <a href="/2018/12/10/react-antd-mongodb-express实现增删查改/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/antd/">antd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dvajs/">dvajs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="在docker-下删除一个或多个image及container"
+  class="article-card article-type-在docker" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/11/15 14:13:52 14:13:52" datetime="2018-11-15T06:13:52.000Z"  itemprop="datePublished">2018/11/15 14:13:52</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/15/下删除一个或多个image及container/">在docker下删除一个或多个image及container</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        停止所有的container，这样才能够删除其中的images
+删除一个container公式1docker rm container_name/ID
+1234➜  docker git:(master) ✗ docker ps -aCONTAINER ID        IMAGE               COMMAND             CREATED             ...
+    
+
+        <a href="/2018/11/15/下删除一个或多个image及container/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-常见的-eslintrc-js配置及rules说明"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/11/08 15:58:22 15:58:22" datetime="2018-11-08T07:58:22.000Z"  itemprop="datePublished">2018/11/08 15:58:22</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/08/常见的-eslintrc-js配置及rules说明/">常见的.eslintrc.js配置及rules说明</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        规则级别“off”或者0，不启用这个规则
+“warn”或者1，出现问题会有警告
+“error”或者2，出现问题会报错
+关闭ESLint检测12345/* eslint-disable */console.log(&apos;hello world&apos;);/* eslint-enable */
+配置eslintrc.js123456789101112131415161718192021...
+    
+
+        <a href="/2018/11/08/常见的-eslintrc-js配置及rules说明/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EsLint/">EsLint</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="vue-点击收起部分隐藏"
+  class="article-card article-type-vue" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/11/06 20:51:46 20:51:46" datetime="2018-11-06T12:51:46.000Z"  itemprop="datePublished">2018/11/06 20:51:46</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/06/点击收起部分隐藏/">vue点击收起部分隐藏</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        [demo](https://chengheai.github.io/Element-UI/docs/)
+效果
+                
+                    
+                    
+                
+                
+            
+
+                
+                 ...
+    
+
+        <a href="/2018/11/06/点击收起部分隐藏/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-MongoDB导入与导出"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/10/24 15:50:48 15:50:48" datetime="2018-10-24T07:50:48.000Z"  itemprop="datePublished">2018/10/24 15:50:48</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/10/24/MongoDB导入与导出/">MongoDB导入与导出</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        导出概念mongoDB 中的 mongoexport 工具可以把一个 collection 导出成 JSON 格式或 CSV 格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。
+语法1234567mongoexport -d dbname -c collectionname -o file --type json/csv -f field        参数说明：   ...
+    
+
+        <a href="/2018/10/24/MongoDB导入与导出/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoDB/">mongoDB</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-css划圆形进度条的demo"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/10/19 11:12:06 11:12:06" datetime="2018-10-19T03:12:06.000Z"  itemprop="datePublished">2018/10/19 11:12:06</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/10/19/css划圆形进度条的demo/">css划圆形进度条的demo</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        效果
+                
+                    
+                    
+                
+                
+            
+代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474...
+    
+
+        <a href="/2018/10/19/css划圆形进度条的demo/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-VSCode快捷键Mac"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/10/18 13:45:04 13:45:04" datetime="2018-10-18T05:45:04.000Z"  itemprop="datePublished">2018/10/18 13:45:04</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/10/18/VSCode快捷键Mac/">VSCode快捷键Mac</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        全局Command + Shift + P / F1 显示命令面板Command + P 快速打开Command + Shift + N 打开新窗口Command + W 关闭窗口
+基本Command + X 剪切（未选中文本的情况下，剪切光标所在行）Command + C 复制（未选中文本的情况下，复制光标所在行）Option + Up 向上移动行Option + Down 向下移动行Op...
+    
+
+        <a href="/2018/10/18/VSCode快捷键Mac/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Mac终端命令大全"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018/10/18 13:18:18 13:18:18" datetime="2018-10-18T05:18:18.000Z"  itemprop="datePublished">2018/10/18 13:18:18</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/10/18/Mac终端命令大全/">Mac终端命令大全</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        目录操作
+
+
+命令名
+功能描述
+使用举例
+
+
+
+
+mkdir
+创建一个目录
+mkdir dirname
+
+
+rmdir
+删除一个目录
+rmdir dirname
+
+
+mvdir
+移动或重命名一个目录
+mvdir dir1 dir2
+
+
+cd
+改变当前目录
+cd dirname
+
+
+pwd
+显示当前目录的路径名
+pwd
+
+
+ls
+显示当前目录的内容
+ls -la
+
+
+dircmp
+比较两个目录...
+    
+
+        <a href="/2018/10/18/Mac终端命令大全/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2022</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/page/7/&title=CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/page/7/&title=CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/page/7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=CHI1130&url=https://github.com/chengheai/page/7/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/page/7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3ay47CMAwFUP7/pztbpFFTX+cBSCerCko53Vixb16v8rre1vsn9eu7Z752LFxc3GnuNVx39+x44bEBFxf3PHdcaP7fM/7VqpKHi4v7K9xxsRujK7/FxcX9dW66VaoXSlxc3G/gzheaCq7eXC3o1XBxcSe49aHGvust811cXNwW9wpXr/BdixYuLu4Zbr2gVDY9aavT+19cXNwz3JmRaPw3YRhz+wRcXNxt3PHos4dYFck87MhwcXG3cdNCVt/61DdDzaKJi4u7mVspHOkn6TClEtzi4uKe5KaHKnoZx0xiEnRXuLi4i7hpfJJuiZqlKq27uLi4i7j1xiYdp84MU26fjIuLe4RbGWuueoH0Og5ZcXFxj3ArG500PqkHtA934uLibuamDUkvbknL5UOvhouL+yFuL2ipb4AqU9DbkBUXF/cIN0WnW5l0LBJMTXBxcZdyr3ClB616LVaQvuLi4m7gzhyJSA9X9aY1zZfBxcWd5u4rXr1vg+YHFxd3M3cmDklfMo1hcHFxv59bQdRZzY4NFxf3y7hpQJIOTB+EuLi4B7mV5qd3kCINaB+ej4uLe4TbCz7nD2I2D2bh4uLu5f4BohpSwTG3O4EAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>el-table动态合并单元格 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content="vue,element-ui">
+    <meta name="description" content="需求背景 批量创建多个计划（plan），计划按组（group）进行分配，计划创建完成之后可以修改，删除  每个组第一列单元格合并显示第几组，组内添加全选/反选组下面的计划  组内计划删除完了之后组删除   demo在线测试代码github 代码123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta name="keywords" content="vue,element-ui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="el-table动态合并单元格">
+<meta property="og:url" content="https://github.com/chengheai/2022/02/15/el-table动态合并单元格/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="需求背景 批量创建多个计划（plan），计划按组（group）进行分配，计划创建完成之后可以修改，删除  每个组第一列单元格合并显示第几组，组内添加全选/反选组下面的计划  组内计划删除完了之后组删除   demo在线测试代码github 代码123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-02-15T12:49:34.347Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="el-table动态合并单元格">
+<meta name="twitter:description" content="需求背景 批量创建多个计划（plan），计划按组（group）进行分配，计划创建完成之后可以修改，删除  每个组第一列单元格合并显示第几组，组内添加全选/反选组下面的计划  组内计划删除完了之后组删除   demo在线测试代码github 代码123456789101112131415161718192021222324252627282930313233343536373839404142434">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">el-table动态合并单元格</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">el-table动态合并单元格</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-02-15T12:36:30.000Z" itemprop="datePublished" class="page-time">
+  2022/02/15 20:36:30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#demo"><span class="post-toc-number">2.</span> <span class="post-toc-text">demo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-el-table动态合并单元格"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">el-table动态合并单元格</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022/02/15 20:36:30 20:36:30" datetime="2022-02-15T12:36:30.000Z"  itemprop="datePublished">2022/02/15 20:36:30</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><ul>
+<li><p>批量创建多个计划（plan），计划按组（group）进行分配，计划创建完成之后可以修改，删除</p>
+</li>
+<li><p>每个组第一列单元格合并显示第几组，组内添加全选/反选组下面的计划</p>
+</li>
+<li><p>组内计划删除完了之后组删除</p>
+</li>
+</ul>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://chengheai.github.io/daily-vue-demo/#/span-table" target="_blank" rel="noopener">在线测试</a><br><a href="https://github.com/chengheai/daily-vue-demo">代码github</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding:0 20px"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-form</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:inline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:model</span>=<span class="string">"formInline"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:rules</span>=<span class="string">"rules"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"demo-form-inline"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"广告数"</span> <span class="attr">prop</span>=<span class="string">"ad"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"formInline.ad"</span> <span class="attr">placeholder</span>=<span class="string">"广告数"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"广告组内广告数"</span> <span class="attr">prop</span>=<span class="string">"each"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"formInline.each"</span> <span class="attr">placeholder</span>=<span class="string">"广告组数"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"primary"</span> @<span class="attr">click</span>=<span class="string">"onSubmit"</span>&gt;</span>生成数据<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-divider</span>&gt;</span><span class="tag">&lt;/<span class="name">el-divider</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-table</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:data</span>=<span class="string">"tableData"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:span-method</span>=<span class="string">"objectSpanMethod"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">border</span></span></span><br><span class="line"><span class="tag">      <span class="attr">style</span>=<span class="string">"width: 100%"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:max-height</span>=<span class="string">"650"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">"group"</span> <span class="attr">label</span>=<span class="string">"组id"</span>&gt;</span> <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">"id"</span> <span class="attr">label</span>=<span class="string">"计划id"</span>&gt;</span> <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">"name"</span> <span class="attr">label</span>=<span class="string">"姓名"</span>&gt;</span> <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">"province"</span> <span class="attr">label</span>=<span class="string">"省市"</span>&gt;</span> <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">"address"</span> <span class="attr">label</span>=<span class="string">"地址"</span>&gt;</span> <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">fixed</span>=<span class="string">"right"</span> <span class="attr">label</span>=<span class="string">"操作"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">"scope"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-button</span></span></span><br><span class="line"><span class="tag">            @<span class="attr">click</span>=<span class="string">"handleUpdate(scope.row, 'edit')"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">size</span>=<span class="string">"small"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">"primary"</span></span></span><br><span class="line"><span class="tag">            &gt;</span>编辑<span class="tag">&lt;/<span class="name">el-button</span></span></span><br><span class="line"><span class="tag">          &gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-button</span></span></span><br><span class="line"><span class="tag">            @<span class="attr">click</span>=<span class="string">"handleUpdate(scope.row, 'del')"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">"danger"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">size</span>=<span class="string">"small"</span></span></span><br><span class="line"><span class="tag">            &gt;</span>删除<span class="tag">&lt;/<span class="name">el-button</span></span></span><br><span class="line"><span class="tag">          &gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">DialogUpdate</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:payload</span>=<span class="string">"payload"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:visible.sync</span>=<span class="string">"dialogVisible"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">submit</span>=<span class="string">"handleSubmit"</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> DialogUpdate <span class="keyword">from</span> <span class="string">"./DialogUpdate"</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  name: <span class="string">"王小虎"</span>,</span><br><span class="line">  province: <span class="string">"上海"</span>,</span><br><span class="line">  city: <span class="string">"普陀区"</span>,</span><br><span class="line">  address: <span class="string">"上海市普陀区金沙江路 1518 弄"</span>,</span><br><span class="line">  zip: <span class="number">200333</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123; DialogUpdate &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">const</span> validatePass = <span class="function">(<span class="params">rule, value, callback</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"this.formInline: "</span>, <span class="keyword">this</span>.formInline);</span><br><span class="line">      <span class="keyword">const</span> &#123; ad, each &#125; = <span class="keyword">this</span>.formInline;</span><br><span class="line">      <span class="keyword">if</span> (+ad &lt; +each) &#123;</span><br><span class="line">        callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"每组内数小于计划数"</span>));</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        callback();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      payload: &#123;&#125;,</span><br><span class="line">      dialogVisible: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">      formInline: &#123;</span><br><span class="line">        ad: <span class="number">20</span>,</span><br><span class="line">        each: <span class="number">2</span></span><br><span class="line">      &#125;,</span><br><span class="line">      table: [],</span><br><span class="line">      rules: &#123;</span><br><span class="line">        ad: [</span><br><span class="line">          &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">"广告数"</span>, <span class="attr">trigger</span>: <span class="string">"change"</span> &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            pattern: <span class="regexp">/^(\d+)(\d+)?$/</span>,</span><br><span class="line">            message: <span class="string">"请输入数字"</span>,</span><br><span class="line">            trigger: <span class="string">"change"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123; <span class="attr">validator</span>: validatePass, <span class="attr">trigger</span>: <span class="string">"change"</span> &#125;</span><br><span class="line">        ],</span><br><span class="line">        each: [</span><br><span class="line">          &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">"广告组数"</span>, <span class="attr">trigger</span>: <span class="string">"change"</span> &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            pattern: <span class="regexp">/^(\d+)(\d+)?$/</span>,</span><br><span class="line">            message: <span class="string">"请输入数字"</span>,</span><br><span class="line">            trigger: <span class="string">"change"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123; <span class="attr">validator</span>: validatePass, <span class="attr">trigger</span>: <span class="string">"change"</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    tableData: &#123;</span><br><span class="line">      <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.table.map(<span class="function">(<span class="params">row, index</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (index === count) &#123;</span><br><span class="line">            <span class="keyword">const</span> len = <span class="keyword">this</span>.table.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.group === row.group)</span><br><span class="line">              .length;</span><br><span class="line">            count += len;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">              ...row,</span><br><span class="line">              rowspan: len,</span><br><span class="line">              colspan: <span class="number">1</span></span><br><span class="line">            &#125;;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            ...row,</span><br><span class="line">            colspan: <span class="number">0</span>,</span><br><span class="line">            rowspan: <span class="number">0</span></span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    <span class="keyword">this</span>.onSubmit();</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleUpdate(row, action) &#123;</span><br><span class="line">      <span class="keyword">if</span> (action === <span class="string">"del"</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.table = <span class="keyword">this</span>.table.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> ![row.id].includes(item.id);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.payload = &#123; ...row &#125;;</span><br><span class="line">        <span class="keyword">this</span>.dialogVisible = <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    handleSubmit(p) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"p: "</span>, p);</span><br><span class="line">      <span class="keyword">this</span>.table = <span class="keyword">this</span>.table.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> [p].find(<span class="function"><span class="params">i</span> =&gt;</span> i.id === item.id) || item;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"this.table: "</span>, <span class="keyword">this</span>.table);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.dialogVisible = <span class="literal">false</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    objectSpanMethod(&#123; row, columnIndex &#125;) &#123;</span><br><span class="line">      <span class="keyword">if</span> (columnIndex === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          rowspan: row.rowspan,</span><br><span class="line">          colspan: row.colspan</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    onSubmit() &#123;</span><br><span class="line">      <span class="keyword">let</span> group = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">this</span>.table = [...Array(+<span class="keyword">this</span>.formInline.ad).fill(obj)].map(</span><br><span class="line">        (item, index) =&gt; &#123;</span><br><span class="line">          group = <span class="built_in">Math</span>.floor(index / +<span class="keyword">this</span>.formInline.each) + <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            ...item,</span><br><span class="line">            id: <span class="string">`id_<span class="subst">$&#123;index&#125;</span>`</span>,</span><br><span class="line">            group: <span class="string">`group_<span class="subst">$&#123;group&#125;</span>`</span></span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">      );</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"submit!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2022-02-15T12:49:34.347Z" itemprop="dateUpdated">2022/02/15 20:49:34 20:49:34</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2022/02/15/el-table动态合并单元格/" target="_blank" rel="external">https://github.com/chengheai/2022/02/15/el-table动态合并单元格/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars.githubusercontent.com/u/26807610?v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/element-ui/">element-ui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/&title=《el-table动态合并单元格》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/&title=《el-table动态合并单元格》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《el-table动态合并单元格》 — CHI1130&url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/11/25/mockjs生成图片提示/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">mockjs生成图片提示Too big of an image!</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2022</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/&title=《el-table动态合并单元格》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/&title=《el-table动态合并单元格》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《el-table动态合并单元格》 — CHI1130&url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2022/02/15/el-table动态合并单元格/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQXLkMAgF0L7/pSfbqUrs/oBwefG0ciUdh6eFUAOfT7z+/bfyn1y94ff6/cmrv/psLDw8PLxB6FevS8K6CvEen2xHwr6MCg8PD2+Ndx9iHkR+Mt8HPYkHDw8P7228+yP+PogEWU0SeHh4eO/nVcsWyWYlm4iHh4f3Nl5+8a2mgSQl5KWQxVoLHh4eXszLj/v3PK/09/Dw8PDGXfX8KK82yarppxktHh4e3gIvP3DzC2tSus1Hr6rXZTw8PLxnePlwQK+oWm10JYmhXHTGw8PDW+NNCqm9oPOkMkobeHh4eEd5k6JDL7jepby50Xh4eHgLvOTIrh7T1Qt0fikf9frw8PDwjvLyoKtpY95Cmwxs4eHh4e3xJsWCeSm2Ws7ofQYPDw9vzus143N88ob7596QAR4eHt4eL28mVUepclh1i6slDzw8PLwN3qRJn48OTNppCakwdIWHh4c34PUuwdWr8NmxgMI4Ah4eHt4CLz/E88tx7xp9alOa3x7w8PDwirxeoXbe6Jp8A8hTGh4eHt5ZXrUQUD3i8/RTLShHTTU8PDy8BV71WM+bYZNibnU0odDlw8PDwzvE6x3x5Q7boXSSvxMPDw9vg1cdYJqUEqqDWb0xry/fGPDw8PDGvPzAzcM61bjK/9eXrcHDw8N7kJdfhfN5p0mCqTbk8PDw8LZ5edMr/76fT3v1yrjRJRsPDw9vjXfquVraSPCjhYeHh7cAy1dvCKCXeKrjBX/8Fg8PD2+B1ztjJwWLHDZ/xsPDw9vj5Ud5EmJesKgWIPLEgIeHh/cMr9pe6oEnzbakmFIeusLDw8N7hFctBPTKHDngS4LBw8PDeyUvb25Vk01vm/Dw8PCe4U1aVtXiRa99tV7GxcPDw1togPWGt5pX4fg9h+fO8PDw8O7WD5VE5Ck9FiS8AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

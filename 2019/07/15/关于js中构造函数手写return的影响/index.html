@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>关于js中构造函数手写return的影响 | CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content="JavaScript">
+    <meta name="description" content="例子基础例子构造函数正常的应该是这样的格式，new关键字调用函数，函数名首字母大写。123456789// 一个类function Fun(name, age, sex) &amp;#123;  this.name = name;  this.age = age;  this.sex = sex;&amp;#125;// 实例var obj = new Fun(&apos;alex&apos;, 12, &apos;male&apos;);consol">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于js中构造函数手写return的影响">
+<meta property="og:url" content="https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="例子基础例子构造函数正常的应该是这样的格式，new关键字调用函数，函数名首字母大写。123456789// 一个类function Fun(name, age, sex) &amp;#123;  this.name = name;  this.age = age;  this.sex = sex;&amp;#125;// 实例var obj = new Fun(&apos;alex&apos;, 12, &apos;male&apos;);consol">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-20T14:10:38.981Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于js中构造函数手写return的影响">
+<meta name="twitter:description" content="例子基础例子构造函数正常的应该是这样的格式，new关键字调用函数，函数名首字母大写。123456789// 一个类function Fun(name, age, sex) &amp;#123;  this.name = name;  this.age = age;  this.sex = sex;&amp;#125;// 实例var obj = new Fun(&apos;alex&apos;, 12, &apos;male&apos;);consol">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">关于js中构造函数手写return的影响</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">关于js中构造函数手写return的影响</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-15T12:44:55.000Z" itemprop="datePublished" class="page-time">
+  2019/07/15 20:44:55
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例子"><span class="post-toc-number">1.</span> <span class="post-toc-text">例子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础例子"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基础例子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不用new调用的构造函数this指向window"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">不用new调用的构造函数this指向window</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数末尾有return语句"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">构造函数末尾有return语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数在句中有return语句-基本类型值"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">构造函数在句中有return语句[基本类型值]</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数语句中return-引用类型值"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">构造函数语句中return [引用类型值]</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#工厂类型"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">工厂类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.</span> <span class="post-toc-text">总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数运行"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">构造函数运行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#含有return语句"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">含有return语句</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-关于js中构造函数手写return的影响"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">关于js中构造函数手写return的影响</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019/07/15 20:44:55 20:44:55" datetime="2019-07-15T12:44:55.000Z"  itemprop="datePublished">2019/07/15 20:44:55</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="基础例子"><a href="#基础例子" class="headerlink" title="基础例子"></a>基础例子</h3><p>构造函数正常的应该是这样的格式，new关键字调用函数，函数名首字母大写。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.sex = sex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实例</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Fun(<span class="string">'alex'</span>, <span class="number">12</span>, <span class="string">'male'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure></p>
+<h3 id="不用new调用的构造函数this指向window"><a href="#不用new调用的构造函数this指向window" class="headerlink" title="不用new调用的构造函数this指向window"></a>不用new调用的构造函数this指向window</h3><p>1、<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.sex = sex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不用new调用，函数直接调用，this window</span></span><br><span class="line">Fun(<span class="string">'alex'</span>, <span class="number">12</span>, <span class="string">'male'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(age) <span class="comment">// 12  window</span></span><br></pre></td></tr></table></figure></p>
+<p>2、<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = People(<span class="string">'小米'</span>, <span class="number">12</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.age) <span class="comment">// 报错 </span></span><br><span class="line"><span class="comment">// 没有用new调用 不是构造函数，没有返回值</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="构造函数末尾有return语句"><a href="#构造函数末尾有return语句" class="headerlink" title="构造函数末尾有return语句"></a>构造函数末尾有return语句</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> fun(<span class="string">'小明'</span>, <span class="number">12</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xiaoming) <span class="comment">// 忽略return 3；</span></span><br></pre></td></tr></table></figure>
+<h3 id="构造函数在句中有return语句-基本类型值"><a href="#构造函数在句中有return语句-基本类型值" class="headerlink" title="构造函数在句中有return语句[基本类型值]"></a>构造函数在句中有return语句[基本类型值]</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 基本类型值，就会被忽视； </span></span><br><span class="line"><span class="comment">// NaN undefined '' true, false</span></span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> fun(<span class="string">'小明'</span>, <span class="number">12</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xiaoming) <span class="comment">// 打断程序执行，age将不会执行</span></span><br></pre></td></tr></table></figure>
+<h3 id="构造函数语句中return-引用类型值"><a href="#构造函数语句中return-引用类型值" class="headerlink" title="构造函数语句中return [引用类型值]"></a>构造函数语句中return [引用类型值]</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回 &#123;&#125; []  Math /\d/</span></span><br><span class="line"><span class="comment">// 引用类型值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">return</span> 　&#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 基本类型值，就会被忽视；</span></span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> fun(<span class="string">'小明'</span>, <span class="number">12</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xiaoming) <span class="comment">// 返回函数自己写的return里的值</span></span><br></pre></td></tr></table></figure>
+<h3 id="工厂类型"><a href="#工厂类型" class="headerlink" title="工厂类型"></a>工厂类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPeople</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">  obj.name = name;</span><br><span class="line">  obj.age = age;</span><br><span class="line">  obj.sex = sex;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不写new也可以的，名称为工厂模式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoming = createPeople(<span class="string">'小明'</span>, <span class="number">12</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xiaoming) <span class="comment">// &#123; name: '小明', age: 12, sex: '男' &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(xiaoming <span class="keyword">instanceof</span> createPeople) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="构造函数运行"><a href="#构造函数运行" class="headerlink" title="构造函数运行"></a>构造函数运行</h3><p>用new运算符调用一个函数的时候，分为4个步骤<br>1，函数内部自己创建一个局部变量吗是一个控对象{}<br>2,函数将自己的上下文设置为这个{}, 即所有语句中的this都指向这个控对象<br>3，函数执行所有语句<br>4，所有语句执行后，函数将return这个对象，函数将把自己的上下文返回</p>
+<table><tr><td bgcolor="yellow">上面的构造函数就是典型的四步走</td></tr></table>
+
+<h3 id="含有return语句"><a href="#含有return语句" class="headerlink" title="含有return语句"></a>含有return语句</h3><p>构造函数不用谢return语句，自动return<br>如果写了一个return ：<br>如果return这个基本类型值，无视这个return值，该return什么还是return什么<br>但是return阻止了构造函数的执行</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-10-20T14:10:38.981Z" itemprop="dateUpdated">2021/10/20 22:10:38 22:10:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/07/15/关于js中构造函数手写return的影响/" target="_blank" rel="external">https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/chengheai">
+            <img src="https://avatars.githubusercontent.com/u/26807610?v=4" alt="HEAI">
+            HEAI
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/&title=《关于js中构造函数手写return的影响》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/&title=《关于js中构造函数手写return的影响》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于js中构造函数手写return的影响》 — CHI1130&url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/15/前端js综合经典面试题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端js综合经典面试题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/09/浅谈js中函数的继承方式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">浅谈js中函数的继承方式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2022</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/&title=《关于js中构造函数手写return的影响》 — CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/&title=《关于js中构造函数手写return的影响》 — CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于js中构造函数手写return的影响》 — CHI1130&url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/2019/07/15/关于js中构造函数手写return的影响/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJUlEQVR42u3aWW7jQAwFwNz/0p4DZKQ8km3AoktfQSBbXRQQhsvPT3y9Lq6rO5Pvuf/s759/f/b+2w5c2NjY2A9hv26v/J77oySkPBD390QvCRsbG3sdu5pO8rSUJLmrQN+/nl5osLGxsbGT9JOkwx64+kqwsbGxsfOD5k2fPBD5c7GxsbGxeyknaTBVG0nz1Hi4l4aNjY398exqG+iTf37LfBsbGxv7g9mv4pUHJUkq+al6p718LjY2NvYidp4Aeg36U6XIJIiXT8TGxsZewe618nPSqbZR8noK4cDGxsb+AnYVPykY5sG6H+7+kbGxsbGxH85Olh3vj3hqmWae8KolDTY2NvYOdi8tVdd97oOb83rj5//cj42Njb2I3Xv8ZBZRLV3ydFhtQmFjY2PvYOet+bPLND+tKxlRRC8JGxsbexE7GRLkaWN0iFZpUV0MKsxGsLGxsR/CzpG9gqFaKuQnqa4fXY4HsLGxsR/OzhNAdWR7atdxMh4u9NKwsbGx17GrpUWV10uQ1cKjsKmEjY2N/Vh2NYX0Fncm6z7JUKFaSmFjY2NvYk8KgEnjKTn6+4KIjY2N/T3sastmMo7N1zd7I4fyZig2Njb2Q9gJ73ABMHhu9Sl/NJWwsbGx17Eni5i9TyWFRHWQXN5UwsbGxl7Eft8QdxKOPI0VyipsbGzs1eyzraJeS6j6Msr3YGNjYy9iR/+4Fxv61e+cU3vNJmxsbOx97CRFzYfEecHTGycURhHY2NjYK9j5n/7eUHYSlDn18jfY2NjYi9j5P/fVQORlRq+86b2Yy44aNjY29gp20nBPBrTzdtKEV0i02NjY2OvYvSWb+VDh1KcOTEWwsbGxl7KToyRpLKf2EmeepLGxsbE3sXvFQN7oz2HzJFcoWrCxsbEXsasJoNruT1JgPjao3pOfFhsbG/vp7Lwpn5QBo+i21nfyM2NjY2PvZleTRxWfH6gX7vIAGxsbG/uL2ZOFm3yoMEmr0UmwsbGxv5jdGwbnaaY3PM6bYtjY2Nhb2Umq6I1a37EAdKB8wsbGxl7ErqaZSUJKAlQdFeRjA2xsbOx17H90ZO6aoI+QzwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

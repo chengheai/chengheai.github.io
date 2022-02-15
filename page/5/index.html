@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CHI1130 | 业精于勤，荒于嬉；行成于思，毁于随</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#faad14">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="javascript,react,angular,前端开发,nodejs,vuejs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CHI1130">
+<meta property="og:url" content="https://github.com/chengheai/page/5/index.html">
+<meta property="og:site_name" content="CHI1130">
+<meta property="og:description" content="javascript,react,angular,前端开发,nodejs,vuejs">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CHI1130">
+<meta name="twitter:description" content="javascript,react,angular,前端开发,nodejs,vuejs">
+    
+        <link rel="alternate" type="application/atom+xml" title="CHI1130" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars.githubusercontent.com/u/26807610?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HEAI</h5>
+          <a href="mailto:842385139@qq.com" title="842385139@qq.com" class="mail">842385139@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/chengheai" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CHI1130</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CHI1130</h1>
+        <h5 class="subtitle">
+            
+                业精于勤，荒于嬉；行成于思，毁于随
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-常见js中易错小题介绍"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/16 13:31:49 13:31:49" datetime="2019-07-16T05:31:49.000Z"  itemprop="datePublished">2019/07/16 13:31:49</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/16/常见js中易错小题介绍/">常见js中易错小题介绍</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前说在前端面试过程中，有时候会因为一些小题而使你与offer失之交臂，这也反应出你的基础知识点不扎实，或做事粗心大意，很多公司也喜欢出这样的题目来考察面试者的基本水平。下面总结了一些典型的面试易错题。
+典题1、下面哪个是错误的？
+  A : li:nth-of-child(1)  B : li:nth-of-type(1)  C : li:nth-last-child(1)  D : li:...
+    
+
+        <a href="/2019/07/16/常见js中易错小题介绍/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-面试题-1-2-3-map-parseInt-解析"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/16 10:11:03 10:11:03" datetime="2019-07-16T02:11:03.000Z"  itemprop="datePublished">2019/07/16 10:11:03</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/16/面试题-1-2-3-map-parseInt-解析/">面试题[1,2,3].map(parseInt)解析</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        题目12let a = ['1','2','3'].map(parseInt);console.log(a);
+答案1// [ 1, NaN, NaN ]
+解析代码解析1、传入一个参数123456var arr = ["1", "2", "3"].map(function(item)&#123;　// 这个地方只传入一个参数  return item;&#125;);console.log(...
+    
+
+        <a href="/2019/07/16/面试题-1-2-3-map-parseInt-解析/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-前端js综合经典面试题"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/15 21:09:18 21:09:18" datetime="2019-07-15T13:09:18.000Z"  itemprop="datePublished">2019/07/15 21:09:18</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/15/前端js综合经典面试题/">前端js综合经典面试题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前记前些时间，面试中写的笔试题，偶然的机会做了两次，最后还是错了几道，结果回来在网上一挡，哎。。不过说实话，该公司面试题道道都是经典题，的确不错，长知识了。
+题目1234567891011121314151617function Foo() &#123;	getName = function() &#123;console.log(1);&#125;;	return this;&#125;F...
+    
+
+        <a href="/2019/07/15/前端js综合经典面试题/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-关于js中构造函数手写return的影响"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/15 20:44:55 20:44:55" datetime="2019-07-15T12:44:55.000Z"  itemprop="datePublished">2019/07/15 20:44:55</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/15/关于js中构造函数手写return的影响/">关于js中构造函数手写return的影响</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        例子基础例子构造函数正常的应该是这样的格式，new关键字调用函数，函数名首字母大写。123456789// 一个类function Fun(name, age, sex) &#123;  this.name = name;  this.age = age;  this.sex = sex;&#125;// 实例var obj = new Fun('alex', 12, 'male');con...
+    
+
+        <a href="/2019/07/15/关于js中构造函数手写return的影响/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-浅谈js中函数的继承方式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/09 15:17:09 15:17:09" datetime="2019-07-09T07:17:09.000Z"  itemprop="datePublished">2019/07/09 15:17:09</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/09/浅谈js中函数的继承方式/">浅谈js中函数的继承方式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+                
+                    
+                    
+                
+                
+            
+～～ 回首往昔， 更近一步 ～～
+
+招式1. ES5 构造函数继承1234567891011function Parent() &#123;  this.name = 'paren...
+    
+
+        <a href="/2019/07/09/浅谈js中函数的继承方式/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-使用vue中mixin制作一个公用el-table组件"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/09 13:20:17 13:20:17" datetime="2019-07-09T05:20:17.000Z"  itemprop="datePublished">2019/07/09 13:20:17</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/09/使用vue中mixin制作一个公用el-table组件/">使用vue中mixin制作一个公用el-table组件</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        官网原话混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能。一个混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被“混合”进入该组件本身的选项
+功能～1.选项合并～1.全局混入～1.自定义选项合并策略具体看官网介绍：https://cn.vuejs.org/v2/guide/mixins.html
+需求假如我们的项目中有很多重复类似的页...
+    
+
+        <a href="/2019/07/09/使用vue中mixin制作一个公用el-table组件/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/element-ui/">element-ui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-git中配置别名git"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/08 20:40:19 20:40:19" datetime="2019-07-08T12:40:19.000Z"  itemprop="datePublished">2019/07/08 20:40:19</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/08/git中配置别名git/">git中配置别名git config --global alias.xxx</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前言有没有经常敲错命令？比如git status 打成 git stauts? stats…你有没有见过别人敲指令的时候是 git st?废话不多说，先呈上些实用的例子吧
+alias123456789101112131415$ git status||$ git config --global alias.st status******* br *******$ git checkout||...
+    
+
+        <a href="/2019/07/08/git中配置别名git/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-有关前端js中this指向的问题笔记"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/07/08 19:52:05 19:52:05" datetime="2019-07-08T11:52:05.000Z"  itemprop="datePublished">2019/07/08 19:52:05</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/08/有关前端js中this指向的问题笔记/">有关前端js中this指向的问题笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前言在以往的ECMAScript 5中，this的指向可谓是多种多样，在各个公司面试题也是必考项，现收集几个面试题进行解析：
+原题解析题1:123456789var o = &#123;  fn: function()&#123;    var a = 1;    console.log(this.a);  &#125;&#125;o.a = 2;o.fn.a = 3;o.fn();
+*分析...
+    
+
+        <a href="/2019/07/08/有关前端js中this指向的问题笔记/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-css布局两边固定中间自适应方法集"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/06/21 21:56:26 21:56:26" datetime="2019-06-21T13:56:26.000Z"  itemprop="datePublished">2019/06/21 21:56:26</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/06/21/css布局两边固定中间自适应方法集/">css布局两边固定中间自适应方法集</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1、90后万能flex方法12345678910111213141516171819202122232425262728293031323334&lt;!DOCTYPE html&gt;  &lt;html lang="en"&gt;  &lt;head&gt;    &lt;meta charset="UTF-8"&gt;    &lt;meta name="viewport" conte...
+    
+
+        <a href="/2019/06/21/css布局两边固定中间自适应方法集/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-vue项目按需使用keep-alive"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019/05/23 22:05:40 22:05:40" datetime="2019-05-23T14:05:40.000Z"  itemprop="datePublished">2019/05/23 22:05:40</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/05/23/vue项目按需使用keep-alive/">vue项目按需使用keep-alive</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        需求list 页面做缓存add/edit 页面不做缓存detail 页面不做缓存………..
+前人法子1234567&lt;keep-alive&gt;  &lt;!-- 需要缓存 --&gt;  &lt;router-view :include="include" v-if="$route.meta.keepAlive" /&gt;&lt;/keep-alive&gt;&lt;!-- 不需要...
+    
+
+        <a href="/2019/05/23/vue项目按需使用keep-alive/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-router/">vue-router</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HEAI &copy; 2015 - 2022</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备2021028332号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/chengheai/page/5/&title=CHI1130&pic=https://avatars.githubusercontent.com/u/26807610?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/chengheai/page/5/&title=CHI1130&source=javascript,react,angular,前端开发,nodejs,vuejs" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/chengheai/page/5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=CHI1130&url=https://github.com/chengheai/page/5/&via=https://github.com/chengheai" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/chengheai/page/5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByUlEQVR42u3aQW6EMAwFUO5/6em2Ugt820nUSi8rxDDkhYUV27mueHyC8f3Jn9d377x2DFxc3DE3Rzzfz2e5W9izARcX9zz3OdA8P/O8gOr1iw0XF/fPc6voZGOEi4v7f7l3d6JtyvlAhouL2+JWix3VRKiaXC3I1XBxcQfcvEq573pLfRcXF7fF/RRHvqTJLLez4+LiHuHmASUpZFRTnd68uLi4u7nVdGWyvEngK3wPXFzcMTefZtUBrGp55QWNi4u7gds7LLV2M5SXaHFxcc9ze42QvK3SK75EVRxcXNyl3F4TpUeZdExGPR9cXNwiNwlb81LIJFT9EndxcXE3cycFkbw1Ug1n0cfCxcU9wu0Fo2QZk6NaC+q7uLi4LW7v2ET1X0l7NWrS4OLiHuRWKyjVLUvemn3ZPOHi4h7krkL33pY3XHFxcU9yc0S1RToJfIUvhIuLu4j7KY7qYnot20L3FRcXdwO3dySikKgUk5x5GwYXF3cVd1/w6v1ayNVwcXE3c+eBJl9ktcCKi4v797mrGi15ynRNdky4uLhHuHmC1CuYvghxcXEPcpPNShU0abcsyNVwcXEH3GooSQoZ5ZSm9SQuLu4G7hcAwQsJ/YowYwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您收到一条新消息！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
